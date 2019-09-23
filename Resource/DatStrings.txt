@@ -1,0 +1,3 @@
+Title=AquaDiamond
+Author=cerulean.charlotte
+Copyright=(c) 20xx cerulean.charlotte
