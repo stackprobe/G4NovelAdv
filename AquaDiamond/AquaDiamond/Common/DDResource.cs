@@ -124,12 +124,6 @@ namespace Charlotte.Common
 		//
 		//	copied the source file by https://github.com/stackprobe/Factory/blob/master/SubTools/CopyLib.c
 		//
-		/// <summary>
-		/// ファイルリストを取得する。
-		/// ソート済み
-		/// '_' で始まるファイルの除去済み
-		/// </summary>
-		/// <returns>ファイルリスト</returns>
 		public static IEnumerable<string> GetFiles()
 		{
 			IEnumerable<string> files;
@@ -141,19 +135,8 @@ namespace Charlotte.Common
 			else
 			{
 				files = Directory.GetFiles(DDConsts.ResourceDir, "*", SearchOption.AllDirectories).Select(file => FileTools.ChangeRoot(file, DDConsts.ResourceDir));
-
-				// Sort
-				{
-					List<string> tmp = files.ToList();
-					tmp.Sort(StringTools.CompIgnoreCase);
-					files = tmp;
-				}
-
-				// memo: makeDDREsourceFile はファイルリストを sortJLinesICase してる。
 			}
 			return files.Where(file => Path.GetFileName(file)[0] != '_');
-
-			// memo: makeDDResourceFile はファイルリストを _index として保存するので、Where はどっちでもやっておく。
 		}
 	}
 }
