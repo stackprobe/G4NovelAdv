@@ -85,7 +85,7 @@ namespace Charlotte
 
 		private void Main4_Release()
 		{
-			throw null; // TODO
+			new Test0001().Test01(); // kari kari kari kari kari
 		}
 	}
 }
