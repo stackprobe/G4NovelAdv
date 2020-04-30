@@ -10,9 +10,9 @@ namespace Charlotte.Tests.Games
 	{
 		public void Test01()
 		{
-			using (Game game = new Game())
+			using (new Game())
 			{
-				game.Perform();
+				Game.I.Perform();
 			}
 		}
 	}

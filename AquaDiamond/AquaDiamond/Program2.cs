@@ -7,6 +7,8 @@ using Charlotte.Common;
 using Charlotte.Tools;
 using Charlotte.Tests;
 using Charlotte.Tests.Games;
+using Charlotte.Logos;
+using Charlotte.TitleMenus;
 
 namespace Charlotte
 {
@@ -85,7 +87,14 @@ namespace Charlotte
 
 		private void Main4_Release()
 		{
-			new Test0001().Test01(); // kari kari kari kari kari
+			using (new Logo())
+			{
+				Logo.I.Perform();
+			}
+			using (new TitleMenu())
+			{
+				TitleMenu.I.Perform();
+			}
 		}
 	}
 }
