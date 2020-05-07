@@ -24,10 +24,22 @@ namespace Charlotte.Games
 
 		public void Perform()
 		{
+			DDCurtain.SetCurtain();
+			DDEngine.FreezeInput();
+
 			for (; ; )
 			{
+				DDCurtain.DrawCurtain();
+
+				//DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 150, 330); // 右下
+				DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 70, 330); // 下
+
+				DDDraw.DrawSimple(Ground.I.Picture.MiniMessageWin, 40, 305);
+
 				DDEngine.EachFrame();
 			}
+
+			DDEngine.FreezeInput();
 		}
 	}
 }
