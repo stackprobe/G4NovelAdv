@@ -9,5 +9,6 @@ namespace Charlotte
 	public class ResourcePicture
 	{
 		//public DDPicture Dummy = DDPictureLoaders.Standard("Dummy.png");
+		public DDPicture Copyright = DDPictureLoaders.Standard(@"Logo\Copyright.png");
 	}
 }

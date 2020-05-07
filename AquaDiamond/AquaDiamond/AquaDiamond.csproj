@@ -146,6 +146,7 @@
     <Compile Include="ResourcePicture.cs" />
     <Compile Include="ResourceSE.cs" />
     <Compile Include="Tests\Games\GameTest.cs" />
+    <Compile Include="Tests\Logos\LogoTest.cs" />
     <Compile Include="Tests\Test0001.cs" />
     <Compile Include="TitleMenus\TitleMenu.cs" />
     <EmbeddedResource Include="MainWin.resx">
