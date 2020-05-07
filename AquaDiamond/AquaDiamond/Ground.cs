@@ -12,5 +12,7 @@ namespace Charlotte
 		public ResourceMusic Music = new ResourceMusic();
 		public ResourcePicture Picture = new ResourcePicture();
 		public ResourceSE SE = new ResourceSE();
+
+		public int MessageSpeed = Consts.MESSAGE_SPEED_DEF;
 	}
 }
