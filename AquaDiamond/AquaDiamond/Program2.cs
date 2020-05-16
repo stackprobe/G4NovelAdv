@@ -10,6 +10,7 @@ using Charlotte.Tests.Games;
 using Charlotte.Logos;
 using Charlotte.TitleMenus;
 using Charlotte.Tests.Logos;
+using Charlotte.Games;
 
 namespace Charlotte
 {
@@ -82,6 +83,7 @@ namespace Charlotte
 
 		private void Main4_Debug()
 		{
+			//Main4_Release();
 			//new Test0001().Test01();
 			new GameTest().Test01();
 			//new LogoTest().Test01();
@@ -92,6 +94,10 @@ namespace Charlotte
 			using (new Logo())
 			{
 				Logo.I.Perform();
+			}
+			using (new Game())
+			{
+				Game.I.Perform();
 			}
 			using (new TitleMenu())
 			{
