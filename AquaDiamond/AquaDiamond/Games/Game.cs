@@ -29,6 +29,8 @@ namespace Charlotte.Games
 
 			DDEngine.FreezeInput();
 
+			DDUtils.SetMouseDispMode(true);
+
 			for (; ; )
 			{
 				DDCurtain.DrawCurtain();
@@ -41,6 +43,8 @@ namespace Charlotte.Games
 
 				DDEngine.EachFrame();
 			}
+
+			DDUtils.SetMouseDispMode(false);
 
 			DDEngine.FreezeInput();
 		}
