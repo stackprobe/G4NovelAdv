@@ -55,11 +55,28 @@ namespace Charlotte.Games
 
 					if (charaName == ScenarioCommand.ARGUMENT_NONE)
 					{
+						this.CurrScene.CharaNames[charaPos] = null;
 						this.CurrScene.Charas[charaPos] = null;
 					}
 					else
 					{
+						this.CurrScene.CharaNames[charaPos] = charaName;
 						this.CurrScene.Charas[charaPos] = ScenarioResCharacter.I.GetPicture(charaName);
+					}
+				}
+				else if (command.Name == ScenarioCommand.NAME_背景)
+				{
+					string wallName = command.Arguments[0];
+
+					if (wallName == ScenarioCommand.ARGUMENT_NONE)
+					{
+						this.CurrScene.WallName = null;
+						this.CurrScene.Wall = null;
+					}
+					else
+					{
+						this.CurrScene.WallName = wallName;
+						this.CurrScene.Wall = ScenarioResWall.I.GetPicture(wallName);
 					}
 				}
 			}
@@ -78,7 +95,21 @@ namespace Charlotte.Games
 					goto startCurrPage;
 				}
 
-				DDCurtain.DrawCurtain();
+				if (this.CurrScene.Wall == null)
+				{
+					DDCurtain.DrawCurtain();
+				}
+				else
+				{
+					double zx = DDConsts.Screen_W * 1.0 / this.CurrScene.Wall.Get_W();
+					double zy = DDConsts.Screen_H * 1.0 / this.CurrScene.Wall.Get_H();
+
+					double z = Math.Max(zx, zy);
+
+					DDDraw.DrawBegin(this.CurrScene.Wall, DDConsts.Screen_W / 2, DDConsts.Screen_H / 2);
+					DDDraw.DrawZoom(z);
+					DDDraw.DrawEnd();
+				}
 
 				for (int index = 0; index < GameScene.CHARA_POS_NUM; index++)
 				{

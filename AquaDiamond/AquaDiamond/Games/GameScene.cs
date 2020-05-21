@@ -21,5 +21,8 @@ namespace Charlotte.Games
 
 		public string[] CharaNames = new string[CHARA_POS_NUM];
 		public DDPicture[] Charas = new DDPicture[CHARA_POS_NUM];
+
+		public string WallName = null;
+		public DDPicture Wall = null;
 	}
 }
