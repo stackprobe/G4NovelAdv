@@ -67,33 +67,25 @@ namespace Charlotte.Games
 				DDPrint.SetBorder(new I3Color(64, 128, 128));
 				DDPrint.SetPrint(120, 320);
 
-				for (int chrIndex = 0; chrIndex <= dispCharNameCharCount && chrIndex < this.CurrPage.CharacterName.Length; chrIndex++)
+				for (int index = 0; index <= dispCharNameCharCount && index < this.CurrPage.CharacterName.Length; index++)
 				{
-					char chr = this.CurrPage.CharacterName[chrIndex];
+					char chr = this.CurrPage.CharacterName[index];
 
 					DDPrint.Print(new string(new char[] { chr }));
 				}
 
 				DDPrint.Reset();
 
-				DDPrint.SetBorder(new I3Color(64, 128, 128));
-				DDPrint.SetPrint(120, 380, 24);
-
-				for (int chrIndex = 0; chrIndex <= dispCharCount && chrIndex < this.CurrPage.Text.Length; chrIndex++)
 				{
-					char chr = this.CurrPage.Text[chrIndex];
+					int dispTextLen = Math.Min(dispCharCount, this.CurrPage.Text.Length);
+					string dispText = this.CurrPage.Text.Substring(0, dispTextLen);
+					string[] dispLines = dispText.Split('\n');
 
-					if (chr == '\n')
+					for (int index = 0; index < dispLines.Length; index++)
 					{
-						DDPrint.PrintRet();
-					}
-					else
-					{
-						DDPrint.Print(new string(new char[] { chr }));
+						DDFontUtils.DrawString(100, 380 + index * 30, dispLines[index], DDFontUtils.GetFont("Kゴシック", 16));
 					}
 				}
-
-				DDPrint.Reset();
 
 				DDEngine.EachFrame();
 			}

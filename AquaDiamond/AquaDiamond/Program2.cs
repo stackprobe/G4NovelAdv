@@ -40,6 +40,7 @@ namespace Charlotte
 				// Font >
 
 				//DDFontRegister.Add(@"Font\Genkai-Mincho-font\genkai-mincho.ttf");
+				DDFontRegister.Add(@"Font\K Gothic\K Gothic.ttf");
 
 				// < Font
 
