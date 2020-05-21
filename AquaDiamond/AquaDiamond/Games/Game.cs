@@ -48,11 +48,19 @@ namespace Charlotte.Games
 
 			foreach (ScenarioCommand command in this.CurrPage.Commands)
 			{
-				// zantei
-				if (command.Name == "表示")
+				if (command.Name == ScenarioCommand.NAME_表示)
 				{
-					// zantei
-					this.CurrScene.Characters[0] = ScenarioResPicture.I.GetPicture(command.Arguments[1]);
+					int charaPos = int.Parse(command.Arguments[0]);
+					string charaName = command.Arguments[1];
+
+					if (charaName == ScenarioCommand.ARGUMENT_NONE)
+					{
+						this.CurrScene.Charas[charaPos] = null;
+					}
+					else
+					{
+						this.CurrScene.Charas[charaPos] = ScenarioResCharacter.I.GetPicture(charaName);
+					}
 				}
 			}
 
@@ -72,15 +80,19 @@ namespace Charlotte.Games
 
 				DDCurtain.DrawCurtain();
 
-
-				// zantei
-				if (this.CurrScene.Characters[0] != null)
+				for (int index = 0; index < GameScene.CHARA_POS_NUM; index++)
 				{
-					DDDraw.DrawBegin(this.CurrScene.Characters[0], 220, 420);
-					DDDraw.DrawZoom(0.75);
-					DDDraw.DrawEnd();
+					if (this.CurrScene.Charas[index] != null)
+					{
+						DDDraw.DrawBegin(
+							this.CurrScene.Charas[index],
+							GameScene.CHARA_X_POSS[index],
+							this.CurrScene.Charas[index].Get_H() * 0.4
+							);
+						DDDraw.DrawZoom(0.8);
+						DDDraw.DrawEnd();
+					}
 				}
-
 
 				//DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 150, 330); // 右下
 				DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 70, 330); // 下

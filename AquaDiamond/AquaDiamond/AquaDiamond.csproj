@@ -146,7 +146,8 @@
     <Compile Include="ResourceMusic.cs" />
     <Compile Include="ResourcePicture.cs" />
     <Compile Include="ResourceSE.cs" />
-    <Compile Include="Scenarios\Resources\ScenarioResPicture.cs" />
+    <Compile Include="Scenarios\Resources\ScenarioResCharacter.cs" />
+    <Compile Include="Scenarios\Resources\ScenarioResWall.cs" />
     <Compile Include="Scenarios\Scenario.cs" />
     <Compile Include="Scenarios\ScenarioCommand.cs" />
     <Compile Include="Scenarios\ScenarioPage.cs" />
