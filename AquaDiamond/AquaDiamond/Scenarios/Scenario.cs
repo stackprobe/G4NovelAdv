@@ -27,24 +27,32 @@ namespace Charlotte.Scenarios
 
 				if (line[0] == '/')
 				{
-					this.Pages.Add(page);
-
 					page = new ScenarioPage()
 					{
 						CharacterName = line.Substring(1)
 					};
+
+					this.Pages.Add(page);
+				}
+				else if (page == null)
+				{
+					throw new DDError("シナリオの先頭は /xxx でなければなりません。");
+				}
+				else if (line[0] == '!')
+				{
+					string[] tokens = line.Substring(1).Split(' ').Where(v => v != "").ToArray();
+
+					page.Commands.Add(new ScenarioCommand()
+					{
+						Name = tokens[0],
+						Arguments = new List<string>(tokens.Skip(1).ToArray()),
+					});
 				}
 				else
 				{
-					if (page != null)
-						page.Lines.Add(line);
+					page.Lines.Add(line);
 				}
 			}
-			this.Pages.Add(page);
-			this.Pages.RemoveAll(v => v == null);
-
-			if (this.Pages.Count < 1)
-				throw new DDError();
 		}
 	}
 }

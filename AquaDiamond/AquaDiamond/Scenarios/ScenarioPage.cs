@@ -9,6 +9,7 @@ namespace Charlotte.Scenarios
 	{
 		public string CharacterName = "";
 		public List<string> Lines = new List<string>();
+		public List<ScenarioCommand> Commands = new List<ScenarioCommand>();
 
 		public string Text
 		{

@@ -131,6 +131,7 @@
     <Compile Include="Game3Common\SceneKeeper.cs" />
     <Compile Include="Game3Common\SlideUtils.cs" />
     <Compile Include="Games\Game.cs" />
+    <Compile Include="Games\GameScene.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="Logos\Logo.cs" />
     <Compile Include="MainWin.cs">
@@ -145,7 +146,9 @@
     <Compile Include="ResourceMusic.cs" />
     <Compile Include="ResourcePicture.cs" />
     <Compile Include="ResourceSE.cs" />
+    <Compile Include="Scenarios\Resources\ScenarioPictures.cs" />
     <Compile Include="Scenarios\Scenario.cs" />
+    <Compile Include="Scenarios\ScenarioCommand.cs" />
     <Compile Include="Scenarios\ScenarioPage.cs" />
     <Compile Include="Tests\Games\GameTest.cs" />
     <Compile Include="Tests\Logos\LogoTest.cs" />

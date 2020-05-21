@@ -5,6 +5,7 @@ using System.Text;
 using Charlotte.Common;
 using Charlotte.Scenarios;
 using Charlotte.Tools;
+using Charlotte.Scenarios.Resources;
 
 namespace Charlotte.Games
 {
@@ -33,6 +34,8 @@ namespace Charlotte.Games
 		private int CurrPageIndex;
 		private ScenarioPage CurrPage;
 
+		private GameScene CurrScene = new GameScene();
+
 		public void Perform()
 		{
 			DDCurtain.SetCurtain(0, -1.0);
@@ -43,6 +46,16 @@ namespace Charlotte.Games
 		startCurrPage:
 			this.CurrPage = this.Scenario.Pages[this.CurrPageIndex];
 
+			foreach (ScenarioCommand command in this.CurrPage.Commands)
+			{
+				// zantei
+				if (command.Name == "表示")
+				{
+					// zantei
+					this.CurrScene.Characters[0] = ScenarioPictures.I.Name2Picture[command.Arguments[1]];
+				}
+			}
+
 			DDEngine.FreezeInput();
 
 			for (int frame = 0; ; frame++)
@@ -50,10 +63,24 @@ namespace Charlotte.Games
 				if (DDMouse.L.GetInput() == -1)
 				{
 					this.CurrPageIndex++;
+
+					if (this.Scenario.Pages.Count <= this.CurrPageIndex)
+						break;
+
 					goto startCurrPage;
 				}
 
 				DDCurtain.DrawCurtain();
+
+
+				// zantei
+				if (this.CurrScene.Characters[0] != null)
+				{
+					DDDraw.DrawBegin(this.CurrScene.Characters[0], 220, 420);
+					DDDraw.DrawZoom(0.75);
+					DDDraw.DrawEnd();
+				}
+
 
 				//DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 150, 330); // 右下
 				DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 70, 330); // 下
