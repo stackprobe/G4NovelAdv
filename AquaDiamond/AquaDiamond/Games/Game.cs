@@ -41,6 +41,8 @@ namespace Charlotte.Games
 				//DDDraw.DrawSimple(Ground.I.Picture.MiniMessageWin, 40, 305); // 左上(はみ出し)
 				DDDraw.DrawSimple(Ground.I.Picture.MiniMessageWin, 65, 280); // 左上(重ならない)
 
+
+
 				DDEngine.EachFrame();
 			}
 
