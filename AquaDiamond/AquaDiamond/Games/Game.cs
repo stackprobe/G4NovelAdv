@@ -11,7 +11,7 @@ namespace Charlotte.Games
 {
 	public class Game : IDisposable
 	{
-		public Scenario Scenario = new Scenario(@"Scenario\Test0001.txt");
+		public Scenario Scenario = new Scenario(@"Scenario\Test0001.txt"); // lite dummy object
 
 		// <---- prm
 
