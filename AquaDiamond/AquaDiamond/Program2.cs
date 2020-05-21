@@ -104,10 +104,12 @@ namespace Charlotte
 			{
 				Game.I.Perform();
 			}
+			/*
 			using (new TitleMenu())
 			{
 				TitleMenu.I.Perform();
 			}
+			 * */
 		}
 	}
 }

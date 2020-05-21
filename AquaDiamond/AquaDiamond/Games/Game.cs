@@ -79,6 +79,18 @@ namespace Charlotte.Games
 						this.CurrScene.Wall = ScenarioResWall.I.GetPicture(wallName);
 					}
 				}
+				else if (command.Name == ScenarioCommand.NAME_揺れ)
+				{
+					int charaPos = int.Parse(command.Arguments[0]);
+
+					this.CurrScene.CharaInfos[charaPos].Effect = EnumerableTools.Supplier(GameEffect_揺れ.GetSequence(this.CurrScene.CharaInfos[charaPos]));
+				}
+				else if (command.Name == ScenarioCommand.NAME_跳び)
+				{
+					int charaPos = int.Parse(command.Arguments[0]);
+
+					this.CurrScene.CharaInfos[charaPos].Effect = EnumerableTools.Supplier(GameEffect_跳び.GetSequence(this.CurrScene.CharaInfos[charaPos]));
+				}
 			}
 
 			DDEngine.FreezeInput();
@@ -114,6 +126,11 @@ namespace Charlotte.Games
 					}
 				}
 
+				foreach (GameScene.CharaInfo charaInfo in this.CurrScene.CharaInfos)
+				{
+					charaInfo.Effect();
+				}
+
 				if (this.CurrScene.Wall == null)
 				{
 					DDCurtain.DrawCurtain();
@@ -130,16 +147,20 @@ namespace Charlotte.Games
 					DDDraw.DrawEnd();
 				}
 
-				for (int index = 0; index < GameScene.CHARA_POS_NUM; index++)
+				for (int charaPos = 0; charaPos < GameScene.CHARA_POS_NUM; charaPos++)
 				{
-					if (this.CurrScene.Charas[index] != null)
+					if (this.CurrScene.Charas[charaPos] != null)
 					{
 						DDDraw.DrawBegin(
-							this.CurrScene.Charas[index],
-							GameScene.CHARA_X_POSS[index],
-							this.CurrScene.Charas[index].Get_H() * 0.4
+							this.CurrScene.Charas[charaPos],
+							GameScene.CHARA_X_POSS[charaPos],
+							this.CurrScene.Charas[charaPos].Get_H() * 0.4
 							);
 						DDDraw.DrawZoom(0.8);
+						DDDraw.DrawSlide(
+							this.CurrScene.CharaInfos[charaPos].Slide.X,
+							this.CurrScene.CharaInfos[charaPos].Slide.Y
+							);
 						DDDraw.DrawEnd();
 					}
 				}
@@ -163,6 +184,8 @@ namespace Charlotte.Games
 					if (DDEngine.ProcFrame % 3 == 0)
 						dispChrCount++;
 				}
+				DDUtils.Range(ref dispCharaNameChrCount, 0, IntTools.IMAX); // カンスト対策
+				DDUtils.Range(ref dispChrCount, 0, IntTools.IMAX); // カンスト対策
 
 #if true // フォント使用(Kゴシック)
 				{

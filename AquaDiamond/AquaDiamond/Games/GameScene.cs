@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Common;
+using Charlotte.Tools;
 
 namespace Charlotte.Games
 {
@@ -22,7 +23,35 @@ namespace Charlotte.Games
 		public string[] CharaNames = new string[CHARA_POS_NUM];
 		public DDPicture[] Charas = new DDPicture[CHARA_POS_NUM];
 
+		public class CharaInfo
+		{
+			public D2Point Slide;
+
+			/// <summary>
+			/// エフェクト終了時、変更したものをもとに戻すこと。Reset()の実行を期待しないこと。
+			/// 戻り値は多分見ていない。
+			/// </summary>
+			public Func<bool> Effect; // ret: ? エフェクト継続
+
+			public void Reset()
+			{
+				this.Slide = new D2Point();
+				this.Effect = () => false;
+			}
+		}
+
+		public CharaInfo[] CharaInfos = new CharaInfo[CHARA_POS_NUM];
+
 		public string WallName = null;
 		public DDPicture Wall = null;
+
+		public GameScene()
+		{
+			for (int index = 0; index < CHARA_POS_NUM; index++)
+			{
+				this.CharaInfos[index] = new CharaInfo();
+				this.CharaInfos[index].Reset();
+			}
+		}
 	}
 }

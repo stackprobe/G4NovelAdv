@@ -9,6 +9,8 @@ namespace Charlotte.Scenarios
 	{
 		public const string NAME_表示 = "表示";
 		public const string NAME_背景 = "背景";
+		public const string NAME_揺れ = "揺れ";
+		public const string NAME_跳び = "跳び";
 
 		public const string ARGUMENT_NONE = "NONE";
 

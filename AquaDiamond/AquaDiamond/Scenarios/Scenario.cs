@@ -53,6 +53,22 @@ namespace Charlotte.Scenarios
 					page.Lines.Add(line);
 				}
 			}
+			this.PostCtor();
+		}
+
+		private void PostCtor()
+		{
+			foreach (ScenarioPage page in this.Pages)
+			{
+				for (int index = 0; index < page.Lines.Count; index++)
+				{
+					if (ScenarioPage.LINE_LEN_MAX < page.Lines[index].Length)
+					{
+						page.Lines.Insert(index + 1, page.Lines[index].Substring(ScenarioPage.LINE_LEN_MAX));
+						page.Lines[index] = page.Lines[index].Substring(0, ScenarioPage.LINE_LEN_MAX);
+					}
+				}
+			}
 		}
 	}
 }

@@ -12,6 +12,10 @@ COPY /B AquaDiamond\AquaDiamond\bin\Release\DxLibDotNet.dll out
 C:\Factory\Tools\xcp.exe doc out
 C:\Factory\Tools\xcp.exe C:\Dev\Fairy\Donut2\doc out
 
+	rem 暫定
+	MD out\シナリオデータ
+	C:\Factory\Tools\xcp.exe Resource\Scenario out\シナリオデータ
+
 C:\Factory\SubTools\zip.exe /PE- /RVE- /G out AquaDiamond
 C:\Factory\Tools\summd5.exe /M out
 

@@ -131,6 +131,8 @@
     <Compile Include="Game3Common\SceneKeeper.cs" />
     <Compile Include="Game3Common\SlideUtils.cs" />
     <Compile Include="Games\Game.cs" />
+    <Compile Include="Games\GameEffect_揺れ.cs" />
+    <Compile Include="Games\GameEffect_跳び.cs" />
     <Compile Include="Games\GameScene.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="Logos\Logo.cs" />
