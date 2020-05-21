@@ -9,10 +9,15 @@ namespace Charlotte.Scenarios
 {
 	public class Scenario
 	{
+		private const string SCENARIO_FILE_PREFIX = "Scenario\\";
+		private const string SCENARIO_FILE_SUFFIX = ".txt";
+
 		public List<ScenarioPage> Pages = new List<ScenarioPage>();
 
-		public Scenario(string file)
+		public Scenario(string name)
 		{
+			string file = SCENARIO_FILE_PREFIX + name + SCENARIO_FILE_SUFFIX;
+
 			this.Pages.Clear();
 
 			string[] lines = FileTools.TextToLines(JString.ToJString(DDResource.Load(file), true, true, false, true));

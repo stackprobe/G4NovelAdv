@@ -11,7 +11,7 @@ namespace Charlotte.Games
 {
 	public class Game : IDisposable
 	{
-		public Scenario Scenario = new Scenario(@"Scenario\Test0001.txt"); // lite dummy object
+		public Scenario Scenario = new Scenario("Test0001"); // lite dummy object
 
 		// <---- prm
 
@@ -90,6 +90,14 @@ namespace Charlotte.Games
 					int charaPos = int.Parse(command.Arguments[0]);
 
 					this.CurrScene.CharaInfos[charaPos].Effect = EnumerableTools.Supplier(GameEffect_跳び.GetSequence(this.CurrScene.CharaInfos[charaPos]));
+				}
+				else if (command.Name == ScenarioCommand.NAME_分岐)
+				{
+					throw null; // TODO
+				}
+				else
+				{
+					throw new DDError("不明なコマンド：" + command.Name);
 				}
 			}
 
