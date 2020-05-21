@@ -89,6 +89,8 @@ namespace Charlotte.Games
 
 			bool fastMessageFlag = false;
 
+			int lastMouseLeftInput = -1;
+
 			for (; ; )
 			{
 				if (
@@ -97,23 +99,23 @@ namespace Charlotte.Games
 					)
 					dispPageEndedCount++;
 
-				if (DDMouse.L.GetInput() == 1)
+				if (DDMouse.L.GetInput() == -1)
 				{
 					if (10 < dispPageEndedCount)
 					{
-						this.CurrPageIndex++;
+						if (lastMouseLeftInput < 30) // 要るかこれ？
+						{
+							this.CurrPageIndex++;
 
-						if (this.Scenario.Pages.Count <= this.CurrPageIndex)
-							break;
+							if (this.Scenario.Pages.Count <= this.CurrPageIndex)
+								break;
 
-						goto startCurrPage;
+							goto startCurrPage;
+						}
 					}
 					else
 					{
-						if (1 <= DDMouse.L.GetInput())
-						{
-							fastMessageFlag = true;
-						}
+						fastMessageFlag = true;
 					}
 				}
 
@@ -205,6 +207,8 @@ namespace Charlotte.Games
 
 				DDPrint.Reset();
 #endif
+
+				lastMouseLeftInput = DDMouse.L.GetInput();
 
 				DDEngine.EachFrame();
 			}
