@@ -89,8 +89,6 @@ namespace Charlotte.Games
 
 			bool fastMessageFlag = false;
 
-			int lastMouseLeftInput = -1;
-
 			for (; ; )
 			{
 				if (
@@ -99,19 +97,16 @@ namespace Charlotte.Games
 					)
 					dispPageEndedCount++;
 
-				if (DDMouse.L.GetInput() == -1)
+				if (DDMouse.L.GetInput() == 1)
 				{
 					if (10 < dispPageEndedCount)
 					{
-						if (lastMouseLeftInput < 30) // 要るかこれ？
-						{
-							this.CurrPageIndex++;
+						this.CurrPageIndex++;
 
-							if (this.Scenario.Pages.Count <= this.CurrPageIndex)
-								break;
+						if (this.Scenario.Pages.Count <= this.CurrPageIndex)
+							break;
 
-							goto startCurrPage;
-						}
+						goto startCurrPage;
 					}
 					else
 					{
@@ -155,11 +150,19 @@ namespace Charlotte.Games
 				//DDDraw.DrawSimple(Ground.I.Picture.MiniMessageWin, 40, 305); // 左上(はみ出し)
 				DDDraw.DrawSimple(Ground.I.Picture.MiniMessageWin, 65, 280); // 左上(重ならない)
 
-				if (DDEngine.ProcFrame % 2 == 0 || fastMessageFlag)
-					dispCharaNameChrCount++;
+				if (fastMessageFlag)
+				{
+					dispCharaNameChrCount += 2;
+					dispChrCount += 2;
+				}
+				else
+				{
+					if (DDEngine.ProcFrame % 2 == 0)
+						dispCharaNameChrCount++;
 
-				if (DDEngine.ProcFrame % 3 == 0 || fastMessageFlag)
-					dispChrCount++;
+					if (DDEngine.ProcFrame % 3 == 0)
+						dispChrCount++;
+				}
 
 #if true // フォント使用(Kゴシック)
 				{
@@ -207,8 +210,6 @@ namespace Charlotte.Games
 
 				DDPrint.Reset();
 #endif
-
-				lastMouseLeftInput = DDMouse.L.GetInput();
 
 				DDEngine.EachFrame();
 			}

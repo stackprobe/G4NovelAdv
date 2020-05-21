@@ -10,7 +10,7 @@ namespace Charlotte.Games
 	{
 		public const int CHARA_POS_NUM = 5;
 
-		public static readonly int[] CHARA_X_POSS = new int[] // CHARA_POS_NUM
+		public static readonly int[] CHARA_X_POSS = new int[CHARA_POS_NUM]
 		{
 			(DDConsts.Screen_W / 8) * 1,
 			(DDConsts.Screen_W / 8) * 3,
