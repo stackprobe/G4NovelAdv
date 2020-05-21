@@ -52,7 +52,7 @@ namespace Charlotte.Games
 				if (command.Name == "表示")
 				{
 					// zantei
-					this.CurrScene.Characters[0] = Ground.I.ScenarioResPicture.GetPicture(command.Arguments[1]);
+					this.CurrScene.Characters[0] = ScenarioResPicture.I.GetPicture(command.Arguments[1]);
 				}
 			}
 

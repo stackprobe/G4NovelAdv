@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Scenarios.Resources;
 
 namespace Charlotte
 {
@@ -15,7 +14,5 @@ namespace Charlotte
 		public ResourceSE SE = new ResourceSE();
 
 		public int MessageSpeed = Consts.MESSAGE_SPEED_DEF;
-
-		public ScenarioResPicture ScenarioResPicture = new ScenarioResPicture();
 	}
 }
