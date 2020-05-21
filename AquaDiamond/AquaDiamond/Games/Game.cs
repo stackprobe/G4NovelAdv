@@ -61,31 +61,55 @@ namespace Charlotte.Games
 				//DDDraw.DrawSimple(Ground.I.Picture.MiniMessageWin, 40, 305); // 左上(はみ出し)
 				DDDraw.DrawSimple(Ground.I.Picture.MiniMessageWin, 65, 280); // 左上(重ならない)
 
-				int dispCharNameCharCount = frame / 2;
-				int dispCharCount = frame / 3;
+				int dispCharaNameChrCount = frame / 2;
+				int dispChrCount = frame / 3;
 
+#if true // フォント使用(Kゴシック)
+				{
+					int dispCharaNameLength = Math.Min(dispChrCount, this.CurrPage.CharacterName.Length);
+					string dispCharaName = this.CurrPage.CharacterName.Substring(0, dispCharaNameLength);
+
+					DDFontUtils.DrawString(120, 320, dispCharaName, DDFontUtils.GetFont("Kゴシック", 16));
+				}
+
+				{
+					int dispTextLength = Math.Min(dispChrCount, this.CurrPage.Text.Length);
+					string dispText = this.CurrPage.Text.Substring(0, dispTextLength);
+					string[] dispLines = dispText.Split('\n');
+
+					for (int index = 0; index < dispLines.Length; index++)
+					{
+						DDFontUtils.DrawString(120, 380 + index * 30, dispLines[index], DDFontUtils.GetFont("Kゴシック", 16));
+					}
+				}
+#else // MSゴシック
 				DDPrint.SetBorder(new I3Color(64, 128, 128));
 				DDPrint.SetPrint(120, 320);
 
-				for (int index = 0; index <= dispCharNameCharCount && index < this.CurrPage.CharacterName.Length; index++)
+				for (int chrIndex = 0; chrIndex <= dispCharaNameChrCount && chrIndex < this.CurrPage.CharacterName.Length; chrIndex++)
 				{
-					char chr = this.CurrPage.CharacterName[index];
+					char chr = this.CurrPage.CharacterName[chrIndex];
 
 					DDPrint.Print(new string(new char[] { chr }));
 				}
 
 				DDPrint.Reset();
 
-				{
-					int dispTextLen = Math.Min(dispCharCount, this.CurrPage.Text.Length);
-					string dispText = this.CurrPage.Text.Substring(0, dispTextLen);
-					string[] dispLines = dispText.Split('\n');
+				DDPrint.SetBorder(new I3Color(64, 128, 128));
+				DDPrint.SetPrint(120, 380, 24);
 
-					for (int index = 0; index < dispLines.Length; index++)
-					{
-						DDFontUtils.DrawString(100, 380 + index * 30, dispLines[index], DDFontUtils.GetFont("Kゴシック", 16));
-					}
+				for (int chrIndex = 0; chrIndex <= dispChrCount && chrIndex < this.CurrPage.Text.Length; chrIndex++)
+				{
+					char chr = this.CurrPage.Text[chrIndex];
+
+					if (chr == '\n')
+						DDPrint.PrintRet();
+					else
+						DDPrint.Print(new string(new char[] { chr }));
 				}
+
+				DDPrint.Reset();
+#endif
 
 				DDEngine.EachFrame();
 			}
