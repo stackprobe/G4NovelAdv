@@ -49,9 +49,11 @@ namespace Charlotte
 
 			DDAdditionalEvents.Save = lines =>
 			{
-				lines.Add(DateTime.Now.ToString()); // Dummy
-				lines.Add(DateTime.Now.ToString()); // Dummy
-				lines.Add(DateTime.Now.ToString()); // Dummy
+				//lines.Add(DateTime.Now.ToString()); // Dummy
+				//lines.Add(DateTime.Now.ToString()); // Dummy
+				//lines.Add(DateTime.Now.ToString()); // Dummy
+
+				lines.Add("" + Ground.I.MessageSpeed);
 
 				// 新しい項目をここへ追加...
 			};
@@ -60,9 +62,11 @@ namespace Charlotte
 			{
 				int c = 0;
 
-				DDUtils.Noop(lines[c++]); // Dummy
-				DDUtils.Noop(lines[c++]); // Dummy
-				DDUtils.Noop(lines[c++]); // Dummy
+				//DDUtils.Noop(lines[c++]); // Dummy
+				//DDUtils.Noop(lines[c++]); // Dummy
+				//DDUtils.Noop(lines[c++]); // Dummy
+
+				Ground.I.MessageSpeed = IntTools.ToInt(lines[c++], Consts.MESSAGE_SPEED_MIN, Consts.MESSAGE_SPEED_MAX, Consts.MESSAGE_SPEED_DEF);
 
 				// 新しい項目をここへ追加...
 			};

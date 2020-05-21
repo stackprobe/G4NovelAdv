@@ -7,24 +7,14 @@ using Charlotte.Tools;
 
 namespace Charlotte.Scenarios.Resources
 {
-	public class ScenarioPictures
+	/// <summary>
+	/// ここ -> Ground.I.ScenarioResPicture
+	/// </summary>
+	public class ScenarioResPicture
 	{
-		private static ScenarioPictures _i = null;
+		private Dictionary<string, DDPicture> Name2Picture = DictionaryTools.Create<DDPicture>(); // zantei
 
-		public static ScenarioPictures I
-		{
-			get
-			{
-				if (_i == null)
-					_i = new ScenarioPictures();
-
-				return _i;
-			}
-		}
-
-		public Dictionary<string, DDPicture> Name2Picture = DictionaryTools.Create<DDPicture>();
-
-		private ScenarioPictures()
+		public ScenarioResPicture()
 		{
 			this.Name2Picture.Add("01a", Ground.I.Picture.Chara_01_A);
 			this.Name2Picture.Add("04a", Ground.I.Picture.Chara_04_A);
@@ -32,6 +22,11 @@ namespace Charlotte.Scenarios.Resources
 			// TODO
 			// TODO
 			// TODO
+		}
+
+		public DDPicture GetPicture(string name)
+		{
+			return this.Name2Picture[name];
 		}
 	}
 }
