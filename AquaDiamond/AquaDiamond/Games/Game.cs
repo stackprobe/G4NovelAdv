@@ -46,6 +46,8 @@ namespace Charlotte.Games
 		startCurrPage:
 			this.CurrPage = this.Scenario.Pages[this.CurrPageIndex];
 
+			GameOptionSelect optionSelect = null;
+
 			foreach (ScenarioCommand command in this.CurrPage.Commands)
 			{
 				if (command.Name == ScenarioCommand.NAME_表示)
@@ -62,6 +64,8 @@ namespace Charlotte.Games
 					{
 						this.CurrScene.CharaNames[charaPos] = charaName;
 						this.CurrScene.Charas[charaPos] = ScenarioResCharacter.I.GetPicture(charaName);
+
+						this.CurrScene.CharaInfos[charaPos].Reset();
 					}
 				}
 				else if (command.Name == ScenarioCommand.NAME_背景)
@@ -93,7 +97,37 @@ namespace Charlotte.Games
 				}
 				else if (command.Name == ScenarioCommand.NAME_分岐)
 				{
-					throw null; // TODO
+					optionSelect = new GameOptionSelect();
+
+					for (int index = 0; index < command.Arguments.Count; )
+					{
+						string text = command.Arguments[index++];
+						string scenarioName = command.Arguments[index++];
+
+						optionSelect.Items.Add(new GameOptionSelect.ItemInfo()
+						{
+							Text = text,
+							ScenarioName = scenarioName,
+						});
+					}
+					for (int index = 0; index < optionSelect.Items.Count; index++)
+					{
+						// メニューの配置 zantei zantei zantei
+
+						int MENU_AREA_L = 200;
+						int MENU_AREA_T = 100;
+						int MENU_AREA_W = DDConsts.Screen_W - 400;
+						int MENU_AREA_H = DDConsts.Screen_H - 400;
+						int MENU_ITEM_INT = 20;
+						int MENU_ITEM_H = (MENU_AREA_H + MENU_ITEM_INT) / optionSelect.Items.Count - MENU_ITEM_INT;
+
+						optionSelect.Items[index].L = MENU_AREA_L;
+						optionSelect.Items[index].T = MENU_AREA_T + index * (MENU_ITEM_H + MENU_ITEM_INT);
+						optionSelect.Items[index].W = MENU_AREA_W;
+						optionSelect.Items[index].H = MENU_ITEM_H;
+						optionSelect.Items[index].Text_X = optionSelect.Items[index].L + 20;
+						optionSelect.Items[index].Text_Y = optionSelect.Items[index].T + (MENU_ITEM_H - 20) / 2;
+					}
 				}
 				else
 				{
@@ -111,6 +145,8 @@ namespace Charlotte.Games
 
 			for (; ; )
 			{
+				DDMouse.UpdatePos();
+
 				if (
 					this.CurrPage.CharacterName.Length < dispCharaNameChrCount &&
 					this.CurrPage.Text.Length < dispChrCount
@@ -121,12 +157,28 @@ namespace Charlotte.Games
 				{
 					if (10 < dispPageEndedCount)
 					{
-						this.CurrPageIndex++;
+						if (optionSelect != null)
+						{
+							for (int index = 0; index < optionSelect.Items.Count; index++)
+							{
+								if (DDUtils.IsOut(new D2Point(DDMouse.X, DDMouse.Y), optionSelect.Items[index].GetD4Rect()) == false)
+								{
+									this.Scenario = new Scenario(optionSelect.Items[index].ScenarioName); // 次のシナリオをロード
+									this.CurrPageIndex = 0;
 
-						if (this.Scenario.Pages.Count <= this.CurrPageIndex)
-							break;
+									goto startCurrPage;
+								}
+							}
+						}
+						else
+						{
+							this.CurrPageIndex++;
 
-						goto startCurrPage;
+							if (this.Scenario.Pages.Count <= this.CurrPageIndex)
+								break;
+
+							goto startCurrPage;
+						}
 					}
 					else
 					{
@@ -242,6 +294,30 @@ namespace Charlotte.Games
 				DDPrint.Reset();
 #endif
 
+				if (1 <= dispPageEndedCount && optionSelect != null)
+				{
+					DDCurtain.DrawCurtain(-0.5);
+
+					for (int index = 0; index < optionSelect.Items.Count; index++)
+					{
+						DDDraw.SetAlpha(0.5);
+						DDDraw.DrawRect(
+							DDGround.GeneralResource.WhiteBox,
+							optionSelect.Items[index].L,
+							optionSelect.Items[index].T,
+							optionSelect.Items[index].W,
+							optionSelect.Items[index].H
+							);
+						DDDraw.Reset();
+
+						DDFontUtils.DrawString(
+							optionSelect.Items[index].Text_X,
+							optionSelect.Items[index].Text_Y,
+							optionSelect.Items[index].Text,
+							DDFontUtils.GetFont("Kゴシック", 16)
+							);
+					}
+				}
 				DDEngine.EachFrame();
 			}
 

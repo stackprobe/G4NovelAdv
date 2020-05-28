@@ -33,6 +33,7 @@ namespace Charlotte
 		public DDPicture Chara_13_H = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_h.png");
 
 		public DDPicture Wall_02_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG02a_80.jpg");
+		public DDPicture Wall_04_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG04a_80.jpg");
 		public DDPicture Wall_14_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG14a_80.jpg");
 		public DDPicture Wall_15_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG15a_80.jpg");
 		public DDPicture Wall_16_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG16a_80.jpg");

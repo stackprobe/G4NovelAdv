@@ -27,6 +27,7 @@ namespace Charlotte.Scenarios.Resources
 		private ScenarioResWall()
 		{
 			this.Name2Picture.Add("02a", Ground.I.Picture.Wall_02_A);
+			this.Name2Picture.Add("04a", Ground.I.Picture.Wall_04_A);
 			this.Name2Picture.Add("14a", Ground.I.Picture.Wall_14_A);
 			this.Name2Picture.Add("15a", Ground.I.Picture.Wall_15_A);
 			this.Name2Picture.Add("16a", Ground.I.Picture.Wall_16_A);
