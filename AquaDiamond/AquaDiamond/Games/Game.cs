@@ -153,7 +153,6 @@ namespace Charlotte.Games
 			int dispCharaNameChrCount = 0;
 			int dispChrCount = 0;
 			int dispPageEndedCount = 0;
-			int koroSleep = 0;
 
 			bool fastMessageFlag = false;
 
@@ -170,13 +169,6 @@ namespace Charlotte.Games
 					)
 					dispPageEndedCount++;
 
-				int koro = DDMouse.Rot;
-				if (koroSleep != 0)
-				{
-					DDUtils.CountDown(ref koroSleep);
-					koro = 0;
-				}
-
 				bool skipMode = 1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL);
 
 				bool optionSelectFlag = false;
@@ -186,38 +178,26 @@ namespace Charlotte.Games
 				{
 					if (1 <= dispPageEndedCount)
 					{
-						if (optionSelect != null)
-						{
-							// noop
-						}
-						else
-						{
+						if (optionSelect == null)
 							nextPageFlag = true;
-						}
 					}
 					else
 					{
 						fastMessageFlag = true;
 					}
 				}
-				else if (koro < 0)
+				else if (DDMouse.Rot < 0)
 				{
 					if (NEXT_PAGE_KEY_INTERVAL <= dispPageEndedCount)
 					{
-						if (optionSelect != null)
-						{
-							// noop
-						}
-						else
-						{
+						if (optionSelect == null)
 							nextPageFlag = true;
-						}
 					}
 					else
 					{
 						fastMessageFlag = true;
 					}
-					koroSleep = SHITA_KORO_SLEEP;
+					DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 				}
 				else if (
 					DDMouse.L.GetInput() == 1 ||
@@ -261,9 +241,10 @@ namespace Charlotte.Games
 					goto startCurrPage;
 				}
 
-				if (DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < koro)
+				if (DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
 				{
 					this.BackLog();
+					DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 				}
 
 				this.SceneCommonEachFrame();
