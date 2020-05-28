@@ -11,6 +11,8 @@ namespace Charlotte.Games
 	{
 		public static IEnumerable<bool> GetSequence(GameScene.CharaInfo charaInfo)
 		{
+			Ground.I.SE.Hit01.Play(); // zantei
+
 			double r = 10.0;
 
 			for (int c = 0; c < 30; c++)

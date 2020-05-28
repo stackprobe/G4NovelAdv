@@ -150,6 +150,7 @@
     <Compile Include="ResourcePicture.cs" />
     <Compile Include="ResourceSE.cs" />
     <Compile Include="Scenarios\Resources\ScenarioResCharacter.cs" />
+    <Compile Include="Scenarios\Resources\ScenarioResMusic.cs" />
     <Compile Include="Scenarios\Resources\ScenarioResWall.cs" />
     <Compile Include="Scenarios\Scenario.cs" />
     <Compile Include="Scenarios\ScenarioCommand.cs" />

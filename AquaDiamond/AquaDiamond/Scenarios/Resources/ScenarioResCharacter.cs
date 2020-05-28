@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Common;
 using Charlotte.Tools;
+using Charlotte.Game3Common;
 
 namespace Charlotte.Scenarios.Resources
 {
@@ -22,10 +23,11 @@ namespace Charlotte.Scenarios.Resources
 			}
 		}
 
-		private Dictionary<string, DDPicture> Name2Picture = DictionaryTools.Create<DDPicture>(); // zantei
+		//private Dictionary<string, DDPicture> Name2Picture = DictionaryTools.Create<DDPicture>(); // del @ 2020.5.24
 
 		private ScenarioResCharacter()
 		{
+#if false // del @ 2020.5.24
 			this.Name2Picture.Add("01a", Ground.I.Picture.Chara_01_A);
 			this.Name2Picture.Add("01d", Ground.I.Picture.Chara_01_D);
 			this.Name2Picture.Add("01h", Ground.I.Picture.Chara_01_H);
@@ -40,11 +42,19 @@ namespace Charlotte.Scenarios.Resources
 			this.Name2Picture.Add("13f", Ground.I.Picture.Chara_13_F);
 			this.Name2Picture.Add("13g", Ground.I.Picture.Chara_13_G);
 			this.Name2Picture.Add("13h", Ground.I.Picture.Chara_13_H);
+#endif
 		}
+
+		private const string CHARA_FILE_PREFIX = "わたおきば\\";
+		private const string CHARA_FILE_SUFFIX = ".png";
 
 		public DDPicture GetPicture(string name)
 		{
+#if true
+			return CResource.GetPicture(CHARA_FILE_PREFIX + name + CHARA_FILE_SUFFIX);
+#else // del @ 2020.5.24
 			return this.Name2Picture[name];
+#endif
 		}
 	}
 }

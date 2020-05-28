@@ -22,6 +22,7 @@ namespace Charlotte.Games
 
 				yield return true;
 			}
+			Ground.I.SE.Poka01.Play(); // zantei
 			foreach (DDScene scene in DDSceneUtils.Create(10))
 			{
 				double invRate = 1.0 - scene.Rate;
@@ -33,6 +34,7 @@ namespace Charlotte.Games
 
 				yield return true;
 			}
+			Ground.I.SE.Poka01.Play(); // zantei
 			foreach (DDScene scene in DDSceneUtils.Create(10))
 			{
 				double invRate = 1.0 - scene.Rate;
@@ -44,6 +46,7 @@ namespace Charlotte.Games
 
 				yield return true;
 			}
+			Ground.I.SE.Poka01.Play(); // zantei
 			foreach (DDScene scene in DDSceneUtils.Create(10))
 			{
 				double x = Math.Cos(scene.Rate * Math.PI) * R + R;
@@ -53,6 +56,7 @@ namespace Charlotte.Games
 
 				yield return true;
 			}
+			Ground.I.SE.Poka01.Play(); // zantei
 			charaInfo.Slide = new D2Point();
 		}
 	}

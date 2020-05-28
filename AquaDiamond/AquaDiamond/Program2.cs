@@ -11,6 +11,7 @@ using Charlotte.Logos;
 using Charlotte.TitleMenus;
 using Charlotte.Tests.Logos;
 using Charlotte.Games;
+using Charlotte.Scenarios;
 
 namespace Charlotte
 {
@@ -90,7 +91,8 @@ namespace Charlotte
 		{
 			//Main4_Release();
 			//new Test0001().Test01();
-			new GameTest().Test01();
+			//new GameTest().Test01();
+			new GameTest().Test02();
 			//new LogoTest().Test01();
 		}
 
@@ -102,6 +104,7 @@ namespace Charlotte
 			}
 			using (new Game())
 			{
+				Game.I.Scenario = new Scenario("101_スタートシナリオ");
 				Game.I.Perform();
 			}
 			/*

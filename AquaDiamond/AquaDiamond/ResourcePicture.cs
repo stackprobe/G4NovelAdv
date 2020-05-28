@@ -17,6 +17,7 @@ namespace Charlotte
 		public DDPicture MiniMessageWin = DDPictureLoaders.Standard(@"vita-chi\hakkou_mini.png");
 		public DDPicture MiniMessageWin_Red = DDPictureLoaders.Standard(@"vita-chi\hakkou_mini2.png");
 
+#if false // del @ 2020.5.24
 		public DDPicture Chara_01_A = DDPictureLoaders.Standard(@"わたおきば\josei_01_a.png");
 		public DDPicture Chara_01_D = DDPictureLoaders.Standard(@"わたおきば\josei_01_d.png");
 		public DDPicture Chara_01_H = DDPictureLoaders.Standard(@"わたおきば\josei_01_h.png");
@@ -40,5 +41,6 @@ namespace Charlotte
 		public DDPicture Wall_27_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG27a_80.jpg");
 		public DDPicture Wall_29_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG29a_80.jpg");
 		public DDPicture Wall_39_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG39a_80.jpg");
+#endif
 	}
 }

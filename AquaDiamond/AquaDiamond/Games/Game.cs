@@ -6,6 +6,7 @@ using Charlotte.Common;
 using Charlotte.Scenarios;
 using Charlotte.Tools;
 using Charlotte.Scenarios.Resources;
+using DxLibDLL;
 
 namespace Charlotte.Games
 {
@@ -50,29 +51,28 @@ namespace Charlotte.Games
 
 			foreach (ScenarioCommand command in this.CurrPage.Commands)
 			{
-				if (command.Name == ScenarioCommand.NAME_表示)
+				if (command.Name == ScenarioCommand.NAME_登場)
 				{
 					int charaPos = int.Parse(command.Arguments[0]);
 					string charaName = command.Arguments[1];
 
-					if (charaName == ScenarioCommand.ARGUMENT_NONE)
-					{
-						this.CurrScene.CharaNames[charaPos] = null;
-						this.CurrScene.Charas[charaPos] = null;
-					}
-					else
-					{
-						this.CurrScene.CharaNames[charaPos] = charaName;
-						this.CurrScene.Charas[charaPos] = ScenarioResCharacter.I.GetPicture(charaName);
+					this.CurrScene.CharaNames[charaPos] = charaName;
+					this.CurrScene.Charas[charaPos] = ScenarioResCharacter.I.GetPicture(charaName);
 
-						this.CurrScene.CharaInfos[charaPos].Reset();
-					}
+					this.CurrScene.CharaInfos[charaPos].Reset();
+				}
+				else if (command.Name == ScenarioCommand.NAME_退場)
+				{
+					int charaPos = int.Parse(command.Arguments[0]);
+
+					this.CurrScene.CharaNames[charaPos] = null;
+					this.CurrScene.Charas[charaPos] = null;
 				}
 				else if (command.Name == ScenarioCommand.NAME_背景)
 				{
 					string wallName = command.Arguments[0];
 
-					if (wallName == ScenarioCommand.ARGUMENT_NONE)
+					if (wallName == ScenarioCommand.ARGUMENT_無し)
 					{
 						this.CurrScene.WallName = null;
 						this.CurrScene.Wall = null;
@@ -81,6 +81,19 @@ namespace Charlotte.Games
 					{
 						this.CurrScene.WallName = wallName;
 						this.CurrScene.Wall = ScenarioResWall.I.GetPicture(wallName);
+					}
+				}
+				else if (command.Name == ScenarioCommand.NAME_音楽)
+				{
+					string musicName = command.Arguments[0];
+
+					if (musicName == ScenarioCommand.ARGUMENT_無し)
+					{
+						DDMusicUtils.Fade();
+					}
+					else
+					{
+						DDMusicUtils.Play(ScenarioResMusic.I.GetMusic(musicName));
 					}
 				}
 				else if (command.Name == ScenarioCommand.NAME_揺れ)
@@ -153,20 +166,25 @@ namespace Charlotte.Games
 					)
 					dispPageEndedCount++;
 
-				if (DDMouse.L.GetInput() == 1)
+				bool skipMode = 1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL); // スキップモード
+
+				if (skipMode || DDMouse.L.GetInput() == 1)
 				{
-					if (10 < dispPageEndedCount)
+					if (skipMode ? 1 <= dispPageEndedCount : 10 <= dispPageEndedCount)
 					{
 						if (optionSelect != null)
 						{
-							for (int index = 0; index < optionSelect.Items.Count; index++)
+							if (skipMode == false)
 							{
-								if (DDUtils.IsOut(new D2Point(DDMouse.X, DDMouse.Y), optionSelect.Items[index].GetD4Rect()) == false)
+								for (int index = 0; index < optionSelect.Items.Count; index++)
 								{
-									this.Scenario = new Scenario(optionSelect.Items[index].ScenarioName); // 次のシナリオをロード
-									this.CurrPageIndex = 0;
+									if (DDUtils.IsOut(new D2Point(DDMouse.X, DDMouse.Y), optionSelect.Items[index].GetD4Rect()) == false)
+									{
+										this.Scenario = new Scenario(optionSelect.Items[index].ScenarioName); // 次のシナリオをロード
+										this.CurrPageIndex = 0;
 
-									goto startCurrPage;
+										goto startCurrPage;
+									}
 								}
 							}
 						}
