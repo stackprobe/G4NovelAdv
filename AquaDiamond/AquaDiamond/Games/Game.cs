@@ -166,7 +166,7 @@ namespace Charlotte.Games
 					)
 					dispPageEndedCount++;
 
-				bool skipMode = 1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL); // スキップモード
+				bool skipMode = 1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL);
 
 				bool optionSelectFlag = false;
 				bool nextPageFlag = false;
@@ -189,7 +189,7 @@ namespace Charlotte.Games
 						fastMessageFlag = true;
 					}
 				}
-				else if (DDMouse.L.GetInput() == 1)
+				else if (DDMouse.L.GetInput() == 1 || DDKey.GetInput(DX.KEY_INPUT_Z) == 1 || DDKey.GetInput(DX.KEY_INPUT_RETURN) == 1)
 				{
 					if (10 <= dispPageEndedCount)
 					{
@@ -386,6 +386,12 @@ namespace Charlotte.Games
 
 		private void BackLog()
 		{
+			//int scrollBackPos = 0;
+
+			// しごとやめたい
+
+			DDEngine.FreezeInput();
+
 			for (; ; )
 			{
 				if (DDKey.GetInput(DX.KEY_INPUT_DOWN) == 1 || DDKey.GetInput(DX.KEY_INPUT_RIGHT) == 1 || DDMouse.Rot < 0)
@@ -401,6 +407,8 @@ namespace Charlotte.Games
 
 				DDEngine.EachFrame();
 			}
+
+			DDEngine.FreezeInput();
 		}
 	}
 }
