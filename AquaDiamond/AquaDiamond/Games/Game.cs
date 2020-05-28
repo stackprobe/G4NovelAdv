@@ -189,7 +189,12 @@ namespace Charlotte.Games
 						fastMessageFlag = true;
 					}
 				}
-				else if (DDMouse.L.GetInput() == 1 || DDKey.GetInput(DX.KEY_INPUT_Z) == 1 || DDKey.GetInput(DX.KEY_INPUT_RETURN) == 1)
+				else if (
+					DDMouse.L.GetInput() == 1 ||
+					DDKey.GetInput(DX.KEY_INPUT_Z) == 1 ||
+					DDKey.GetInput(DX.KEY_INPUT_RETURN) == 1 ||
+					DDMouse.Rot < 0
+					)
 				{
 					if (10 <= dispPageEndedCount)
 					{
@@ -387,8 +392,6 @@ namespace Charlotte.Games
 		private void BackLog()
 		{
 			//int scrollBackPos = 0;
-
-			// しごとやめたい
 
 			DDEngine.FreezeInput();
 
