@@ -168,34 +168,20 @@ namespace Charlotte.Games
 
 				bool skipMode = 1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL); // スキップモード
 
-				if (skipMode || DDMouse.L.GetInput() == 1)
+				bool optionSelectFlag = false;
+				bool nextPageFlag = false;
+
+				if (skipMode)
 				{
-					if (skipMode ? 1 <= dispPageEndedCount : 10 <= dispPageEndedCount)
+					if (1 <= dispPageEndedCount)
 					{
 						if (optionSelect != null)
 						{
-							if (skipMode == false)
-							{
-								for (int index = 0; index < optionSelect.Items.Count; index++)
-								{
-									if (DDUtils.IsOut(new D2Point(DDMouse.X, DDMouse.Y), optionSelect.Items[index].GetD4Rect()) == false)
-									{
-										this.Scenario = new Scenario(optionSelect.Items[index].ScenarioName); // 次のシナリオをロード
-										this.CurrPageIndex = 0;
-
-										goto startCurrPage;
-									}
-								}
-							}
+							// noop
 						}
 						else
 						{
-							this.CurrPageIndex++;
-
-							if (this.Scenario.Pages.Count <= this.CurrPageIndex)
-								break;
-
-							goto startCurrPage;
+							nextPageFlag = true;
 						}
 					}
 					else
@@ -203,18 +189,50 @@ namespace Charlotte.Games
 						fastMessageFlag = true;
 					}
 				}
+				else if (DDMouse.L.GetInput() == 1)
+				{
+					if (10 <= dispPageEndedCount)
+					{
+						if (optionSelect != null)
+							optionSelectFlag = true;
+						else
+							nextPageFlag = true;
+					}
+					else
+					{
+						fastMessageFlag = true;
+					}
+				}
+
+				if (optionSelectFlag)
+				{
+					for (int index = 0; index < optionSelect.Items.Count; index++)
+					{
+						if (DDUtils.IsOut(new D2Point(DDMouse.X, DDMouse.Y), optionSelect.Items[index].GetD4Rect()) == false)
+						{
+							this.Scenario = new Scenario(optionSelect.Items[index].ScenarioName); // 次のシナリオをロード
+							this.CurrPageIndex = 0;
+
+							goto startCurrPage;
+						}
+					}
+				}
+				if (nextPageFlag)
+				{
+					this.CurrPageIndex++;
+
+					if (this.Scenario.Pages.Count <= this.CurrPageIndex)
+						break;
+
+					goto startCurrPage;
+				}
+
 				if (DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
 				{
 					this.BackLog();
 				}
 
-				foreach (GameScene.CharaInfo charaInfo in this.CurrScene.CharaInfos)
-				{
-					charaInfo.Effect();
-				}
-
-				this.DrawWall();
-				this.DrawCharas();
+				this.SceneCommonEachFrame();
 
 				//DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 150, 330); // 右下
 				DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 70, 330); // 下
@@ -315,6 +333,17 @@ namespace Charlotte.Games
 			DDEngine.FreezeInput();
 		}
 
+		private void SceneCommonEachFrame()
+		{
+			foreach (GameScene.CharaInfo charaInfo in this.CurrScene.CharaInfos)
+			{
+				charaInfo.Effect();
+			}
+
+			this.DrawWall();
+			this.DrawCharas();
+		}
+
 		private void DrawWall()
 		{
 			if (this.CurrScene.Wall == null)
@@ -364,10 +393,11 @@ namespace Charlotte.Games
 					break;
 				}
 
-				this.DrawWall();
-				this.DrawCharas();
+				this.SceneCommonEachFrame();
 
 				DDCurtain.DrawCurtain(-0.5);
+
+				// TODO disp back-log
 
 				DDEngine.EachFrame();
 			}
