@@ -209,39 +209,8 @@ namespace Charlotte.Games
 					charaInfo.Effect();
 				}
 
-				if (this.CurrScene.Wall == null)
-				{
-					DDCurtain.DrawCurtain();
-				}
-				else
-				{
-					double zx = DDConsts.Screen_W * 1.0 / this.CurrScene.Wall.Get_W();
-					double zy = DDConsts.Screen_H * 1.0 / this.CurrScene.Wall.Get_H();
-
-					double z = Math.Max(zx, zy);
-
-					DDDraw.DrawBegin(this.CurrScene.Wall, DDConsts.Screen_W / 2, DDConsts.Screen_H / 2);
-					DDDraw.DrawZoom(z);
-					DDDraw.DrawEnd();
-				}
-
-				for (int charaPos = 0; charaPos < GameScene.CHARA_POS_NUM; charaPos++)
-				{
-					if (this.CurrScene.Charas[charaPos] != null)
-					{
-						DDDraw.DrawBegin(
-							this.CurrScene.Charas[charaPos],
-							GameScene.CHARA_X_POSS[charaPos],
-							this.CurrScene.Charas[charaPos].Get_H() * 0.4
-							);
-						DDDraw.DrawZoom(0.8);
-						DDDraw.DrawSlide(
-							this.CurrScene.CharaInfos[charaPos].Slide.X,
-							this.CurrScene.CharaInfos[charaPos].Slide.Y
-							);
-						DDDraw.DrawEnd();
-					}
-				}
+				this.DrawWall();
+				this.DrawCharas();
 
 				//DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 150, 330); // 右下
 				DDDraw.DrawSimple(Ground.I.Picture.MessageWin, 70, 330); // 下
@@ -340,6 +309,46 @@ namespace Charlotte.Games
 			}
 
 			DDEngine.FreezeInput();
+		}
+
+		private void DrawWall()
+		{
+			if (this.CurrScene.Wall == null)
+			{
+				DDCurtain.DrawCurtain();
+			}
+			else
+			{
+				double zx = DDConsts.Screen_W * 1.0 / this.CurrScene.Wall.Get_W();
+				double zy = DDConsts.Screen_H * 1.0 / this.CurrScene.Wall.Get_H();
+
+				double z = Math.Max(zx, zy);
+
+				DDDraw.DrawBegin(this.CurrScene.Wall, DDConsts.Screen_W / 2, DDConsts.Screen_H / 2);
+				DDDraw.DrawZoom(z);
+				DDDraw.DrawEnd();
+			}
+		}
+
+		private void DrawCharas()
+		{
+			for (int charaPos = 0; charaPos < GameScene.CHARA_POS_NUM; charaPos++)
+			{
+				if (this.CurrScene.Charas[charaPos] != null)
+				{
+					DDDraw.DrawBegin(
+						this.CurrScene.Charas[charaPos],
+						GameScene.CHARA_X_POSS[charaPos],
+						this.CurrScene.Charas[charaPos].Get_H() * 0.4
+						);
+					DDDraw.DrawZoom(0.8);
+					DDDraw.DrawSlide(
+						this.CurrScene.CharaInfos[charaPos].Slide.X,
+						this.CurrScene.CharaInfos[charaPos].Slide.Y
+						);
+					DDDraw.DrawEnd();
+				}
+			}
 		}
 	}
 }
