@@ -203,6 +203,10 @@ namespace Charlotte.Games
 						fastMessageFlag = true;
 					}
 				}
+				if (DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
+				{
+					this.BackLog();
+				}
 
 				foreach (GameScene.CharaInfo charaInfo in this.CurrScene.CharaInfos)
 				{
@@ -348,6 +352,24 @@ namespace Charlotte.Games
 						);
 					DDDraw.DrawEnd();
 				}
+			}
+		}
+
+		private void BackLog()
+		{
+			for (; ; )
+			{
+				if (DDKey.GetInput(DX.KEY_INPUT_DOWN) == 1 || DDKey.GetInput(DX.KEY_INPUT_RIGHT) == 1 || DDMouse.Rot < 0)
+				{
+					break;
+				}
+
+				this.DrawWall();
+				this.DrawCharas();
+
+				DDCurtain.DrawCurtain(-0.5);
+
+				DDEngine.EachFrame();
 			}
 		}
 	}
