@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Common;
 using Charlotte.Tools;
+using System.IO;
 
 namespace Charlotte.Scenarios
 {
@@ -20,7 +21,27 @@ namespace Charlotte.Scenarios
 
 			this.Pages.Clear();
 
-			string[] lines = FileTools.TextToLines(JString.ToJString(DDResource.Load(file), true, true, false, true));
+#if false // 本番用
+			byte[] fileData = DDResource.Load(file);
+#else
+			byte[] fileData;
+
+			{
+				const string DEVENV_SCENARIO_DIR = "シナリオデータ";
+				const string DEVENV_SCENARIO_SUFFIX = ".txt";
+
+				if (Directory.Exists(DEVENV_SCENARIO_DIR))
+				{
+					fileData = File.ReadAllBytes(Path.Combine(DEVENV_SCENARIO_DIR, name + DEVENV_SCENARIO_SUFFIX));
+				}
+				else
+				{
+					fileData = DDResource.Load(file);
+				}
+			}
+#endif
+
+			string[] lines = FileTools.TextToLines(JString.ToJString(fileData, true, true, false, true));
 			ScenarioPage page = null;
 
 			foreach (string fLine in lines)

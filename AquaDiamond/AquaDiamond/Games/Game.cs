@@ -243,6 +243,7 @@ namespace Charlotte.Games
 
 				if (DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
 				{
+					DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 					this.BackLog();
 					DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 				}
@@ -401,13 +402,31 @@ namespace Charlotte.Games
 
 		private void BackLog()
 		{
-			//int scrollBackPos = 0;
+			List<string> logLines = new List<string>();
+
+			for (int index = 0; index < this.CurrPageIndex; index++)
+				foreach (string line in this.Scenario.Pages[index].Lines)
+					logLines.Add(line);
 
 			DDEngine.FreezeInput();
 
+			int backIndex = 0;
+
 			for (; ; )
 			{
-				if (DDKey.GetInput(DX.KEY_INPUT_DOWN) == 1 || DDKey.GetInput(DX.KEY_INPUT_RIGHT) == 1 || DDMouse.Rot < 0)
+				if (DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
+				{
+					backIndex++;
+				}
+				if (DDKey.GetInput(DX.KEY_INPUT_DOWN) == 1 || DDMouse.Rot < 0)
+				{
+					backIndex--;
+				}
+				if (DDKey.GetInput(DX.KEY_INPUT_RIGHT) == 1)
+				{
+					backIndex = -1;
+				}
+				if (backIndex < 0)
 				{
 					break;
 				}
@@ -416,8 +435,15 @@ namespace Charlotte.Games
 
 				DDCurtain.DrawCurtain(-0.5);
 
-				// TODO disp back-log
+				for (int c = 1; c <= 16; c++)
+				{
+					int i = logLines.Count - backIndex - c;
 
+					if (0 <= i)
+					{
+						DDFontUtils.DrawString(120, DDConsts.Screen_H - c * 30 - 15, logLines[i], DDFontUtils.GetFont("Kゴシック", 16));
+					}
+				}
 				DDEngine.EachFrame();
 			}
 

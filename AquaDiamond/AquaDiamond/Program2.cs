@@ -98,10 +98,12 @@ namespace Charlotte
 
 		private void Main4_Release()
 		{
+			/* 開発中につきコメントアウト
 			using (new Logo())
 			{
 				Logo.I.Perform();
 			}
+			 * */
 			using (new Game())
 			{
 				Game.I.Scenario = new Scenario("101_スタートシナリオ");
