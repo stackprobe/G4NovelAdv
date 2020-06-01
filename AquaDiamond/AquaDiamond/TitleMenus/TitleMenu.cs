@@ -17,12 +17,12 @@ namespace Charlotte.TitleMenus
 		{
 			I = this;
 
-			DDUtils.SetMouseDispMode(true);
+			//DDUtils.SetMouseDispMode(true);
 		}
 
 		public void Dispose()
 		{
-			DDUtils.SetMouseDispMode(false);
+			//DDUtils.SetMouseDispMode(false);
 
 			I = null;
 		}
@@ -31,6 +31,8 @@ namespace Charlotte.TitleMenus
 
 		public void Perform()
 		{
+			DDUtils.SetMouseDispMode(true);
+
 			DDCurtain.SetCurtain();
 			DDEngine.FreezeInput();
 

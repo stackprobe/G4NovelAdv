@@ -22,12 +22,12 @@ namespace Charlotte.Games
 		{
 			I = this;
 
-			DDUtils.SetMouseDispMode(true);
+			//DDUtils.SetMouseDispMode(true);
 		}
 
 		public void Dispose()
 		{
-			DDUtils.SetMouseDispMode(false);
+			//DDUtils.SetMouseDispMode(false);
 
 			I = null;
 		}
