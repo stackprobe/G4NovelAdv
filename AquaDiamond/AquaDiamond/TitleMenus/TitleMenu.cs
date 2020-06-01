@@ -6,6 +6,7 @@ using Charlotte.Common;
 using Charlotte.Games;
 using Charlotte.Scenarios;
 using Charlotte.Tools;
+using Charlotte.Game3Common;
 
 namespace Charlotte.TitleMenus
 {
@@ -147,12 +148,7 @@ namespace Charlotte.TitleMenus
 						},
 						() =>
 						{
-							/* zantei
-							if (SecurityTools.CRandom.GetReal2() < 0.5)
-								Ground.I.SE.PauseIn.Play();
-							else
-								Ground.I.SE.PauseOut.Play();
-							 * */
+							CResource.GetSE(@"小森平\poka01.mp3").Play();
 						}
 						);
 						break;
