@@ -32,6 +32,9 @@ namespace Charlotte.Games
 			I = null;
 		}
 
+		private const int NEXT_PAGE_KEY_INTERVAL = 10;
+		private const int SHITA_KORO_SLEEP = 5;
+
 		private int CurrPageIndex;
 		private ScenarioPage CurrPage;
 
@@ -156,9 +159,6 @@ namespace Charlotte.Games
 
 			bool fastMessageFlag = false;
 
-			const int NEXT_PAGE_KEY_INTERVAL = 10;
-			const int SHITA_KORO_SLEEP = 5;
-
 			for (; ; )
 			{
 				DDMouse.UpdatePos();
@@ -243,9 +243,7 @@ namespace Charlotte.Games
 
 				if (DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
 				{
-					DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 					this.BackLog();
-					DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 				}
 
 				this.SceneCommonEachFrame();
@@ -408,7 +406,7 @@ namespace Charlotte.Games
 				foreach (string line in this.Scenario.Pages[index].Lines)
 					logLines.Add(line);
 
-			DDEngine.FreezeInput();
+			DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 
 			int backIndex = 0;
 
@@ -426,6 +424,8 @@ namespace Charlotte.Games
 				{
 					backIndex = -1;
 				}
+				DDUtils.Range(ref backIndex, -1, logLines.Count - 1);
+
 				if (backIndex < 0)
 				{
 					break;
@@ -447,7 +447,7 @@ namespace Charlotte.Games
 				DDEngine.EachFrame();
 			}
 
-			DDEngine.FreezeInput();
+			DDEngine.FreezeInput(SHITA_KORO_SLEEP);
 		}
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Common;
+using Charlotte.TitleMenus;
 
 namespace Charlotte.Tests
 {
@@ -31,6 +32,14 @@ namespace Charlotte.Tests
 			}
 
 			DDEngine.FreezeInput();
+		}
+
+		public void Test02()
+		{
+			using (new TitleMenu())
+			{
+				TitleMenu.I.Perform();
+			}
 		}
 	}
 }
