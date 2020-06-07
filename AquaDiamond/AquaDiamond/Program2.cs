@@ -89,9 +89,9 @@ namespace Charlotte
 
 		private void Main4_Debug()
 		{
-			//Main4_Release();
+			Main4_Release();
 			//new Test0001().Test01();
-			new Test0001().Test02();
+			//new Test0001().Test02();
 			//new GameTest().Test01();
 			//new GameTest().Test02();
 			//new LogoTest().Test01();
@@ -99,25 +99,19 @@ namespace Charlotte
 
 		private void Main4_Release()
 		{
-			/* 開発中につきコメントアウト
 			using (new Logo())
 			{
 				Logo.I.Perform();
 			}
-			//*/
-			/* 開発中につきコメントアウト
+			using (new TitleMenu())
+			{
+				TitleMenu.I.Perform();
+			}
 			using (new Game())
 			{
 				Game.I.Scenario = new Scenario("101_スタートシナリオ");
 				Game.I.Perform();
 			}
-			//*/
-			//*
-			using (new TitleMenu())
-			{
-				TitleMenu.I.Perform();
-			}
-			//*/
 		}
 	}
 }
