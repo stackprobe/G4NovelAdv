@@ -169,12 +169,11 @@ namespace Charlotte.Games
 					)
 					dispPageEndedCount++;
 
-				bool skipMode = 1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL);
-
-				bool optionSelectFlag = false;
+				int optionSelectChangeIndex = 0;
+				bool optionSelectedFlag = false;
 				bool nextPageFlag = false;
 
-				if (skipMode)
+				if (1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL)) // skip Mode
 				{
 					if (1 <= dispPageEndedCount)
 					{
@@ -201,14 +200,15 @@ namespace Charlotte.Games
 				}
 				else if (
 					DDMouse.L.GetInput() == 1 ||
-					DDKey.GetInput(DX.KEY_INPUT_Z) == 1 ||
-					DDKey.GetInput(DX.KEY_INPUT_RETURN) == 1
+					//DDKey.GetInput(DX.KEY_INPUT_Z) == 1 || // --> DDInput.A
+					DDKey.GetInput(DX.KEY_INPUT_RETURN) == 1 ||
+					DDInput.A.GetInput() == 1
 					)
 				{
 					if (NEXT_PAGE_KEY_INTERVAL <= dispPageEndedCount)
 					{
 						if (optionSelect != null)
-							optionSelectFlag = true;
+							optionSelectedFlag = true;
 						else
 							nextPageFlag = true;
 					}
@@ -217,8 +217,39 @@ namespace Charlotte.Games
 						fastMessageFlag = true;
 					}
 				}
+				else if (DDInput.DIR_8.GetInput() == 1)
+				{
+					if (optionSelect != null)
+						optionSelectChangeIndex = -1;
+				}
+				else if (DDInput.DIR_2.GetInput() == 1)
+				{
+					if (optionSelect != null)
+						optionSelectChangeIndex = 1;
+				}
 
-				if (optionSelectFlag)
+				if (optionSelectChangeIndex != 0)
+				{
+					int selIdx;
+
+					for (selIdx = 0; selIdx < optionSelect.Items.Count; selIdx++)
+						if (DDUtils.IsOut(new D2Point(DDMouse.X, DDMouse.Y), optionSelect.Items[selIdx].GetD4Rect()) == false)
+							break;
+
+					if (selIdx == optionSelect.Items.Count)
+						selIdx = 0;
+					else
+						selIdx += optionSelectChangeIndex;
+
+					selIdx %= optionSelect.Items.Count;
+					selIdx += optionSelect.Items.Count;
+					selIdx %= optionSelect.Items.Count;
+
+					DDMouse.X = optionSelect.Items[selIdx].L + optionSelect.Items[selIdx].W - 10;
+					DDMouse.Y = optionSelect.Items[selIdx].T + optionSelect.Items[selIdx].H - 10;
+					DDMouse.ApplyPos();
+				}
+				if (optionSelectedFlag)
 				{
 					for (int index = 0; index < optionSelect.Items.Count; index++)
 					{
@@ -241,7 +272,11 @@ namespace Charlotte.Games
 					goto startCurrPage;
 				}
 
-				if (DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
+				if (
+					//DDKey.GetInput(DX.KEY_INPUT_LEFT) == 1 || // --> DDInput.DIR_4
+					DDInput.DIR_4.GetInput() == 1 ||
+					0 < DDMouse.Rot
+					)
 				{
 					this.BackLog();
 				}
