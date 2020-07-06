@@ -173,7 +173,11 @@ namespace Charlotte.Games
 				bool optionSelectedFlag = false;
 				bool nextPageFlag = false;
 
-				if (1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL)) // skip Mode
+				// ? skip Mode
+				if (
+					1 <= DDInput.R.GetInput() ||
+					1 <= DDKey.GetInput(DX.KEY_INPUT_LCONTROL)
+					)
 				{
 					if (1 <= dispPageEndedCount)
 					{
