@@ -379,6 +379,15 @@ namespace Charlotte.Games
 				DDEngine.EachFrame();
 			}
 
+			DDCurtain.SetCurtain(30, -1.0);
+			DDMusicUtils.Fade();
+
+			foreach (DDScene scene in DDSceneUtils.Create(40))
+			{
+				this.SceneCommonEachFrame();
+				DDEngine.EachFrame();
+			}
+
 			DDEngine.FreezeInput();
 		}
 
@@ -447,15 +456,15 @@ namespace Charlotte.Games
 
 			for (; ; )
 			{
-				if (DDKey.GetInput(DX.KEY_INPUT_UP) == 1 || 0 < DDMouse.Rot)
+				if (DDInput.DIR_8.IsPound() || 0 < DDMouse.Rot)
 				{
 					backIndex++;
 				}
-				if (DDKey.GetInput(DX.KEY_INPUT_DOWN) == 1 || DDMouse.Rot < 0)
+				if (DDInput.DIR_2.IsPound() || DDMouse.Rot < 0)
 				{
 					backIndex--;
 				}
-				if (DDKey.GetInput(DX.KEY_INPUT_RIGHT) == 1)
+				if (DDInput.DIR_6.GetInput() == 1)
 				{
 					backIndex = -1;
 				}

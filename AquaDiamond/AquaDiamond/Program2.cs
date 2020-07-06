@@ -107,11 +107,6 @@ namespace Charlotte
 			{
 				TitleMenu.I.Perform();
 			}
-			using (new Game())
-			{
-				Game.I.Scenario = new Scenario("101_スタートシナリオ");
-				Game.I.Perform();
-			}
 		}
 	}
 }

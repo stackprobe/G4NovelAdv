@@ -89,7 +89,6 @@ namespace Charlotte.TitleMenus
 				}
 			}
 		endMenu:
-			DDEngine.FreezeInput();
 			DDMusicUtils.Fade();
 			DDCurtain.SetCurtain(30, -1.0);
 
@@ -98,6 +97,8 @@ namespace Charlotte.TitleMenus
 				this.DrawWall();
 				DDEngine.EachFrame();
 			}
+
+			DDEngine.FreezeInput();
 		}
 
 		private void Setting()
