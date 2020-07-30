@@ -50,6 +50,8 @@ namespace Charlotte.Games
 		startCurrPage:
 			this.CurrPage = this.Scenario.Pages[this.CurrPageIndex];
 
+			// ---- ページ初期化・ここから
+
 			GameOptionSelect optionSelect = null;
 
 			foreach (ScenarioCommand command in this.CurrPage.Commands)
@@ -150,6 +152,8 @@ namespace Charlotte.Games
 					throw new DDError("不明なコマンド：" + command.Name);
 				}
 			}
+
+			// ---- ページ初期化・ここまで
 
 			DDEngine.FreezeInput();
 
