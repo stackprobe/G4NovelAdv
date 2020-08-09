@@ -28,7 +28,7 @@ namespace Charlotte.TitleMenus
 			I = null;
 		}
 
-		private DDSimpleMenu SmplMenu;
+		private DDSimpleMenu SimpleMenu;
 
 		public void Perform()
 		{
@@ -49,14 +49,14 @@ namespace Charlotte.TitleMenus
 
 			int selectIndex = 0;
 
-			this.SmplMenu = new DDSimpleMenu();
+			this.SimpleMenu = new DDSimpleMenu();
 
-			this.SmplMenu.WallColor = new I3Color(60, 120, 130);
-			//this.SmplMenu.WallPicture = Ground.I.Picture.TitleWall;
+			this.SimpleMenu.WallColor = new I3Color(60, 120, 130);
+			//this.SimpleMenu.WallPicture = Ground.I.Picture.TitleWall;
 
 			for (; ; )
 			{
-				selectIndex = this.SmplMenu.Perform("AquaDiamond", items, selectIndex);
+				selectIndex = this.SimpleMenu.Perform("AquaDiamond", items, selectIndex);
 
 				switch (selectIndex)
 				{
@@ -119,20 +119,20 @@ namespace Charlotte.TitleMenus
 
 			for (; ; )
 			{
-				selectIndex = this.SmplMenu.Perform("設定", items, selectIndex);
+				selectIndex = this.SimpleMenu.Perform("設定", items, selectIndex);
 
 				switch (selectIndex)
 				{
 					case 0:
-						this.SmplMenu.PadConfig();
+						this.SimpleMenu.PadConfig();
 						break;
 
 					case 1:
-						this.SmplMenu.WindowSizeConfig();
+						this.SimpleMenu.WindowSizeConfig();
 						break;
 
 					case 2:
-						this.SmplMenu.VolumeConfig("ＢＧＭ音量", DDGround.MusicVolume, 0, 100, 1, 10, volume =>
+						this.SimpleMenu.VolumeConfig("ＢＧＭ音量", DDGround.MusicVolume, 0, 100, 1, 10, volume =>
 						{
 							DDGround.MusicVolume = volume;
 							DDMusicUtils.UpdateVolume();
@@ -142,7 +142,7 @@ namespace Charlotte.TitleMenus
 						break;
 
 					case 3:
-						this.SmplMenu.VolumeConfig("ＳＥ音量", DDGround.SEVolume, 0, 100, 1, 10, volume =>
+						this.SimpleMenu.VolumeConfig("ＳＥ音量", DDGround.SEVolume, 0, 100, 1, 10, volume =>
 						{
 							DDGround.SEVolume = volume;
 							DDSEUtils.UpdateVolume();
@@ -167,7 +167,7 @@ namespace Charlotte.TitleMenus
 
 		private void DrawWall()
 		{
-			DDDraw.SetBright(this.SmplMenu.WallColor.Value);
+			DDDraw.SetBright(this.SimpleMenu.WallColor.Value);
 			DDDraw.DrawRect(DDGround.GeneralResource.WhiteBox, 0, 0, DDConsts.Screen_W, DDConsts.Screen_H);
 			DDDraw.Reset();
 			//DDDraw.DrawRect(Ground.I.Picture.TitleWall, 0, 0, DDConsts.Screen_W, DDConsts.Screen_H);
