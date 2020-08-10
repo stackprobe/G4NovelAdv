@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading;
 using DxLibDLL;
 using Charlotte.Tools;
+using Charlotte.Common.MaskGZDataUtils;
 
 namespace Charlotte.Common
 {
@@ -44,12 +45,7 @@ namespace Charlotte.Common
 
 			// $_git:secretBegin
 //
-			///////////////////////
-//
-			//////////////////////////////////////////
-			//
-				/////////////////////////////////////////////////////////////////////
-			//
+			////////////////////////////////////////////////
 //
 			// $_git:secretEnd
 

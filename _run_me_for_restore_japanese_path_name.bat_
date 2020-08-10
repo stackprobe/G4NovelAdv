@@ -1,17 +1,3 @@
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0010.txt _シナリオデータ書式.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0009.txt 323_第三幕ルートB-3シナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0008.txt 322_第三幕ルートB-2シナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0007.txt 321_第三幕ルートB-1シナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0006.txt 313_第三幕ルートA-3シナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0005.txt 312_第三幕ルートA-2シナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0004.txt 311_第三幕ルートA-1シナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0003.txt 202_第二幕ルートBシナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0002.txt 201_第二幕ルートAシナリオ.txt
-REN Resource\Scenario\[Includes-Non-ASCII-characters]_0001.txt 101_スタートシナリオ.txt
-REN "Resource\Font\K Gothic\[Includes-Non-ASCII-characters]_0001.txt" はじめにお読みください.txt
-REN Resource\[Includes-Non-ASCII-characters]_0003 小森平
-REN Resource\[Includes-Non-ASCII-characters]_0002 わたおきば
-REN Resource\[Includes-Non-ASCII-characters]_0001 きまぐれアフター
 REN doc\[Includes-Non-ASCII-characters]_0001.txt マニュアル.txt
 REN AquaDiamond\AquaDiamond\Games\[Includes-Non-ASCII-characters]_0002.cs GameEffect_揺れ.cs
 REN AquaDiamond\AquaDiamond\Games\[Includes-Non-ASCII-characters]_0001.cs GameEffect_跳び.cs

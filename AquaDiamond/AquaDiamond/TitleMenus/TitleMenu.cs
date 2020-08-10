@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Charlotte.Tools;
 using Charlotte.Common;
+using Charlotte.Common.Options;
 using Charlotte.Games;
 using Charlotte.Scenarios;
-using Charlotte.Tools;
-using Charlotte.Game3Common;
 
 namespace Charlotte.TitleMenus
 {
@@ -149,7 +149,7 @@ namespace Charlotte.TitleMenus
 						},
 						() =>
 						{
-							CResource.GetSE(@"小森平\poka01.mp3").Play();
+							CResource.GetSE(@"Etoile\AquaDiamond\小森平\poka01.mp3").Play();
 						}
 						);
 						break;

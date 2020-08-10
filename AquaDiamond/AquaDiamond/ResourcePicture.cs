@@ -10,12 +10,12 @@ namespace Charlotte
 	{
 		//public DDPicture Dummy = DDPictureLoaders.Standard("Dummy.png");
 
-		public DDPicture Copyright = DDPictureLoaders.Standard(@"Logo\Copyright.png");
+		public DDPicture Copyright = DDPictureLoaders.Standard(@"Etoile\AquaDiamond\Logo\Copyright.png");
 
-		public DDPicture MessageWin = DDPictureLoaders.Standard(@"vita-chi\hakkou1.png");
-		public DDPicture MessageWin_Red = DDPictureLoaders.Standard(@"vita-chi\hakkou2.png");
-		public DDPicture MiniMessageWin = DDPictureLoaders.Standard(@"vita-chi\hakkou_mini.png");
-		public DDPicture MiniMessageWin_Red = DDPictureLoaders.Standard(@"vita-chi\hakkou_mini2.png");
+		public DDPicture MessageWin = DDPictureLoaders.Standard(@"Etoile\AquaDiamond\vita-chi\hakkou1.png");
+		public DDPicture MessageWin_Red = DDPictureLoaders.Standard(@"Etoile\AquaDiamond\vita-chi\hakkou2.png");
+		public DDPicture MiniMessageWin = DDPictureLoaders.Standard(@"Etoile\AquaDiamond\vita-chi\hakkou_mini.png");
+		public DDPicture MiniMessageWin_Red = DDPictureLoaders.Standard(@"Etoile\AquaDiamond\vita-chi\hakkou_mini2.png");
 
 #if false // del @ 2020.5.24
 		public DDPicture Chara_01_A = DDPictureLoaders.Standard(@"わたおきば\josei_01_a.png");

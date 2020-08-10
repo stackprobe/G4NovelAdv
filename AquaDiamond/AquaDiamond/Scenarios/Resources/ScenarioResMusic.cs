@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Common;
-using Charlotte.Game3Common;
+using Charlotte.Common.Options;
 
 namespace Charlotte.Scenarios.Resources
 {
@@ -25,7 +25,7 @@ namespace Charlotte.Scenarios.Resources
 		private ScenarioResMusic()
 		{ }
 
-		private const string MUSIC_FILE_PREFIX = "MusMus\\MusMus-BGM-";
+		private const string MUSIC_FILE_PREFIX = "Etoile\\AquaDiamond\\MusMus\\MusMus-BGM-";
 		private const string MUSIC_FILE_SUFFIX = ".mp3";
 
 		public DDMusic GetMusic(string name)

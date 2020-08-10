@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Common;
 using Charlotte.Tools;
-using Charlotte.Game3Common;
+using Charlotte.Common;
+using Charlotte.Common.Options;
 
 namespace Charlotte.Scenarios.Resources
 {
@@ -45,7 +45,7 @@ namespace Charlotte.Scenarios.Resources
 #endif
 		}
 
-		private const string CHARA_FILE_PREFIX = "わたおきば\\";
+		private const string CHARA_FILE_PREFIX = "Etoile\\AquaDiamond\\わたおきば\\";
 		private const string CHARA_FILE_SUFFIX = ".png";
 
 		public DDPicture GetPicture(string name)

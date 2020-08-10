@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Common;
 using Charlotte.Tools;
-using Charlotte.Game3Common;
+using Charlotte.Common;
+using Charlotte.Common.Options;
 
 namespace Charlotte.Scenarios.Resources
 {
@@ -39,7 +39,7 @@ namespace Charlotte.Scenarios.Resources
 #endif
 		}
 
-		private const string WALL_FILE_PREFIX = "きまぐれアフター\\BG";
+		private const string WALL_FILE_PREFIX = "Etoile\\AquaDiamond\\きまぐれアフター\\BG";
 		private const string WALL_FILE_SUFFIX = "_80.jpg";
 
 		public DDPicture GetPicture(string name)
