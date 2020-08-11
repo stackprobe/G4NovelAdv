@@ -34,6 +34,24 @@ namespace Charlotte
 			DDAdditionalEvents.Ground_INIT = () =>
 			{
 				//DDGround.RO_MouseDispMode = true;
+
+				// DDInput のキー設定を全て無効にする。
+				{
+					DDInput.DIR_2.KeyId = -1;
+					DDInput.DIR_4.KeyId = -1;
+					DDInput.DIR_6.KeyId = -1;
+					DDInput.DIR_8.KeyId = -1;
+					DDInput.A.KeyId = -1;
+					DDInput.B.KeyId = -1;
+					DDInput.C.KeyId = -1;
+					DDInput.D.KeyId = -1;
+					DDInput.E.KeyId = -1;
+					DDInput.F.KeyId = -1;
+					DDInput.L.KeyId = -1;
+					DDInput.R.KeyId = -1;
+					DDInput.PAUSE.KeyId = -1;
+					DDInput.START.KeyId = -1;
+				}
 			};
 
 			DDAdditionalEvents.PostGameStart = () =>
@@ -50,9 +68,7 @@ namespace Charlotte
 
 			DDAdditionalEvents.Save = lines =>
 			{
-				//lines.Add(DateTime.Now.ToString()); // Dummy
-				//lines.Add(DateTime.Now.ToString()); // Dummy
-				//lines.Add(DateTime.Now.ToString()); // Dummy
+				//lines.Add("AquaDiamond-Dummy"); // Dummy
 
 				lines.Add("" + Ground.I.MessageSpeed);
 
@@ -63,8 +79,6 @@ namespace Charlotte
 			{
 				int c = 0;
 
-				//DDUtils.Noop(lines[c++]); // Dummy
-				//DDUtils.Noop(lines[c++]); // Dummy
 				//DDUtils.Noop(lines[c++]); // Dummy
 
 				Ground.I.MessageSpeed = IntTools.ToInt(lines[c++], Consts.MESSAGE_SPEED_MIN, Consts.MESSAGE_SPEED_MAX, Consts.MESSAGE_SPEED_DEF);
