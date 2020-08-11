@@ -30,7 +30,7 @@ namespace Charlotte.Scenarios.Resources
 
 		public DDMusic GetMusic(string name)
 		{
-			return CResource.GetMusic(MUSIC_FILE_PREFIX + name + MUSIC_FILE_SUFFIX);
+			return DDCResource.GetMusic(MUSIC_FILE_PREFIX + name + MUSIC_FILE_SUFFIX);
 		}
 	}
 }

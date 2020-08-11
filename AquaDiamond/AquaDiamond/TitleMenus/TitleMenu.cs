@@ -149,7 +149,7 @@ namespace Charlotte.TitleMenus
 						},
 						() =>
 						{
-							CResource.GetSE(@"Etoile\AquaDiamond\小森平\poka01.mp3").Play();
+							DDCResource.GetSE(@"Etoile\AquaDiamond\小森平\poka01.mp3").Play();
 						}
 						);
 						break;

@@ -51,7 +51,7 @@ namespace Charlotte.Scenarios.Resources
 		public DDPicture GetPicture(string name)
 		{
 #if true
-			return CResource.GetPicture(CHARA_FILE_PREFIX + name + CHARA_FILE_SUFFIX);
+			return DDCResource.GetPicture(CHARA_FILE_PREFIX + name + CHARA_FILE_SUFFIX);
 #else // del @ 2020.5.24
 			return this.Name2Picture[name];
 #endif

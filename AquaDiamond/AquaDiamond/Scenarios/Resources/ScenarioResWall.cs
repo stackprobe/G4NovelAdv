@@ -45,7 +45,7 @@ namespace Charlotte.Scenarios.Resources
 		public DDPicture GetPicture(string name)
 		{
 #if true
-			return CResource.GetPicture(WALL_FILE_PREFIX + name + WALL_FILE_SUFFIX);
+			return DDCResource.GetPicture(WALL_FILE_PREFIX + name + WALL_FILE_SUFFIX);
 #else // del @ 2020.5.24
 			return this.Name2Picture[name];
 #endif
