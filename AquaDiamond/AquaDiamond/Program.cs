@@ -17,7 +17,7 @@ namespace Charlotte
 			ProcMain.GUIMain(() => new MainWin(), APP_IDENT, APP_TITLE);
 		}
 
-		public const string APP_IDENT = "{b7244034-6cda-43bf-b50e-0c2972657ea7}";
+		public const string APP_IDENT = "{81481a7e-daa2-4460-a994-bc03ee595f5c}";
 		public const string APP_TITLE = "AquaDiamond";
 	}
 }
