@@ -10,7 +10,7 @@ namespace Charlotte
 	{
 		//public DDSE Dummy = new DDSE("Dummy.mp3");
 
-		public DDSE Hit01 = new DDSE(@"Etoile\AquaDiamond\小森平\hit01.mp3");
-		public DDSE Poka01 = new DDSE(@"Etoile\AquaDiamond\小森平\poka01.mp3");
+		public DDSE Hit01 = new DDSE(@"Etoile\G4NovelAdv\小森平\hit01.mp3");
+		public DDSE Poka01 = new DDSE(@"Etoile\G4NovelAdv\小森平\poka01.mp3");
 	}
 }

@@ -56,7 +56,7 @@ namespace Charlotte.TitleMenus
 
 			for (; ; )
 			{
-				selectIndex = this.SimpleMenu.Perform("AquaDiamond", items, selectIndex);
+				selectIndex = this.SimpleMenu.Perform("G4NovelAdv", items, selectIndex);
 
 				switch (selectIndex)
 				{
@@ -149,7 +149,7 @@ namespace Charlotte.TitleMenus
 						},
 						() =>
 						{
-							DDCResource.GetSE(@"Etoile\AquaDiamond\小森平\poka01.mp3").Play();
+							DDCResource.GetSE(@"Etoile\G4NovelAdv\小森平\poka01.mp3").Play();
 						}
 						);
 						break;

@@ -45,7 +45,7 @@ namespace Charlotte.Scenarios.Resources
 #endif
 		}
 
-		private const string CHARA_FILE_PREFIX = "Etoile\\AquaDiamond\\わたおきば\\";
+		private const string CHARA_FILE_PREFIX = "Etoile\\G4NovelAdv\\わたおきば\\";
 		private const string CHARA_FILE_SUFFIX = ".png";
 
 		public DDPicture GetPicture(string name)

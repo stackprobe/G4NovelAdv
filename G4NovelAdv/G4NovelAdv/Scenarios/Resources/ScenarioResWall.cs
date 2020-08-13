@@ -39,7 +39,7 @@ namespace Charlotte.Scenarios.Resources
 #endif
 		}
 
-		private const string WALL_FILE_PREFIX = "Etoile\\AquaDiamond\\きまぐれアフター\\BG";
+		private const string WALL_FILE_PREFIX = "Etoile\\G4NovelAdv\\きまぐれアフター\\BG";
 		private const string WALL_FILE_SUFFIX = "_80.jpg";
 
 		public DDPicture GetPicture(string name)

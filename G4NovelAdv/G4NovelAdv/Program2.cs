@@ -59,7 +59,7 @@ namespace Charlotte
 				// Font >
 
 				//DDFontRegister.Add(@"Font\Genkai-Mincho-font\genkai-mincho.ttf");
-				DDFontRegister.Add(@"Etoile\AquaDiamond\Font\K Gothic\K Gothic.ttf");
+				DDFontRegister.Add(@"Etoile\G4NovelAdv\Font\K Gothic\K Gothic.ttf");
 
 				// < Font
 
@@ -68,7 +68,7 @@ namespace Charlotte
 
 			DDAdditionalEvents.Save = lines =>
 			{
-				//lines.Add("AquaDiamond-Dummy"); // Dummy
+				//lines.Add("G4NovelAdv-Dummy"); // Dummy
 
 				lines.Add("" + Ground.I.MessageSpeed);
 

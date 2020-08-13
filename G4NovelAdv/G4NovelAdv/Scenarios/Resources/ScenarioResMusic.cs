@@ -25,7 +25,7 @@ namespace Charlotte.Scenarios.Resources
 		private ScenarioResMusic()
 		{ }
 
-		private const string MUSIC_FILE_PREFIX = "Etoile\\AquaDiamond\\MusMus\\MusMus-BGM-";
+		private const string MUSIC_FILE_PREFIX = "Etoile\\G4NovelAdv\\MusMus\\MusMus-BGM-";
 		private const string MUSIC_FILE_SUFFIX = ".mp3";
 
 		public DDMusic GetMusic(string name)

@@ -10,7 +10,7 @@ namespace Charlotte.Scenarios
 {
 	public class Scenario
 	{
-		private const string SCENARIO_FILE_PREFIX = "Etoile\\AquaDiamond\\Scenario\\";
+		private const string SCENARIO_FILE_PREFIX = "Etoile\\G4NovelAdv\\Scenario\\";
 		private const string SCENARIO_FILE_SUFFIX = ".txt";
 
 		public List<ScenarioPage> Pages = new List<ScenarioPage>();
