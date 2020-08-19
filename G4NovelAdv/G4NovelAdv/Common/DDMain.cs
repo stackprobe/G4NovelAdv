@@ -135,10 +135,15 @@ namespace Charlotte.Common
 
 			// app > @ GameStart
 
-			DDFontRegister.Add(@"Fairy\Donut3\Font\Genkai-Mincho-font\genkai-mincho.ttf");
-			DDFontRegister.Add(@"Fairy\Donut3\Font\riitf\RiiT_F.otf");
+			// Font
+			{
+				//DDFontRegister.Add(@"Font\Genkai-Mincho-font\genkai-mincho.ttf");
+				DDFontRegister.Add(@"Etoile\G4NovelAdv\Font\K Gothic\K Gothic.ttf");
+			}
 
 			Ground.I = new Ground();
+
+			MainWin.I.PostGameStart_G3();
 
 			// < app
 

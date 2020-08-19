@@ -123,6 +123,24 @@ namespace Charlotte.Common
 
 			//GameGround.RO_MouseDispMode = true;
 
+			// キー設定を全て無効にする。-- キー入力は DX.KEY_* から直接取得する。
+			{
+				DDInput.DIR_2.KeyId = -1;
+				DDInput.DIR_4.KeyId = -1;
+				DDInput.DIR_6.KeyId = -1;
+				DDInput.DIR_8.KeyId = -1;
+				DDInput.A.KeyId = -1;
+				DDInput.B.KeyId = -1;
+				DDInput.C.KeyId = -1;
+				DDInput.D.KeyId = -1;
+				DDInput.E.KeyId = -1;
+				DDInput.F.KeyId = -1;
+				DDInput.L.KeyId = -1;
+				DDInput.R.KeyId = -1;
+				DDInput.PAUSE.KeyId = -1;
+				DDInput.START.KeyId = -1;
+			}
+
 			// < app
 		}
 	}

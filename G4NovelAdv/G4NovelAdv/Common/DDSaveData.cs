@@ -80,9 +80,11 @@ namespace Charlotte.Common
 
 				// app > @ Save
 
-				lines.Add("Donut3-SaveData"); // Dummy
-				lines.Add("Donut3-SaveData"); // Dummy
-				lines.Add("Donut3-SaveData"); // Dummy
+				//lines.Add("G4NovelAdv-Dummy"); // Dummy
+
+				lines.Add("" + Ground.I.MessageSpeed);
+
+				// 新しい項目をここへ追加...
 
 				// < app
 
@@ -177,9 +179,11 @@ namespace Charlotte.Common
 				{
 					// app > @ Load
 
-					DDUtils.Noop(lines[c++]); // Dummy
-					DDUtils.Noop(lines[c++]); // Dummy
-					DDUtils.Noop(lines[c++]); // Dummy
+					//DDUtils.Noop(lines[c++]); // Dummy
+
+					Ground.I.MessageSpeed = IntTools.ToInt(lines[c++], Consts.MESSAGE_SPEED_MIN, Consts.MESSAGE_SPEED_MAX, Consts.MESSAGE_SPEED_DEF);
+
+					// 新しい項目をここへ追加...
 
 					// < app
 				}
