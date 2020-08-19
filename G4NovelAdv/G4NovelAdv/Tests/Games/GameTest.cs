@@ -13,6 +13,7 @@ namespace Charlotte.Tests.Games
 		{
 			using (new Game())
 			{
+				Game.I.Scenario = new Scenario("Test0001");
 				Game.I.Perform();
 			}
 		}

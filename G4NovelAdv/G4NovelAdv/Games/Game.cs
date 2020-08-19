@@ -12,7 +12,7 @@ namespace Charlotte.Games
 {
 	public class Game : IDisposable
 	{
-		public Scenario Scenario = new Scenario("Test0001"); // lite dummy object
+		public Scenario Scenario;
 
 		// <---- prm
 
