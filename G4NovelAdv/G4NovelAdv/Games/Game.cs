@@ -310,8 +310,8 @@ namespace Charlotte.Games
 					if (DDEngine.ProcFrame % 3 == 0)
 						dispChrCount++;
 				}
-				DDUtils.Range(ref dispCharaNameChrCount, 0, IntTools.IMAX); // カンスト対策
-				DDUtils.Range(ref dispChrCount, 0, IntTools.IMAX); // カンスト対策
+				DDUtils.ToRange(ref dispCharaNameChrCount, 0, IntTools.IMAX); // カンスト対策
+				DDUtils.ToRange(ref dispChrCount, 0, IntTools.IMAX); // カンスト対策
 
 #if true // フォント使用(Kゴシック)
 				{
@@ -476,7 +476,7 @@ namespace Charlotte.Games
 				{
 					backIndex = -1;
 				}
-				DDUtils.Range(ref backIndex, -1, logLines.Count - 1);
+				DDUtils.ToRange(ref backIndex, -1, logLines.Count - 1);
 
 				if (backIndex < 0)
 				{
