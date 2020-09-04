@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using Charlotte.Common;
 using Charlotte.Scenarios;
-using Charlotte.Tools;
 using Charlotte.Scenarios.Resources;
+using Charlotte.Tools;
 using DxLibDLL;
 
 namespace Charlotte.Games
