@@ -65,7 +65,7 @@ namespace Charlotte.Games
 
 							using (new Game())
 							{
-								Game.I.Scenario = new Scenario("101_スタートシナリオ");
+								Game.I.Scenario = new Scenario(GameConsts.FIRST_SCENARIO_NAME);
 								Game.I.Perform();
 							}
 							this.ReturnTitleMenu();
@@ -148,7 +148,7 @@ namespace Charlotte.Games
 						},
 						() =>
 						{
-							DDCResource.GetSE(@"Etoile\G4NovelAdv\小森平\poka01.mp3").Play();
+							Ground.I.SE.Poka01.Play();
 						}
 						);
 						break;

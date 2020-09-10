@@ -5,6 +5,7 @@ using System.Text;
 using Charlotte.Common;
 using Charlotte.Tools;
 using System.IO;
+using Charlotte.Games.Commands;
 
 namespace Charlotte.Games
 {
@@ -13,17 +14,17 @@ namespace Charlotte.Games
 		private const string SCENARIO_FILE_PREFIX = "Etoile\\G4NovelAdv\\Scenario\\";
 		private const string SCENARIO_FILE_SUFFIX = ".txt";
 
+		public string Name;
 		public List<ScenarioPage> Pages = new List<ScenarioPage>();
 
 		public Scenario(string name)
 		{
-			string file = SCENARIO_FILE_PREFIX + name + SCENARIO_FILE_SUFFIX;
+			if (string.IsNullOrEmpty(name))
+				throw new DDError();
 
+			this.Name = name;
 			this.Pages.Clear();
 
-#if false // 本番用
-			byte[] fileData = DDResource.Load(file);
-#else
 			byte[] fileData;
 
 			{
@@ -32,14 +33,17 @@ namespace Charlotte.Games
 
 				if (Directory.Exists(DEVENV_SCENARIO_DIR))
 				{
-					fileData = File.ReadAllBytes(Path.Combine(DEVENV_SCENARIO_DIR, name + DEVENV_SCENARIO_SUFFIX));
+					string file = Path.Combine(DEVENV_SCENARIO_DIR, name + DEVENV_SCENARIO_SUFFIX);
+
+					fileData = File.ReadAllBytes(file);
 				}
 				else
 				{
+					string file = SCENARIO_FILE_PREFIX + name + SCENARIO_FILE_SUFFIX;
+
 					fileData = DDResource.Load(file);
 				}
 			}
-#endif
 
 			string[] lines = FileTools.TextToLines(JString.ToJString(fileData, true, true, false, true));
 			ScenarioPage page = null;
@@ -55,7 +59,7 @@ namespace Charlotte.Games
 				{
 					page = new ScenarioPage()
 					{
-						CharacterName = line.Substring(1)
+						Subtitle = line.Substring(1)
 					};
 
 					this.Pages.Add(page);
@@ -68,21 +72,20 @@ namespace Charlotte.Games
 				{
 					string[] tokens = line.Substring(1).Split(' ').Where(v => v != "").ToArray();
 
-					page.Commands.Add(new ScenarioCommand()
-					{
-						Name = tokens[0],
-						Arguments = new List<string>(tokens.Skip(1).ToArray()),
-					});
+					page.Commands.Add(CommandCreater.Create(
+						tokens[0],
+						tokens.Skip(1).ToArray()
+						));
 				}
 				else
 				{
 					page.Lines.Add(line);
 				}
 			}
-			this.PostCtor();
+			this.各ページの各行の長さ調整();
 		}
 
-		private void PostCtor()
+		private void 各ページの各行の長さ調整()
 		{
 			foreach (ScenarioPage page in this.Pages)
 			{

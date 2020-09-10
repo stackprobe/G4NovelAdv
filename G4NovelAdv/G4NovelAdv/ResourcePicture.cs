@@ -12,35 +12,23 @@ namespace Charlotte
 
 		public DDPicture Copyright = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\Logo\Copyright.png");
 
-		public DDPicture MessageWin = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\vita-chi\hakkou1.png");
-		public DDPicture MessageWin_Red = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\vita-chi\hakkou2.png");
-		public DDPicture MiniMessageWin = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\vita-chi\hakkou_mini.png");
-		public DDPicture MiniMessageWin_Red = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\vita-chi\hakkou_mini2.png");
-
-#if false // del @ 2020.5.24
-		public DDPicture Chara_01_A = DDPictureLoaders.Standard(@"わたおきば\josei_01_a.png");
-		public DDPicture Chara_01_D = DDPictureLoaders.Standard(@"わたおきば\josei_01_d.png");
-		public DDPicture Chara_01_H = DDPictureLoaders.Standard(@"わたおきば\josei_01_h.png");
-		public DDPicture Chara_04_A = DDPictureLoaders.Standard(@"わたおきば\josei_04_a.png");
-		public DDPicture Chara_06_A = DDPictureLoaders.Standard(@"わたおきば\josei_06_a.png");
-		public DDPicture Chara_07_A = DDPictureLoaders.Standard(@"わたおきば\josei_07_a.png");
-		public DDPicture Chara_13_A = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_a.png");
-		public DDPicture Chara_13_B = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_b.png");
-		public DDPicture Chara_13_C = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_c.png");
-		public DDPicture Chara_13_D = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_d.png");
-		public DDPicture Chara_13_E = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_e.png");
-		public DDPicture Chara_13_F = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_f.png");
-		public DDPicture Chara_13_G = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_g.png");
-		public DDPicture Chara_13_H = DDPictureLoaders.Standard(@"わたおきば\josei_13_mermaid\josei_13_h.png");
-
-		public DDPicture Wall_02_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG02a_80.jpg");
-		public DDPicture Wall_04_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG04a_80.jpg");
-		public DDPicture Wall_14_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG14a_80.jpg");
-		public DDPicture Wall_15_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG15a_80.jpg");
-		public DDPicture Wall_16_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG16a_80.jpg");
-		public DDPicture Wall_27_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG27a_80.jpg");
-		public DDPicture Wall_29_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG29a_80.jpg");
-		public DDPicture Wall_39_A = DDPictureLoaders.Standard(@"きまぐれアフター\BG39a_80.jpg");
-#endif
+		public DDPicture 未確認飛行ゆかりん_UFO = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO.png");
+		public DDPicture 未確認飛行ゆかりん_UFO_うしろ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_うしろ.png");
+		public DDPicture 未確認飛行ゆかりん_UFO_光 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_光 .png");
+		public DDPicture 未確認飛行ゆかりん_UFO_手付き = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_手付き.png");
+		public DDPicture 未確認飛行ゆかりん_UFO_手付き_光 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_手付き_光.png");
+		public DDPicture 未確認飛行ゆかりん_あたま0000 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\あたま0000.png");
+		public DDPicture 未確認飛行ゆかりん_あたま0001 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\あたま0001.png");
+		public DDPicture 未確認飛行ゆかりん_あたま0002 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\あたま0002.png");
+		public DDPicture 未確認飛行ゆかりん_あたま0003 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\あたま0003.png");
+		public DDPicture 未確認飛行ゆかりん_あたま0004 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\あたま0004.png");
+		public DDPicture 未確認飛行ゆかりん_からだ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\からだ.png");
+		public DDPicture 未確認飛行ゆかりん_てのりゆかり = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\てのりゆかり.png");
+		public DDPicture 未確認飛行ゆかりん_まかろん_うしろ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\まかろん_うしろ.png");
+		public DDPicture 未確認飛行ゆかりん_まかろん_まえ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\まかろん_まえ.png");
+		public DDPicture 未確認飛行ゆかりん_もみあげ_うしろ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\もみあげ_うしろ.png");
+		public DDPicture 未確認飛行ゆかりん_もみあげ_まえ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\もみあげ_まえ.png");
+		public DDPicture 未確認飛行ゆかりん_キャッチャー = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\キャッチャー.png");
+		public DDPicture 未確認飛行ゆかりん_髪飾り = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\髪飾り.png");
 	}
 }

@@ -1,7 +1,7 @@
 ===============================================================================
 
 　G4NovelAdv / version $version$
-　　　　　　　　　　　　　　　　　　　　　　　　　　(C) 2019 cerulean.charlotte
+　　　　　　　　　　　　　　　　　　　　　　　　　　(C) 202x cerulean.charlotte
 
 ===============================================================================
 
@@ -13,16 +13,8 @@ TODO
 
 　●キャラクタ画像
 
-　　わたおきば(https://wataokiba.net/)
-
-　●背景画像
-
-　　きまぐれアフター
-	http://www5d.biglobe.ne.jp/~gakai/HTML/kiyaku.html
-
-　●音楽
-
-　　フリーBGM・音楽素材MusMus http://musmus.main.jp/
+	ぺるこ
+	https://seiga.nicovideo.jp/seiga/im9605873
 
 　●効果音
 

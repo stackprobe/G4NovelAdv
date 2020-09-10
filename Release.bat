@@ -18,9 +18,6 @@ C:\Factory\Tools\xcp.exe doc out
 C:\Factory\Tools\xcp.exe C:\Dev\Fairy\Donut3\doc out
 COPY /B AUTHORS out
 
-	MD out\シナリオデータ
-	C:\Factory\Tools\xcp.exe C:\Dat\Resource\Etoile\G4NovelAdv\Scenario out\シナリオデータ
-
 C:\Factory\SubTools\zip.exe /PE- /RVE- /G out G4NovelAdv
 C:\Factory\Tools\summd5.exe /M out
 

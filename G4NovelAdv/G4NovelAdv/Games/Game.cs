@@ -5,12 +5,13 @@ using System.Text;
 using Charlotte.Common;
 using Charlotte.Tools;
 using DxLibDLL;
+using Charlotte.Games.Commands;
 
 namespace Charlotte.Games
 {
 	public class Game : IDisposable
 	{
-		public Scenario Scenario;
+		private GameStatus Status;
 
 		// <---- prm
 
@@ -30,143 +31,34 @@ namespace Charlotte.Games
 			I = null;
 		}
 
-		private const int NEXT_PAGE_KEY_INTERVAL = 10;
-		private const int SHITA_KORO_SLEEP = 5;
+		//private const int NEXT_PAGE_KEY_INTERVAL = 10;
+		//private const int SHITA_KORO_SLEEP = 5;
 
-		private int CurrPageIndex;
 		private ScenarioPage CurrPage;
-
-		private GameScene CurrScene = new GameScene();
 
 		public void Perform()
 		{
 			DDCurtain.SetCurtain(0, -1.0);
 			DDCurtain.SetCurtain();
 
-			this.CurrPageIndex = 0;
-
 		startCurrPage:
-			this.CurrPage = this.Scenario.Pages[this.CurrPageIndex];
+			this.CurrPage = this.Status.Scenario.Pages[this.Status.CurrPageIndex];
 
-			// ---- ページ初期化・ここから
+			foreach (Command command in this.CurrPage.Commands)
+				command.Fire();
 
-			GameOptionSelect optionSelect = null;
-
-			foreach (ScenarioCommand command in this.CurrPage.Commands)
-			{
-				if (command.Name == ScenarioCommand.NAME_登場)
-				{
-					int charaPos = int.Parse(command.Arguments[0]);
-					string charaName = command.Arguments[1];
-
-					this.CurrScene.CharaNames[charaPos] = charaName;
-					this.CurrScene.Charas[charaPos] = ScenarioResCharacter.I.GetPicture(charaName);
-
-					this.CurrScene.CharaInfos[charaPos].Reset();
-				}
-				else if (command.Name == ScenarioCommand.NAME_退場)
-				{
-					int charaPos = int.Parse(command.Arguments[0]);
-
-					this.CurrScene.CharaNames[charaPos] = null;
-					this.CurrScene.Charas[charaPos] = null;
-				}
-				else if (command.Name == ScenarioCommand.NAME_背景)
-				{
-					string wallName = command.Arguments[0];
-
-					if (wallName == ScenarioCommand.ARGUMENT_無し)
-					{
-						this.CurrScene.WallName = null;
-						this.CurrScene.Wall = null;
-					}
-					else
-					{
-						this.CurrScene.WallName = wallName;
-						this.CurrScene.Wall = ScenarioResWall.I.GetPicture(wallName);
-					}
-				}
-				else if (command.Name == ScenarioCommand.NAME_音楽)
-				{
-					string musicName = command.Arguments[0];
-
-					if (musicName == ScenarioCommand.ARGUMENT_無し)
-					{
-						DDMusicUtils.Fade();
-					}
-					else
-					{
-						DDMusicUtils.Play(ScenarioResMusic.I.GetMusic(musicName));
-					}
-				}
-				else if (command.Name == ScenarioCommand.NAME_揺れ)
-				{
-					int charaPos = int.Parse(command.Arguments[0]);
-
-					this.CurrScene.CharaInfos[charaPos].Effect = EnumerableTools.Supplier(GameEffect_揺れ.GetSequence(this.CurrScene.CharaInfos[charaPos]));
-				}
-				else if (command.Name == ScenarioCommand.NAME_跳び)
-				{
-					int charaPos = int.Parse(command.Arguments[0]);
-
-					this.CurrScene.CharaInfos[charaPos].Effect = EnumerableTools.Supplier(GameEffect_跳び.GetSequence(this.CurrScene.CharaInfos[charaPos]));
-				}
-				else if (command.Name == ScenarioCommand.NAME_分岐)
-				{
-					optionSelect = new GameOptionSelect();
-
-					for (int index = 0; index < command.Arguments.Count; )
-					{
-						string text = command.Arguments[index++];
-						string scenarioName = command.Arguments[index++];
-
-						optionSelect.Items.Add(new GameOptionSelect.ItemInfo()
-						{
-							Text = text,
-							ScenarioName = scenarioName,
-						});
-					}
-					for (int index = 0; index < optionSelect.Items.Count; index++)
-					{
-						// メニューの配置 zantei zantei zantei
-
-						int MENU_AREA_L = 200;
-						int MENU_AREA_T = 100;
-						int MENU_AREA_W = DDConsts.Screen_W - 400;
-						int MENU_AREA_H = DDConsts.Screen_H - 400;
-						int MENU_ITEM_INT = 20;
-						int MENU_ITEM_H = (MENU_AREA_H + MENU_ITEM_INT) / optionSelect.Items.Count - MENU_ITEM_INT;
-
-						optionSelect.Items[index].L = MENU_AREA_L;
-						optionSelect.Items[index].T = MENU_AREA_T + index * (MENU_ITEM_H + MENU_ITEM_INT);
-						optionSelect.Items[index].W = MENU_AREA_W;
-						optionSelect.Items[index].H = MENU_ITEM_H;
-						optionSelect.Items[index].Text_X = optionSelect.Items[index].L + 20;
-						optionSelect.Items[index].Text_Y = optionSelect.Items[index].T + (MENU_ITEM_H - 20) / 2;
-					}
-				}
-				else
-				{
-					throw new DDError("不明なコマンド：" + command.Name);
-				}
-			}
-
-			// ---- ページ初期化・ここまで
-
-			DDEngine.FreezeInput();
-
-			int dispCharaNameChrCount = 0;
-			int dispChrCount = 0;
+			int dispSubtitleCharCount = 0;
+			int dispCharCount = 0;
 			int dispPageEndedCount = 0;
 
-			bool fastMessageFlag = false;
+			DDEngine.FreezeInput();
 
 			for (; ; )
 			{
 				DDMouse.UpdatePos();
 
 				if (
-					this.CurrPage.CharacterName.Length < dispCharaNameChrCount &&
+					this.CurrPage.CharacterName.Length < dispSubtitleChrCount &&
 					this.CurrPage.Text.Length < dispChrCount
 					)
 					dispPageEndedCount++;
@@ -297,18 +189,18 @@ namespace Charlotte.Games
 
 				if (fastMessageFlag)
 				{
-					dispCharaNameChrCount += 2;
+					dispSubtitleChrCount += 2;
 					dispChrCount += 2;
 				}
 				else
 				{
 					if (DDEngine.ProcFrame % 2 == 0)
-						dispCharaNameChrCount++;
+						dispSubtitleChrCount++;
 
 					if (DDEngine.ProcFrame % 3 == 0)
 						dispChrCount++;
 				}
-				DDUtils.ToRange(ref dispCharaNameChrCount, 0, IntTools.IMAX); // カンスト対策
+				DDUtils.ToRange(ref dispSubtitleChrCount, 0, IntTools.IMAX); // カンスト対策
 				DDUtils.ToRange(ref dispChrCount, 0, IntTools.IMAX); // カンスト対策
 
 #if true // フォント使用(Kゴシック)
