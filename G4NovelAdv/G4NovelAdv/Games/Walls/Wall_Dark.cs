@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using Charlotte.Common;
 
-namespace Charlotte.Games.Charas
+namespace Charlotte.Games.Walls
 {
-	public class Chara_Wall_Dark : Chara
+	public class Wall_Dark : Wall
 	{
-		public Chara_Wall_Dark()
-		{
-			this.Z = Z_WALL;
-		}
-
 		public override void Draw()
 		{
 			DDCurtain.DrawCurtain();

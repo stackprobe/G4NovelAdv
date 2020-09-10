@@ -17,13 +17,11 @@ namespace Charlotte.Games.Charas
 
 		public int X = DDConsts.Screen_W / 2;
 		public int Y = DDConsts.Screen_H / 2;
-		public int Z = Z_CHARA;
-		public int Mode = 0; // 各キャラクタで任意に使用する。
+		public int Mode = MODE_DEFAULT; // 各キャラクタで任意に使用する。
 
 		// <---- prm
 
-		public const int Z_WALL = 0;
-		public const int Z_CHARA = 1;
+		public const int MODE_DEFAULT = 0;
 
 		public abstract void Draw();
 	}

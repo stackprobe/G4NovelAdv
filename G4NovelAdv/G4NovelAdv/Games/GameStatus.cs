@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Games.Charas;
+using Charlotte.Games.Walls;
 
 namespace Charlotte.Games
 {
@@ -14,7 +15,8 @@ namespace Charlotte.Games
 	{
 		public Scenario Scenario = new Scenario(GameConsts.DUMMY_SCENARIO_NAME); // 軽量な仮オブジェクト
 		public int CurrPageIndex = 0;
-		public List<Chara> Charas = new List<Chara>(new Chara[] { }); // 軽量な仮オブジェクト
+		public Wall Wall = new Wall_Dark(); // 軽量な仮オブジェクト
+		public List<Chara> Charas = new List<Chara>(); // 軽量な仮オブジェクト
 
 		// <---- prm
 	}
