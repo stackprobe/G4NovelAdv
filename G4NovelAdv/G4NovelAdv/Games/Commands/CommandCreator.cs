@@ -12,6 +12,8 @@ namespace Charlotte.Games.Commands
 		{
 			Command command;
 
+			// HACK: name はクラス名 Command_<name> と対応する。リフレクションでも良い。
+
 			switch (name)
 			{
 				case "登場": command = new Command_登場(); break;

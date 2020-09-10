@@ -12,6 +12,8 @@ namespace Charlotte.Games.Charas
 		{
 			Chara chara;
 
+			// HACK: name はクラス名 Chara_<name> と対応する。リフレクションでも良い。
+
 			switch (name)
 			{
 				case "UFOYukari": chara = new Chara_UFOYukari(); break;
@@ -21,6 +23,11 @@ namespace Charlotte.Games.Charas
 				default:
 					throw new DDError("不明なキャラクタ：" + name);
 			}
+			chara.Name = name;
+			chara.X = x;
+			chara.Y = y;
+			chara.Mode = mode;
+
 			return chara;
 		}
 	}

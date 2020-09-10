@@ -10,7 +10,14 @@ namespace Charlotte.Games.Walls
 	{
 		public static Wall Create(string name)
 		{
+			return Create(name, Wall.DEFAULT_ARGUMENTS);
+		}
+
+		public static Wall Create(string name, string[] arguments)
+		{
 			Wall wall;
+
+			// HACK: name はクラス名 Wall_<name> と対応する。リフレクションでも良い。
 
 			switch (name)
 			{
@@ -21,6 +28,11 @@ namespace Charlotte.Games.Walls
 				default:
 					throw new DDError("不明な壁：" + name);
 			}
+			wall.Name = name;
+			wall.Arguments = arguments;
+
+			wall.Loaded();
+
 			return wall;
 		}
 	}

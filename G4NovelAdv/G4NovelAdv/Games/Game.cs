@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Common;
 using Charlotte.Tools;
-using DxLibDLL;
+using Charlotte.Common;
 using Charlotte.Games.Commands;
+using DxLibDLL;
 
 namespace Charlotte.Games
 {
 	public class Game : IDisposable
 	{
-		public GameStatus Status = new GameStatus(); // 軽量な仮オブジェクト
+		public GameStatus Status = new GameStatus(); // 軽量な仮設オブジェクト
 
 		// <---- prm
 
