@@ -65,7 +65,7 @@ namespace Charlotte.Games
 
 							using (new Game())
 							{
-								Game.I.Scenario = new Scenario(GameConsts.FIRST_SCENARIO_NAME);
+								Game.I.Status.Scenario = new Scenario(GameConsts.FIRST_SCENARIO_NAME);
 								Game.I.Perform();
 							}
 							this.ReturnTitleMenu();

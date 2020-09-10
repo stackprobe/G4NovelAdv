@@ -72,7 +72,7 @@ namespace Charlotte.Games
 				{
 					string[] tokens = line.Substring(1).Split(' ').Where(v => v != "").ToArray();
 
-					page.Commands.Add(CommandCreater.Create(
+					page.Commands.Add(CommandCreator.Create(
 						tokens[0],
 						tokens.Skip(1).ToArray()
 						));

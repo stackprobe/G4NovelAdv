@@ -15,5 +15,13 @@ namespace Charlotte.Games
 		// <---- prm
 
 		public const int LINE_LEN_MAX = 44; // 要調整
+
+		public string Text
+		{
+			get
+			{
+				return string.Join("\n", this.Lines);
+			}
+		}
 	}
 }

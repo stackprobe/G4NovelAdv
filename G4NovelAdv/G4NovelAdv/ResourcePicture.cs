@@ -12,6 +12,35 @@ namespace Charlotte
 
 		public DDPicture Copyright = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\Logo\Copyright.png");
 
+		public DDPicture MessageFrame_Message = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\01 message\message.png");
+		public DDPicture MessageFrame_Button = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\02 button\button.png");
+		public DDPicture MessageFrame_Button2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\02 button\button2.png");
+		public DDPicture MessageFrame_Button3 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\02 button\button3.png");
+		public DDPicture MessageFrame_Auto = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\auto.png");
+		public DDPicture MessageFrame_Auto2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\auto2.png");
+		public DDPicture MessageFrame_Close = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\close.png");
+		public DDPicture MessageFrame_Close2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\close2.png");
+		public DDPicture MessageFrame_Config = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\config.png");
+		public DDPicture MessageFrame_Config2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\config2.png");
+		public DDPicture MessageFrame_Load = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\load.png");
+		public DDPicture MessageFrame_Load2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\load2.png");
+		public DDPicture MessageFrame_Log = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\log.png");
+		public DDPicture MessageFrame_Log2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\log2.png");
+		public DDPicture MessageFrame_Menu = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\menu.png");
+		public DDPicture MessageFrame_Menu2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\menu2.png");
+		public DDPicture MessageFrame_Qload = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qload.png");
+		public DDPicture MessageFrame_Qload2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qload2.png");
+		public DDPicture MessageFrame_Qsave = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qsave.png");
+		public DDPicture MessageFrame_Qsave2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qsave2.png");
+		public DDPicture MessageFrame_Save = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\save.png");
+		public DDPicture MessageFrame_Save2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\save2.png");
+		public DDPicture MessageFrame_Screen = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\screen.png");
+		public DDPicture MessageFrame_Screen2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\screen2.png");
+		public DDPicture MessageFrame_Skip = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\skip.png");
+		public DDPicture MessageFrame_Skip2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\skip2.png");
+		public DDPicture MessageFrame_Title = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\title.png");
+		public DDPicture MessageFrame_Title2 = DDPictureLoaders.Standard(@"C:\Dat\Resource\Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\title2.png");
+
 		public DDPicture 未確認飛行ゆかりん_UFO = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO.png");
 		public DDPicture 未確認飛行ゆかりん_UFO_うしろ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_うしろ.png");
 		public DDPicture 未確認飛行ゆかりん_UFO_光 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_光 .png");

@@ -6,7 +6,7 @@ using Charlotte.Common;
 
 namespace Charlotte.Games.Commands
 {
-	public static class CommandCreater
+	public static class CommandCreator
 	{
 		public static Command Create(string name, string[] arguments)
 		{
