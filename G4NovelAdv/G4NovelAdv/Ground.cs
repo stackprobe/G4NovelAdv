@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Charlotte.Games;
 
 namespace Charlotte
 {
@@ -13,6 +14,6 @@ namespace Charlotte
 		public ResourcePicture Picture = new ResourcePicture();
 		public ResourceSE SE = new ResourceSE();
 
-		public int MessageSpeed = Consts.MESSAGE_SPEED_DEF;
+		public int MessageSpeed = GameConsts.MESSAGE_SPEED_DEF;
 	}
 }

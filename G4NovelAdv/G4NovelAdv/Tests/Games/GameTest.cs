@@ -20,6 +20,7 @@ namespace Charlotte.Tests.Games
 		{
 			using (new Game())
 			{
+				Game.I.Status.Scenario = new Scenario(GameConsts.FIRST_SCENARIO_NAME);
 				Game.I.Perform();
 			}
 		}

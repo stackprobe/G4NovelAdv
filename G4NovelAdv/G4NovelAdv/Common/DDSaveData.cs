@@ -181,7 +181,11 @@ namespace Charlotte.Common
 
 					//DDUtils.Noop(lines[c++]); // Dummy
 
-					Ground.I.MessageSpeed = IntTools.ToInt(lines[c++], Consts.MESSAGE_SPEED_MIN, Consts.MESSAGE_SPEED_MAX, Consts.MESSAGE_SPEED_DEF);
+					Ground.I.MessageSpeed = IntTools.ToInt(lines[c++],
+						Charlotte.Games.GameConsts.MESSAGE_SPEED_MIN,
+						Charlotte.Games.GameConsts.MESSAGE_SPEED_MAX,
+						Charlotte.Games.GameConsts.MESSAGE_SPEED_DEF
+						);
 
 					// 新しい項目をここへ追加...
 

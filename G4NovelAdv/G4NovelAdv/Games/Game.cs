@@ -6,6 +6,8 @@ using Charlotte.Tools;
 using Charlotte.Common;
 using Charlotte.Games.Commands;
 using DxLibDLL;
+using Charlotte.Games.Charas;
+using Charlotte.Games.Walls;
 
 namespace Charlotte.Games
 {
@@ -72,18 +74,44 @@ namespace Charlotte.Games
 				DDUtils.ToRange(ref dispSubtitleCharCount, 0, IntTools.IMAX);
 				DDUtils.ToRange(ref dispCharCount, 0, IntTools.IMAX);
 
+				// ====
+				// 描画ここから
+				// ====
+
+				// 壁(背景)
+				{
+					Wall wall = Game.I.Status.Wall;
+
+					if (wall.A_Act == null)
+						wall.Draw();
+					else if (wall.A_Act() == false)
+						wall.A_Act = null;
+				}
+
+				foreach (Chara chara in Game.I.Status.Charas) // キャラクタ(オブジェクト)
+				{
+					if (chara.A_Act == null)
+						chara.Draw();
+					else if (chara.A_Act() == false)
+						chara.A_Act = null;
+				}
+
+				// メッセージ枠
 				{
 					const int h = 136;
+
 					DDDraw.DrawRect(Ground.I.Picture.MessageFrame_Message, 0, DDConsts.Screen_H - h, DDConsts.Screen_W, h);
 				}
 
+				// サブタイトル文字列
 				{
-					int dispCharaNameLength = Math.Min(dispCharCount, this.CurrPage.Subtitle.Length);
-					string dispCharaName = this.CurrPage.Subtitle.Substring(0, dispCharaNameLength);
+					int dispSubtitleLength = Math.Min(dispCharCount, this.CurrPage.Subtitle.Length);
+					string dispSubtitle = this.CurrPage.Subtitle.Substring(0, dispSubtitleLength);
 
-					DDFontUtils.DrawString(120, 320, dispCharaName, DDFontUtils.GetFont("Kゴシック", 16));
+					DDFontUtils.DrawString(120, 320, dispSubtitle, DDFontUtils.GetFont("Kゴシック", 16));
 				}
 
+				// シナリオのテキスト文字列
 				{
 					int dispTextLength = Math.Min(dispCharCount, this.CurrPage.Text.Length);
 					string dispText = this.CurrPage.Text.Substring(0, dispTextLength);

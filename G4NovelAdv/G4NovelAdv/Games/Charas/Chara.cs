@@ -20,9 +20,9 @@ namespace Charlotte.Games.Charas
 		/// </summary>
 		public Func<bool> A_Act = null;
 
-		public string Name = "Name_未指定"; // セーブ・ロード用
-		public int X = DDConsts.Screen_W / 2;
-		public int Y = DDConsts.Screen_H / 2;
+		public string Name; // セーブ・ロード用
+		public int X;
+		public int Y;
 		public int Mode = MODE_DEFAULT; // 各キャラクタで任意に使用する。
 
 		// <---- prm

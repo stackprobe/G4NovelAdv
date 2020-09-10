@@ -129,7 +129,6 @@
     <Compile Include="Common\Options\DDCResource.cs" />
     <Compile Include="Common\Options\DDSceneKeeper.cs" />
     <Compile Include="Common\Options\DDSlideUtils.cs" />
-    <Compile Include="Consts.cs" />
     <Compile Include="Games\Charas\Chara.cs" />
     <Compile Include="Games\Charas\CharaCreator.cs" />
     <Compile Include="Games\Charas\Chara_UFOYukari.cs" />

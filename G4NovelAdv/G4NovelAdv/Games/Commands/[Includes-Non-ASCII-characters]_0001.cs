@@ -9,12 +9,12 @@ namespace Charlotte.Games.Commands
 	{
 		public override void Loaded()
 		{
-			// NOOP
+			// TODO
 		}
 
 		public override void Fire()
 		{
-			// NOOP
+			// TODO
 		}
 	}
 }

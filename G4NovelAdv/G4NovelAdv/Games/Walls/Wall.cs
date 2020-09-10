@@ -19,7 +19,7 @@ namespace Charlotte.Games.Walls
 		/// </summary>
 		public Func<bool> A_Act = null;
 
-		public string Name = "Name_未指定"; // セーブ・ロード用
+		public string Name; // セーブ・ロード用
 		public string[] Arguments = DEFAULT_ARGUMENTS; // セーブ・ロード用
 
 		// <---- prm

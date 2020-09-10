@@ -13,7 +13,7 @@ namespace Charlotte.Games.Walls
 			return Create(name, Wall.DEFAULT_ARGUMENTS);
 		}
 
-		public static Wall Create(string name, string[] arguments)
+		public static Wall Create(string name, params string[] arguments)
 		{
 			Wall wall;
 
