@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Common;
 
-namespace Charlotte.Games.Walls
+namespace Charlotte.Games.Charas
 {
-	public class WallDark : Wall
+	public class Chara_UFOYukari : Chara
 	{
 		public override void Draw()
 		{
-			DDCurtain.DrawCurtain();
+			throw null; // TODO
 		}
 	}
 }

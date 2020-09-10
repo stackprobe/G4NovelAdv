@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Charlotte.Games.Walls
+namespace Charlotte.Games.Charas
 {
-	public abstract class Wall
+	public class CharaCreator
 	{
-		public abstract void Draw();
 	}
 }
