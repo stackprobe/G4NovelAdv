@@ -5,13 +5,7 @@ using System.Text;
 using DxLibDLL;
 using Charlotte.Common;
 using Charlotte.Tools;
-using Charlotte.Tests;
-using Charlotte.Tests.Games;
-using Charlotte.Logos;
-using Charlotte.TitleMenus;
-using Charlotte.Tests.Logos;
 using Charlotte.Games;
-using Charlotte.Scenarios;
 
 namespace Charlotte
 {

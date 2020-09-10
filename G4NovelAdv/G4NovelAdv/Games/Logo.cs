@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Common;
 
-namespace Charlotte.Logos
+namespace Charlotte.Games
 {
 	public class Logo : IDisposable
 	{

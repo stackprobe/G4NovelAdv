@@ -5,7 +5,7 @@ using System.Text;
 using Charlotte.Common;
 using Charlotte.Common.Options;
 
-namespace Charlotte.Scenarios.Resources
+namespace Charlotte.Games
 {
 	public class ScenarioResMusic
 	{

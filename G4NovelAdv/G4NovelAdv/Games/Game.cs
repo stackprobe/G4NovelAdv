@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Common;
-using Charlotte.Scenarios;
-using Charlotte.Scenarios.Resources;
 using Charlotte.Tools;
 using DxLibDLL;
 

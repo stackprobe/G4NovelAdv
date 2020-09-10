@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Logos;
+using Charlotte.Games;
 
-namespace Charlotte.Tests.Logos
+namespace Charlotte.Tests.Games
 {
 	public class LogoTest
 	{

@@ -6,9 +6,8 @@ using Charlotte.Tools;
 using Charlotte.Common;
 using Charlotte.Common.Options;
 using Charlotte.Games;
-using Charlotte.Scenarios;
 
-namespace Charlotte.TitleMenus
+namespace Charlotte.Games
 {
 	public class TitleMenu : IDisposable
 	{

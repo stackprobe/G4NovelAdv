@@ -136,7 +136,7 @@
     <Compile Include="Games\GameScene.cs" />
     <Compile Include="Games\GameOptionSelect.cs" />
     <Compile Include="Ground.cs" />
-    <Compile Include="Logos\Logo.cs" />
+    <Compile Include="Games\Logo.cs" />
     <Compile Include="MainWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,16 +149,16 @@
     <Compile Include="ResourceMusic.cs" />
     <Compile Include="ResourcePicture.cs" />
     <Compile Include="ResourceSE.cs" />
-    <Compile Include="Scenarios\Resources\ScenarioResCharacter.cs" />
-    <Compile Include="Scenarios\Resources\ScenarioResMusic.cs" />
-    <Compile Include="Scenarios\Resources\ScenarioResWall.cs" />
-    <Compile Include="Scenarios\Scenario.cs" />
-    <Compile Include="Scenarios\ScenarioCommand.cs" />
-    <Compile Include="Scenarios\ScenarioPage.cs" />
+    <Compile Include="Games\ScenarioResCharacter.cs" />
+    <Compile Include="Games\ScenarioResMusic.cs" />
+    <Compile Include="Games\ScenarioResWall.cs" />
+    <Compile Include="Games\Scenario.cs" />
+    <Compile Include="Games\ScenarioCommand.cs" />
+    <Compile Include="Games\ScenarioPage.cs" />
     <Compile Include="Tests\Games\GameTest.cs" />
-    <Compile Include="Tests\Logos\LogoTest.cs" />
+    <Compile Include="Tests\Games\LogoTest.cs" />
     <Compile Include="Tests\Test0001.cs" />
-    <Compile Include="TitleMenus\TitleMenu.cs" />
+    <Compile Include="Games\TitleMenu.cs" />
     <EmbeddedResource Include="MainWin.resx">
       <DependentUpon>MainWin.cs</DependentUpon>
     </EmbeddedResource>

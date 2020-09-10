@@ -6,7 +6,7 @@ using Charlotte.Common;
 using Charlotte.Tools;
 using System.IO;
 
-namespace Charlotte.Scenarios
+namespace Charlotte.Games
 {
 	public class Scenario
 	{
