@@ -8,22 +8,23 @@ namespace Charlotte.Games.Charas
 {
 	public static class CharaCreator
 	{
-		public static Chara Create(string name, int x, int y, int mode = Chara.MODE_DEFAULT)
+		public static Chara Create(string typeName, string instanceName, int x, int y, int mode = Chara.MODE_DEFAULT)
 		{
 			Chara chara;
 
-			// HACK: name はクラス名 Chara_<name> と対応する。リフレクションでも良い。
+			// HACK: typeName はクラス名 Chara_<typeName> と対応する。リフレクションでも良い。-> 難読化するので不可
 
-			switch (name)
+			switch (typeName)
 			{
 				case "UFOYukari": chara = new Chara_UFOYukari(); break;
 
 				// 新しいキャラクタをここへ追加..
 
 				default:
-					throw new DDError("不明なキャラクタ：" + name);
+					throw new DDError("不明なタイプ名：" + typeName);
 			}
-			chara.Name = name;
+			chara.TypeName = typeName;
+			chara.InstanceName = instanceName;
 			chara.X = x;
 			chara.Y = y;
 			chara.Mode = mode;

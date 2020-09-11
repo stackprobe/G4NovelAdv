@@ -8,22 +8,22 @@ namespace Charlotte.Games.Commands
 {
 	public static class CommandCreator
 	{
-		public static Command Create(string name, string[] arguments)
+		public static Command Create(string typeName, string[] arguments)
 		{
 			Command command;
 
-			// HACK: name はクラス名 Command_<name> と対応する。リフレクションでも良い。
+			// HACK: typeName はクラス名 Command_<typeName> と対応する。リフレクションでも良い。-> 難読化するので不可
 
-			switch (name)
+			switch (typeName)
 			{
 				case "登場": command = new Command_登場(); break;
 
 				// 新しいコマンドをここへ追加..
 
 				default:
-					throw new DDError("不明なコマンド：" + name);
+					throw new DDError("不明なタイプ名：" + typeName);
 			}
-			command.Name = name;
+			command.TypeName = typeName;
 			command.Arguments = arguments;
 
 			command.Loaded();

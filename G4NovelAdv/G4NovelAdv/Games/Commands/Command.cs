@@ -7,7 +7,7 @@ namespace Charlotte.Games.Commands
 {
 	public abstract class Command
 	{
-		public string Name;
+		public string TypeName;
 		public string[] Arguments;
 
 		// <---- prm

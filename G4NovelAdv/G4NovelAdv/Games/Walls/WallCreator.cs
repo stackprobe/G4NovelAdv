@@ -8,27 +8,27 @@ namespace Charlotte.Games.Walls
 {
 	public static class WallCreator
 	{
-		public static Wall Create(string name)
+		public static Wall Create(string typeName)
 		{
-			return Create(name, Wall.DEFAULT_ARGUMENTS);
+			return Create(typeName, Wall.DEFAULT_ARGUMENTS);
 		}
 
-		public static Wall Create(string name, params string[] arguments)
+		public static Wall Create(string typeName, params string[] arguments)
 		{
 			Wall wall;
 
-			// HACK: name はクラス名 Wall_<name> と対応する。リフレクションでも良い。
+			// HACK: typeName はクラス名 Wall_<typeName> と対応する。リフレクションでも良い。-> 難読化するので不可
 
-			switch (name)
+			switch (typeName)
 			{
 				case "Dark": wall = new Wall_Dark(); break;
 
 				// 新しい壁をここへ追加..
 
 				default:
-					throw new DDError("不明な壁：" + name);
+					throw new DDError("不明なタイプ名：" + typeName);
 			}
-			wall.Name = name;
+			wall.TypeName = typeName;
 			wall.Arguments = arguments;
 
 			wall.Loaded();

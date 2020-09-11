@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Games.Charas;
 using Charlotte.Games.Walls;
+using Charlotte.Common;
 
 namespace Charlotte.Games
 {
@@ -19,5 +20,14 @@ namespace Charlotte.Games
 		public List<Chara> Charas = new List<Chara>(); // 軽量な仮設オブジェクト
 
 		// <---- prm
+
+		public Chara GetChara(string instanceName)
+		{
+			foreach (Chara chara in this.Charas)
+				if (chara.InstanceName == instanceName)
+					return chara;
+
+			throw new DDError("不正なインスタンス名：" + instanceName);
+		}
 	}
 }

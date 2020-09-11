@@ -135,6 +135,7 @@
     <Compile Include="Games\Commands\Command.cs" />
     <Compile Include="Games\Commands\CommandCreator.cs" />
     <Compile Include="Games\Commands\Command_登場.cs" />
+    <Compile Include="Games\Commands\Command_指示.cs" />
     <Compile Include="Games\Game.cs" />
     <Compile Include="Games\GameConsts.cs" />
     <Compile Include="Games\GameStatus.cs" />

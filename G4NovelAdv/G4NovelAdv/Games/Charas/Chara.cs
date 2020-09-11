@@ -20,7 +20,8 @@ namespace Charlotte.Games.Charas
 		/// </summary>
 		public Func<bool> A_Act = null;
 
-		public string Name; // セーブ・ロード用
+		public string TypeName; // セーブ・ロード用
+		public string InstanceName;
 		public int X;
 		public int Y;
 		public int Mode = MODE_DEFAULT; // 各キャラクタで任意に使用する。
@@ -33,5 +34,12 @@ namespace Charlotte.Games.Charas
 		/// キャラクタ(オブジェクト)を描画する。
 		/// </summary>
 		public abstract void Draw();
+
+		/// <summary>
+		/// 指示する。
+		/// </summary>
+		/// <param name="name">指示の名前</param>
+		/// <param name="arguments">指示の引数</param>
+		public abstract void Instruct(string name, params string[] arguments);
 	}
 }
