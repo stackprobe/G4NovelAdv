@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Games.Charas;
-using Charlotte.Games.Walls;
 using Charlotte.Common;
+using Charlotte.Games.Surfaces;
 
 namespace Charlotte.Games
 {
@@ -16,18 +15,17 @@ namespace Charlotte.Games
 	{
 		public Scenario Scenario = new Scenario(GameConsts.DUMMY_SCENARIO_NAME); // 軽量な仮設オブジェクト
 		public int CurrPageIndex = 0;
-		public Wall Wall = new Wall_Dark(); // 軽量な仮設オブジェクト
-		public List<Chara> Charas = new List<Chara>(); // 軽量な仮設オブジェクト
+		public List<Surface> Surfaces = new List<Surface>(); // 軽量な仮設オブジェクト
 
 		// <---- prm
 
-		public Chara GetChara(string instanceName)
+		public Surface GetSurface(string instanceName)
 		{
-			foreach (Chara chara in this.Charas)
-				if (chara.InstanceName == instanceName)
-					return chara;
+			foreach (Surface surface in this.Surfaces)
+				if (surface.InstanceName == instanceName)
+					return surface;
 
-			throw new DDError("不正なインスタンス名：" + instanceName);
+			throw new DDError("存在しないインスタンス名：" + instanceName);
 		}
 	}
 }

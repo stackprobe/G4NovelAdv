@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Common;
-using Charlotte.Tools;
 using System.IO;
-using Charlotte.Games.Commands;
+using Charlotte.Tools;
+using Charlotte.Common;
 
 namespace Charlotte.Games
 {
@@ -72,10 +71,7 @@ namespace Charlotte.Games
 				{
 					string[] tokens = line.Substring(1).Split(' ').Where(v => v != "").ToArray();
 
-					page.Commands.Add(CommandCreator.Create(
-						tokens[0],
-						tokens.Skip(1).ToArray()
-						));
+					page.Commands.Add(new ScenarioCommand(tokens));
 				}
 				else
 				{

@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using Charlotte.Tools;
 using Charlotte.Common;
-using Charlotte.Games.Charas;
-using Charlotte.Games.Commands;
-using Charlotte.Games.Walls;
 using DxLibDLL;
+using Charlotte.Games.Surfaces;
 
 namespace Charlotte.Games
 {
@@ -46,8 +44,8 @@ namespace Charlotte.Games
 		restartCurrPage:
 			this.CurrPage = this.Status.Scenario.Pages[this.Status.CurrPageIndex];
 
-			foreach (Command command in this.CurrPage.Commands)
-				command.Fire();
+			foreach (ScenarioCommand command in this.CurrPage.Commands)
+				command.Invoke();
 
 			int dispSubtitleCharCount = 0;
 			int dispCharCount = 0;
@@ -108,22 +106,12 @@ namespace Charlotte.Games
 				// 描画ここから
 				// ====
 
-				// 壁(背景)
+				foreach (Surface surface in Game.I.Status.Surfaces) // キャラクタ・オブジェクト・壁紙
 				{
-					Wall wall = Game.I.Status.Wall;
-
-					if (wall.A_Act == null)
-						wall.Draw();
-					else if (wall.A_Act() == false)
-						wall.A_Act = null;
-				}
-
-				foreach (Chara chara in Game.I.Status.Charas) // キャラクタ(オブジェクト)
-				{
-					if (chara.A_Act == null)
-						chara.Draw();
-					else if (chara.A_Act() == false)
-						chara.A_Act = null;
+					if (surface.Acts.Count == 0)
+						surface.Draw();
+					else if (surface.Acts[0]() == false)
+						surface.Acts.RemoveAt(0);
 				}
 
 				// メッセージ枠

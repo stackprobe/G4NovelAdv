@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Games.Commands;
 
 namespace Charlotte.Games
 {
@@ -10,7 +9,7 @@ namespace Charlotte.Games
 	{
 		public string Subtitle = "";
 		public List<string> Lines = new List<string>();
-		public List<Command> Commands = new List<Command>();
+		public List<ScenarioCommand> Commands = new List<ScenarioCommand>();
 
 		// <---- prm
 

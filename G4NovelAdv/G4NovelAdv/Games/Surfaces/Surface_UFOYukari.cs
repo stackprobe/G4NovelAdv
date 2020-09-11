@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Common;
+using Charlotte.Tools;
 
-namespace Charlotte.Games.Charas
+namespace Charlotte.Games.Surfaces
 {
-	public class Chara_UFOYukari : Chara
+	public class Surface_UFOYukari : Surface
 	{
 		public override void Draw()
 		{
@@ -29,9 +30,26 @@ namespace Charlotte.Games.Charas
 			draw(Ground.I.Picture.未確認飛行ゆかりん_UFO);
 		}
 
-		public override void Instruct(string name, params string[] arguments)
+		protected override void Invoke2(string command, string[] arguments)
 		{
+			if (command == "跳んで登場")
+			{
+				this.Acts.Add(EnumerableTools.Supplier(this.跳んで登場()));
+			}
+			else
+			{
+				throw new DDError();
+			}
+		}
 
+		private IEnumerable<bool> 跳んで登場()
+		{
+			foreach (DDScene scene in DDSceneUtils.Create(10))
+			{
+				// TODO
+
+				yield return true;
+			}
 		}
 	}
 }

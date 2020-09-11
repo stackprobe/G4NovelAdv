@@ -22,13 +22,18 @@ namespace Charlotte.Games.Surfaces
 		/// </summary>
 		public List<Func<bool>> Acts = null;
 
-		public string ClassName; // セーブ・ロード用
+		public string TypeName;
 		public string InstanceName;
-		public int X;
-		public int Y;
-		public int Z;
 
 		// <---- prm
+
+		public int X = DEFAULT_X;
+		public int Y = DEFAULT_Y;
+		public int Z = DEFAULT_Z;
+
+		public const int DEFAULT_X = DDConsts.Screen_W / 2;
+		public const int DEFAULT_Y = DDConsts.Screen_H / 2;
+		public const int DEFAULT_Z = 0;
 
 		/// <summary>
 		/// 描画する。
@@ -39,34 +44,39 @@ namespace Charlotte.Games.Surfaces
 		{
 			int c = 0;
 
-			switch (command)
+			if (command == "移動")
 			{
-				case "移動":
-					switch (arguments.Length)
-					{
-						case 3:
-							this.X = int.Parse(arguments[c++]);
-							this.Y = int.Parse(arguments[c++]);
-							this.Z = int.Parse(arguments[c++]);
-							break;
-
-						case 2:
-							this.X = int.Parse(arguments[c++]);
-							this.Y = int.Parse(arguments[c++]);
-							break;
-
-						default:
-							throw new DDError();
-					}
-					break;
-
-				case "Z":
+				if (arguments.Length == 3)
+				{
+					this.X = int.Parse(arguments[c++]);
+					this.Y = int.Parse(arguments[c++]);
 					this.Z = int.Parse(arguments[c++]);
-					break;
-
-				default:
-					this.Invoke2(command, arguments);
-					break;
+				}
+				else if (arguments.Length == 2)
+				{
+					this.X = int.Parse(arguments[c++]);
+					this.Y = int.Parse(arguments[c++]);
+				}
+				else
+				{
+					throw new DDError();
+				}
+			}
+			else if (command == "X")
+			{
+				this.X = int.Parse(arguments[c++]);
+			}
+			else if (command == "Y")
+			{
+				this.Y = int.Parse(arguments[c++]);
+			}
+			else if (command == "Z")
+			{
+				this.Z = int.Parse(arguments[c++]);
+			}
+			else
+			{
+				this.Invoke2(command, arguments);
 			}
 		}
 
@@ -74,7 +84,7 @@ namespace Charlotte.Games.Surfaces
 		{
 			return new AttachString().Untokenize(new string[]
 			{
-				this.ClassName,
+				this.TypeName,
 				this.InstanceName,
 				this.X.ToString(),
 				this.Y.ToString(),
@@ -88,7 +98,7 @@ namespace Charlotte.Games.Surfaces
 			string[] lines = new AttachString().Tokenize(value);
 			int c = 0;
 
-			this.ClassName = lines[c++];
+			this.TypeName = lines[c++];
 			this.InstanceName = lines[c++];
 			this.X = int.Parse(lines[c++]);
 			this.Y = int.Parse(lines[c++]);
@@ -101,19 +111,29 @@ namespace Charlotte.Games.Surfaces
 		/// </summary>
 		/// <param name="command">コマンド名</param>
 		/// <param name="arguments">コマンド引数列</param>
-		protected abstract void Invoke2(string command, string[] arguments);
+		protected virtual void Invoke2(string command, string[] arguments)
+		{
+			throw new DDError();
+		}
 
 		/// <summary>
 		/// シリアライザ
 		/// 現在の状態を再現可能な文字列を返す。
 		/// </summary>
 		/// <returns></returns>
-		protected abstract string Serialize2();
+		protected virtual string Serialize2()
+		{
+			return "";
+		}
 
 		/// <summary>
 		/// シリアライザ実行時の状態を再現する。
 		/// </summary>
 		/// <param name="value">シリアライザから取得した文字列</param>
-		protected abstract void Deserialize2(string value);
+		protected virtual void Deserialize2(string value)
+		{
+			if (value != "")
+				throw new DDError();
+		}
 	}
 }
