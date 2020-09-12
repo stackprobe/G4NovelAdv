@@ -15,7 +15,7 @@ namespace Charlotte.Games.Surfaces
 	{
 		/// <summary>
 		/// <para>アクションのリスト</para>
-		/// <para>Act.Draw が false を返したとき Draw_02 を実行しなければならない。</para>
+		/// <para>Act.Draw が false を返したとき this.Draw を実行しなければならない。</para>
 		/// <para>セーブするとき、このフィールドは保存しない。</para>
 		/// </summary>
 		public Act Act = new Act();
@@ -33,10 +33,12 @@ namespace Charlotte.Games.Surfaces
 		public const int DEFAULT_Y = DDConsts.Screen_H / 2;
 		public const int DEFAULT_Z = 0;
 
-		public void Draw()
+		/// <summary>
+		/// 退場する。
+		/// </summary>
+		public void RemoveMe()
 		{
-			if (this.Act.Draw() == false)
-				this.Draw_02();
+			Game.I.Status.RemoveSurface(this);
 		}
 
 		public void Invoke(string command, params string[] arguments)
@@ -112,7 +114,7 @@ namespace Charlotte.Games.Surfaces
 		/// <summary>
 		/// 描画する。
 		/// </summary>
-		protected abstract void Draw_02();
+		public abstract void Draw();
 
 		/// <summary>
 		/// 固有のコマンドを実行する。
@@ -128,7 +130,7 @@ namespace Charlotte.Games.Surfaces
 
 		/// <summary>
 		/// シリアライザ
-		/// 現在の状態を再現可能な文字列を返す。
+		/// 現在の「固有の状態」を再現可能な文字列を返す。
 		/// </summary>
 		/// <returns></returns>
 		protected virtual string Serialize_02()
@@ -137,7 +139,7 @@ namespace Charlotte.Games.Surfaces
 		}
 
 		/// <summary>
-		/// シリアライザ実行時の状態を再現する。
+		/// シリアライザ実行時の「固有の状態」を再現する。
 		/// </summary>
 		/// <param name="value">シリアライザから取得した文字列</param>
 		protected virtual void Deserialize_02(string value)

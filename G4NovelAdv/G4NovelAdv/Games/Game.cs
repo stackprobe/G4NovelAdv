@@ -110,12 +110,7 @@ namespace Charlotte.Games
 
 				DDCurtain.DrawCurtain(); // 画面クリア
 
-				Game.I.Status.Surfaces.Sort((a, b) => a.Z - b.Z); // Z-オーダー順
-
-				foreach (Surface surface in Game.I.Status.Surfaces) // キャラクタ・オブジェクト・壁紙
-					surface.Draw();
-
-				Game.I.SurfaceEL.ExecuteAllTask(); // キャラクタ・オブジェクト・壁紙 の エフェクト
+				this.DrawSurfaces();
 
 				// メッセージ枠
 				{
@@ -154,12 +149,23 @@ namespace Charlotte.Games
 
 			foreach (DDScene scene in DDSceneUtils.Create(40))
 			{
-				// TODO 描画
+				this.DrawSurfaces();
 
 				DDEngine.EachFrame();
 			}
 
 			DDEngine.FreezeInput();
+		}
+
+		private void DrawSurfaces()
+		{
+			Game.I.Status.Surfaces.Sort((a, b) => a.Z - b.Z); // Z-オーダー順
+
+			foreach (Surface surface in Game.I.Status.Surfaces) // キャラクタ・オブジェクト・壁紙
+				if (surface.Act.Draw() == false)
+					surface.Draw();
+
+			Game.I.SurfaceEL.ExecuteAllTask(); // キャラクタ・オブジェクト・壁紙 の エフェクト
 		}
 	}
 }

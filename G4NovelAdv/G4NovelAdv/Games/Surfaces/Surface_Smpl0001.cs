@@ -11,7 +11,7 @@ namespace Charlotte.Games.Surfaces
 	{
 		private double A = 1.0;
 
-		protected override void Draw_02()
+		public override void Draw()
 		{
 			DDDraw.SetAlpha(this.A);
 			DDDraw.DrawBegin(DDGround.GeneralResource.Dummy, this.X, this.Y);
@@ -28,8 +28,8 @@ namespace Charlotte.Games.Surfaces
 			}
 			else if (command == ScenarioWords.COMMAND_フェードアウト)
 			{
-				this.Act.Add(EnumerableTools.Supplier(this.フェードアウト())); // 削除前にアクションを追加する。
-				Game.I.Status.RemoveSurface(this); // 自分自身を削除
+				this.Act.Add(EnumerableTools.Supplier(this.フェードアウト())); // 退場する前にアクションを追加する。
+				this.RemoveMe(); // 退場する。
 			}
 			else
 			{
@@ -42,7 +42,7 @@ namespace Charlotte.Games.Surfaces
 			foreach (DDScene scene in DDSceneUtils.Create(90))
 			{
 				this.A = scene.Rate;
-				this.Draw_02();
+				this.Draw();
 
 				yield return true;
 			}
@@ -53,7 +53,7 @@ namespace Charlotte.Games.Surfaces
 			foreach (DDScene scene in DDSceneUtils.Create(90))
 			{
 				this.A = 1.0 - scene.Rate;
-				this.Draw_02();
+				this.Draw();
 
 				yield return true;
 			}

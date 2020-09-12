@@ -9,7 +9,7 @@ namespace Charlotte.Games.Surfaces
 {
 	public class Surface_UFOYukari : Surface
 	{
-		protected override void Draw_02()
+		public override void Draw()
 		{
 			double x = this.X;
 			double y = this.Y;
