@@ -15,7 +15,7 @@ namespace Charlotte.Games.Surfaces
 	{
 		/// <summary>
 		/// <para>アクションのリスト</para>
-		/// <para>Act.Draw が false を返したとき this.Draw を実行しなければならない。</para>
+		/// <para>Act.Draw が false を返したとき Draw_02 を実行しなければならない。</para>
 		/// <para>セーブするとき、このフィールドは保存しない。</para>
 		/// </summary>
 		public Act Act = new Act();
@@ -33,10 +33,11 @@ namespace Charlotte.Games.Surfaces
 		public const int DEFAULT_Y = DDConsts.Screen_H / 2;
 		public const int DEFAULT_Z = 0;
 
-		/// <summary>
-		/// 描画する。
-		/// </summary>
-		public abstract void Draw();
+		public void Draw()
+		{
+			if (this.Act.Draw() == false)
+				this.Draw_02();
+		}
 
 		public void Invoke(string command, params string[] arguments)
 		{
@@ -107,6 +108,11 @@ namespace Charlotte.Games.Surfaces
 			this.Z = int.Parse(lines[c++]);
 			this.Deserialize_02(lines[c++]);
 		}
+
+		/// <summary>
+		/// 描画する。
+		/// </summary>
+		protected abstract void Draw_02();
 
 		/// <summary>
 		/// 固有のコマンドを実行する。

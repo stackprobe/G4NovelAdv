@@ -113,10 +113,9 @@ namespace Charlotte.Games
 				Game.I.Status.Surfaces.Sort((a, b) => a.Z - b.Z); // Z-オーダー順
 
 				foreach (Surface surface in Game.I.Status.Surfaces) // キャラクタ・オブジェクト・壁紙
-					if (surface.Act.Draw() == false)
-						surface.Draw();
+					surface.Draw();
 
-				Game.I.SurfaceEL.ExecuteAllTask();
+				Game.I.SurfaceEL.ExecuteAllTask(); // キャラクタ・オブジェクト・壁紙 の エフェクト
 
 				// メッセージ枠
 				{

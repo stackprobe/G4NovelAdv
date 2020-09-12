@@ -8,7 +8,7 @@ namespace Charlotte.Games.Surfaces
 {
 	public class Surface_Dark : Surface
 	{
-		public override void Draw()
+		protected override void Draw_02()
 		{
 			DDCurtain.DrawCurtain();
 		}

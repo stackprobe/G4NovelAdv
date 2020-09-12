@@ -11,7 +11,7 @@ namespace Charlotte.Games.Surfaces
 	{
 		private double A = 1.0;
 
-		public override void Draw()
+		protected override void Draw_02()
 		{
 			DDDraw.SetAlpha(this.A);
 			DDDraw.DrawBegin(DDGround.GeneralResource.Dummy, this.X, this.Y);
@@ -42,7 +42,7 @@ namespace Charlotte.Games.Surfaces
 			foreach (DDScene scene in DDSceneUtils.Create(90))
 			{
 				this.A = scene.Rate;
-				this.Draw();
+				this.Draw_02();
 
 				yield return true;
 			}
@@ -53,7 +53,7 @@ namespace Charlotte.Games.Surfaces
 			foreach (DDScene scene in DDSceneUtils.Create(90))
 			{
 				this.A = 1.0 - scene.Rate;
-				this.Draw();
+				this.Draw_02();
 
 				yield return true;
 			}
