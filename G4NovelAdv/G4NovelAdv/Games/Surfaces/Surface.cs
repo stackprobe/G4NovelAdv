@@ -15,14 +15,12 @@ namespace Charlotte.Games.Surfaces
 	{
 		/// <summary>
 		/// <para>アクションのリスト</para>
-		/// <para>空のとき無効</para>
-		/// <para>空ではないとき Draw の代わりに最初の要素を実行する。</para>
-		/// <para>ret: ? このアクションを継続する。</para>
+		/// <para>Act.Draw が false を返したとき this.Draw を実行しなければならない。</para>
 		/// <para>セーブするとき、このフィールドは保存しない。</para>
 		/// </summary>
-		public List<Func<bool>> Acts = null;
+		public Act Act = new Act();
 
-		public string TypeName;
+		public string TypeName; // セーブ・ロード用
 		public string InstanceName;
 
 		// <---- prm
@@ -44,7 +42,7 @@ namespace Charlotte.Games.Surfaces
 		{
 			int c = 0;
 
-			if (command == "移動")
+			if (command == ScenarioWords.COMMAND_移動)
 			{
 				if (arguments.Length == 3)
 				{
@@ -62,21 +60,25 @@ namespace Charlotte.Games.Surfaces
 					throw new DDError();
 				}
 			}
-			else if (command == "X")
+			else if (command == ScenarioWords.COMMAND_X)
 			{
 				this.X = int.Parse(arguments[c++]);
 			}
-			else if (command == "Y")
+			else if (command == ScenarioWords.COMMAND_Y)
 			{
 				this.Y = int.Parse(arguments[c++]);
 			}
-			else if (command == "Z")
+			else if (command == ScenarioWords.COMMAND_Z)
 			{
 				this.Z = int.Parse(arguments[c++]);
 			}
+			else if (command == ScenarioWords.COMMAND_End)
+			{
+				Game.I.Status.RemoveSurface(this);
+			}
 			else
 			{
-				this.Invoke2(command, arguments);
+				this.Invoke_02(command, arguments);
 			}
 		}
 
@@ -89,7 +91,7 @@ namespace Charlotte.Games.Surfaces
 				this.X.ToString(),
 				this.Y.ToString(),
 				this.Z.ToString(),
-				this.Serialize2(),
+				this.Serialize_02(),
 			});
 		}
 
@@ -103,7 +105,7 @@ namespace Charlotte.Games.Surfaces
 			this.X = int.Parse(lines[c++]);
 			this.Y = int.Parse(lines[c++]);
 			this.Z = int.Parse(lines[c++]);
-			this.Deserialize2(lines[c++]);
+			this.Deserialize_02(lines[c++]);
 		}
 
 		/// <summary>
@@ -111,28 +113,30 @@ namespace Charlotte.Games.Surfaces
 		/// </summary>
 		/// <param name="command">コマンド名</param>
 		/// <param name="arguments">コマンド引数列</param>
-		protected virtual void Invoke2(string command, string[] arguments)
+		protected virtual void Invoke_02(string command, string[] arguments)
 		{
 			throw new DDError();
 		}
+
+		private const string SERIALIZED_DUMMY = "SERIALIZED_DUMMY";
 
 		/// <summary>
 		/// シリアライザ
 		/// 現在の状態を再現可能な文字列を返す。
 		/// </summary>
 		/// <returns></returns>
-		protected virtual string Serialize2()
+		protected virtual string Serialize_02()
 		{
-			return "";
+			return SERIALIZED_DUMMY;
 		}
 
 		/// <summary>
 		/// シリアライザ実行時の状態を再現する。
 		/// </summary>
 		/// <param name="value">シリアライザから取得した文字列</param>
-		protected virtual void Deserialize2(string value)
+		protected virtual void Deserialize_02(string value)
 		{
-			if (value != "")
+			if (value != SERIALIZED_DUMMY)
 				throw new DDError();
 		}
 	}

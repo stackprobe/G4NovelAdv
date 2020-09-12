@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Games;
+using Charlotte.Common;
 
 namespace Charlotte
 {

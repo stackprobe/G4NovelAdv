@@ -30,11 +30,11 @@ namespace Charlotte.Games.Surfaces
 			draw(Ground.I.Picture.未確認飛行ゆかりん_UFO);
 		}
 
-		protected override void Invoke2(string command, string[] arguments)
+		protected override void Invoke_02(string command, string[] arguments)
 		{
 			if (command == "跳んで登場")
 			{
-				this.Acts.Add(EnumerableTools.Supplier(this.跳んで登場()));
+				this.Act.Add(EnumerableTools.Supplier(this.跳んで登場()));
 			}
 			else
 			{

@@ -129,10 +129,13 @@
     <Compile Include="Common\Options\DDCResource.cs" />
     <Compile Include="Common\Options\DDSceneKeeper.cs" />
     <Compile Include="Common\Options\DDSlideUtils.cs" />
+    <Compile Include="Games\Act.cs" />
     <Compile Include="Games\ScenarioCommand.cs" />
+    <Compile Include="Games\ScenarioWords.cs" />
     <Compile Include="Games\Surfaces\Surface.cs" />
     <Compile Include="Games\Surfaces\SurfaceCreator.cs" />
     <Compile Include="Games\Surfaces\Surface_Dark.cs" />
+    <Compile Include="Games\Surfaces\Surface_Smpl0001.cs" />
     <Compile Include="Games\Surfaces\Surface_UFOYukari.cs" />
     <Compile Include="Games\Game.cs" />
     <Compile Include="Games\GameConsts.cs" />

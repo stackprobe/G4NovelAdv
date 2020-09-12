@@ -16,6 +16,8 @@ namespace Charlotte.Games.Surfaces
 
 			switch (typeName)
 			{
+				case "Dark": surface = new Surface_Dark(); break;
+				case "Smpl0001": surface = new Surface_Smpl0001(); break;
 				case "UFOYukari": surface = new Surface_UFOYukari(); break;
 
 				// 新しいキャラクタをここへ追加..

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Common;
 using Charlotte.Games.Surfaces;
+using Charlotte.Tools;
 
 namespace Charlotte.Games
 {
@@ -19,13 +20,40 @@ namespace Charlotte.Games
 
 		// <---- prm
 
-		public Surface GetSurface(string instanceName)
+		public int GetSurfaceIndex(string instanceName)
 		{
-			foreach (Surface surface in this.Surfaces)
-				if (surface.InstanceName == instanceName)
-					return surface;
+			for (int index = 0; index < this.Surfaces.Count; index++)
+				if (this.Surfaces[index].InstanceName == instanceName)
+					return index;
 
 			throw new DDError("存在しないインスタンス名：" + instanceName);
+		}
+
+		public Surface GetSurface(string instanceName)
+		{
+			return this.Surfaces[this.GetSurfaceIndex(instanceName)];
+		}
+
+		private void RemoveSurface(int index)
+		{
+			Surface surface = this.Surfaces[index];
+
+			// surface 削除時にすること
+			{
+				Game.I.SurfaceEL.Add(surface.Act.Draw);
+			}
+
+			ExtraTools.FastDesertElement(this.Surfaces, index);
+		}
+
+		public void RemoveSurface(string instanceName)
+		{
+			this.RemoveSurface(this.GetSurfaceIndex(instanceName));
+		}
+
+		public void RemoveSurface(Surface surface)
+		{
+			this.RemoveSurface(surface.InstanceName);
 		}
 	}
 }

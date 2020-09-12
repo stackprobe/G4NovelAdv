@@ -17,16 +17,18 @@ namespace Charlotte.Games
 
 		public static Game I;
 
+		public DDTaskList SurfaceEL;
+
 		public Game()
 		{
 			I = this;
 
-			//DDUtils.SetMouseDispMode(true);
+			this.SurfaceEL = new DDTaskList();
 		}
 
 		public void Dispose()
 		{
-			//DDUtils.SetMouseDispMode(false);
+			this.SurfaceEL = null;
 
 			I = null;
 		}
@@ -106,13 +108,15 @@ namespace Charlotte.Games
 				// 描画ここから
 				// ====
 
+				DDCurtain.DrawCurtain(); // 画面クリア
+
+				Game.I.Status.Surfaces.Sort((a, b) => a.Z - b.Z); // Z-オーダー順
+
 				foreach (Surface surface in Game.I.Status.Surfaces) // キャラクタ・オブジェクト・壁紙
-				{
-					if (surface.Acts.Count == 0)
+					if (surface.Act.Draw() == false)
 						surface.Draw();
-					else if (surface.Acts[0]() == false)
-						surface.Acts.RemoveAt(0);
-				}
+
+				Game.I.SurfaceEL.ExecuteAllTask();
 
 				// メッセージ枠
 				{

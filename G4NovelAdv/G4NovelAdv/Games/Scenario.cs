@@ -44,7 +44,11 @@ namespace Charlotte.Games
 				}
 			}
 
-			string[] lines = FileTools.TextToLines(JString.ToJString(fileData, true, true, false, true));
+			string text = JString.ToJString(fileData, true, true, true, true);
+
+			text = text.Replace('\t', ' '); // タブスペースと空白 -> 空白に統一
+
+			string[] lines = FileTools.TextToLines(text);
 			ScenarioPage page = null;
 
 			foreach (string fLine in lines)
@@ -52,6 +56,9 @@ namespace Charlotte.Games
 				string line = fLine.Trim();
 
 				if (line == "")
+					continue;
+
+				if (line[0] == ';') // ? コメント行
 					continue;
 
 				if (line[0] == '/')
