@@ -34,13 +34,19 @@ namespace Charlotte.Games.Surfaces
 		public const int DEFAULT_Z = 0;
 
 		/// <summary>
-		/// 退場する。
+		/// 自分自身を削除する。
 		/// </summary>
 		public void RemoveMe()
 		{
 			Game.I.Status.RemoveSurface(this);
 		}
 
+		/// <summary>
+		/// <para>コマンドを実行する。</para>
+		/// <para>ここでは共通のコマンドを処理し、それ以外のコマンドを処理するために Invoke_02 を呼び出す。</para>
+		/// </summary>
+		/// <param name="command">コマンド名</param>
+		/// <param name="arguments">コマンド引数列</param>
 		public void Invoke(string command, params string[] arguments)
 		{
 			int c = 0;
@@ -77,7 +83,7 @@ namespace Charlotte.Games.Surfaces
 			}
 			else if (command == ScenarioWords.COMMAND_End)
 			{
-				Game.I.Status.RemoveSurface(this);
+				this.RemoveMe();
 			}
 			else
 			{
@@ -85,6 +91,11 @@ namespace Charlotte.Games.Surfaces
 			}
 		}
 
+		/// <summary>
+		/// シリアライザ
+		/// 現在の「固有の状態」を再現可能な文字列を返す。
+		/// </summary>
+		/// <returns></returns>
 		public string Serialize()
 		{
 			return new AttachString().Untokenize(new string[]
@@ -121,7 +132,7 @@ namespace Charlotte.Games.Surfaces
 		/// </summary>
 		/// <param name="command">コマンド名</param>
 		/// <param name="arguments">コマンド引数列</param>
-		protected virtual void Invoke_02(string command, string[] arguments)
+		protected virtual void Invoke_02(string command, params string[] arguments)
 		{
 			throw new DDError();
 		}
@@ -132,7 +143,7 @@ namespace Charlotte.Games.Surfaces
 		/// シリアライザ
 		/// 現在の「固有の状態」を再現可能な文字列を返す。
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>状態文字列</returns>
 		protected virtual string Serialize_02()
 		{
 			return SERIALIZED_DUMMY;
@@ -141,7 +152,7 @@ namespace Charlotte.Games.Surfaces
 		/// <summary>
 		/// シリアライザ実行時の「固有の状態」を再現する。
 		/// </summary>
-		/// <param name="value">シリアライザから取得した文字列</param>
+		/// <param name="value">シリアライザから取得した状態文字列</param>
 		protected virtual void Deserialize_02(string value)
 		{
 			if (value != SERIALIZED_DUMMY)

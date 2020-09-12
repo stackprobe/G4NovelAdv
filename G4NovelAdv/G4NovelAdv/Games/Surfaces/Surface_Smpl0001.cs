@@ -20,7 +20,7 @@ namespace Charlotte.Games.Surfaces
 			DDDraw.Reset();
 		}
 
-		protected override void Invoke_02(string command, string[] arguments)
+		protected override void Invoke_02(string command, params string[] arguments)
 		{
 			if (command == ScenarioWords.COMMAND_フェードイン)
 			{
@@ -28,8 +28,8 @@ namespace Charlotte.Games.Surfaces
 			}
 			else if (command == ScenarioWords.COMMAND_フェードアウト)
 			{
-				this.Act.Add(EnumerableTools.Supplier(this.フェードアウト())); // 退場する前にアクションを追加する。
-				this.RemoveMe(); // 退場する。
+				this.Act.Add(EnumerableTools.Supplier(this.フェードアウト())); // 削除前にアクションを追加する。
+				this.RemoveMe(); // 自分自身を削除する。
 			}
 			else
 			{

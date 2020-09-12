@@ -9,32 +9,65 @@ namespace Charlotte.Games.Surfaces
 {
 	public class Surface_UFOYukari : Surface
 	{
+		private double Real_X;
+		private double Real_Y;
+		private double Real_Zoom = 0.5;
+
 		public override void Draw()
 		{
 			double x = this.X;
 			double y = this.Y;
-			double z = 0.5;
 
-			x += Math.Sin(DDEngine.ProcFrame / 101.0) * 5.0;
-			y += Math.Sin(DDEngine.ProcFrame / 301.0) * 50.0;
+			x += Math.Sin(DDEngine.ProcFrame / 71.0) * 60.0;
+			y += Math.Sin(DDEngine.ProcFrame / 61.0) * 90.0;
 
+			DDUtils.Approach(ref this.Real_X, x, 0.999);
+			DDUtils.Approach(ref this.Real_Y, y, 0.999);
+
+			this.DrawYukari();
+		}
+
+		private void DrawYukari()
+		{
+			this.DrawYukari(this.Real_X, this.Real_Y, this.Real_Zoom);
+		}
+
+		private void DrawYukari(double x, double y, double zoom)
+		{
+#if true
+			DDDraw.DrawBegin(Ground.I.Picture.未確認飛行ゆかりん_からだ, x, y);
+			DDDraw.DrawRotate(Math.Sin(DDEngine.ProcFrame / 17.0 - 1.3) * 0.03);
+			DDDraw.DrawZoom(zoom);
+			DDDraw.DrawEnd();
+
+			DDDraw.DrawBegin(Ground.I.Picture.未確認飛行ゆかりん_あたま0000, x, y);
+			DDDraw.DrawRotate(Math.Sin(DDEngine.ProcFrame / 17.0 - 0.4) * 0.03);
+			DDDraw.DrawZoom(zoom);
+			DDDraw.DrawEnd();
+
+			DDDraw.DrawBegin(Ground.I.Picture.未確認飛行ゆかりん_UFO, x, y);
+			DDDraw.DrawRotate(Math.Sin(DDEngine.ProcFrame / 17.0 - 0.0) * 0.03);
+			DDDraw.DrawZoom(zoom);
+			DDDraw.DrawEnd();
+#else // old
 			Action<DDPicture> draw = picture =>
 			{
 				DDDraw.DrawBegin(picture, x, y);
-				DDDraw.DrawZoom(z);
+				DDDraw.DrawZoom(zoom);
 				DDDraw.DrawEnd();
 			};
 
 			draw(Ground.I.Picture.未確認飛行ゆかりん_からだ);
 			draw(Ground.I.Picture.未確認飛行ゆかりん_あたま0000);
 			draw(Ground.I.Picture.未確認飛行ゆかりん_UFO);
+#endif
 		}
 
-		protected override void Invoke_02(string command, string[] arguments)
+		protected override void Invoke_02(string command, params string[] arguments)
 		{
-			if (command == "跳んで登場")
+			if (command == ScenarioWords.COMMAND_跳ねて登場)
 			{
-				this.Act.Add(EnumerableTools.Supplier(this.跳んで登場()));
+				this.Act.Add(EnumerableTools.Supplier(this.跳ねて登場()));
 			}
 			else
 			{
@@ -42,11 +75,19 @@ namespace Charlotte.Games.Surfaces
 			}
 		}
 
-		private IEnumerable<bool> 跳んで登場()
+		private IEnumerable<bool> 跳ねて登場()
 		{
-			foreach (DDScene scene in DDSceneUtils.Create(10))
+			foreach (DDScene scene in DDSceneUtils.Create(60))
 			{
-				// TODO
+				double x = this.X;
+				double y = this.Y;
+
+				y -= DDUtils.Parabola(scene.Rate) * 100.0;
+
+				this.Real_X = x;
+				this.Real_Y = y;
+
+				this.DrawYukari();
 
 				yield return true;
 			}

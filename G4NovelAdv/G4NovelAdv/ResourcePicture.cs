@@ -41,6 +41,35 @@ namespace Charlotte
 		public DDPicture MessageFrame_Title = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\title.png");
 		public DDPicture MessageFrame_Title2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\title2.png");
 
+		public DDPicture 弦巻マキ01 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\maki01.png");
+		public DDPicture 弦巻マキ02 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\maki02.png");
+		public DDPicture 弦巻マキ03 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\maki03.png");
+		public DDPicture 弦巻マキ04 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\maki04.png");
+		public DDPicture 弦巻マキ05 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\maki05.png");
+		public DDPicture 弦巻マキ06 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\maki06.png");
+		public DDPicture 結月ゆかり01 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\yukari01.png");
+		public DDPicture 結月ゆかり02 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\yukari02.png");
+		public DDPicture 結月ゆかり03 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\yukari03.png");
+		public DDPicture 結月ゆかり04 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\yukari04.png");
+		public DDPicture 結月ゆかり05 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\ゆかマキ制服\yukari05.png");
+		public DDPicture 結月ゆかり11 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\結月ゆかり\立ち絵1.png");
+		public DDPicture 結月ゆかり12 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\結月ゆかり\立ち絵2.png");
+		public DDPicture 結月ゆかり13 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\結月ゆかり\立ち絵3.png");
+		public DDPicture 結月ゆかり14 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\結月ゆかり\立ち絵4.png");
+		public DDPicture 結月ゆかり15 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\結月ゆかり\立ち絵5.png");
+		public DDPicture 結月ゆかり16 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\結月ゆかり\立ち絵6.png");
+		public DDPicture 東北ずん子01 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko01.png");
+		public DDPicture 東北ずん子02 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko02.png");
+		public DDPicture 東北ずん子03 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko03.png");
+		public DDPicture 東北ずん子04 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko04.png");
+		public DDPicture 東北ずん子05 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko05.png");
+		public DDPicture 東北ずん子06 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko06.png");
+		public DDPicture 東北ずん子07 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko07.png");
+		public DDPicture 東北ずん子08 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko08.png");
+		public DDPicture 東北ずん子09 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko09.png");
+		public DDPicture 東北ずん子10 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko10.png");
+		public DDPicture 東北ずん子11 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\からい\東北ずん子\zunko11.png");
+
 		public DDPicture 未確認飛行ゆかりん_UFO = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO.png");
 		public DDPicture 未確認飛行ゆかりん_UFO_うしろ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_うしろ.png");
 		public DDPicture 未確認飛行ゆかりん_UFO_光 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\UFO_光 .png");

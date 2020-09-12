@@ -22,5 +22,7 @@ namespace Charlotte.Games
 
 		public const string COMMAND_フェードイン = "フェードイン";
 		public const string COMMAND_フェードアウト = "フェードアウト";
+
+		public const string COMMAND_跳ねて登場 = "跳ねて登場";
 	}
 }

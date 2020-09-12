@@ -34,6 +34,11 @@ namespace Charlotte.Games
 			return this.Surfaces[this.GetSurfaceIndex(instanceName)];
 		}
 
+		/// <summary>
+		/// <para>surface を削除する。</para>
+		/// <para>this.Surfaces にある surface を削除する処理は全てここに到達する。</para>
+		/// </summary>
+		/// <param name="index">削除する surface のインデックス</param>
 		private void RemoveSurface(int index)
 		{
 			Surface surface = this.Surfaces[index];
