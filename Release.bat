@@ -7,6 +7,11 @@ C:\Factory\SubTools\makeDDResourceFile.exe ^
 	out\Resource.dat ^
 	C:\Factory\Program\MaskGZDataForDonut3\MaskGZData.exe
 
+C:\Factory\SubTools\makeDDResourceFile.exe ^
+	res ^
+	out\res.dat ^
+	C:\Factory\Program\MaskGZDataForDonut3\MaskGZData.exe
+
 C:\Factory\SubTools\CallConfuserCLI.exe G4NovelAdv\G4NovelAdv\bin\Release\G4NovelAdv.exe out\G4NovelAdv.exe
 rem COPY /B G4NovelAdv\G4NovelAdv\bin\Release\G4NovelAdv.exe out
 COPY /B G4NovelAdv\G4NovelAdv\bin\Release\Chocolate.dll out

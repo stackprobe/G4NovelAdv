@@ -1,3 +1,5 @@
+REN res\Etoile\G4NovelAdv\Scenario\[Includes-Non-ASCII-characters]_0002.txt 101_スタートシナリオ.txt
+REN res\Etoile\G4NovelAdv\Scenario\[Includes-Non-ASCII-characters]_0001.txt 001_ダミーシナリオ.txt
 REN G4NovelAdv\G4NovelAdv\Games\Surfaces\[Includes-Non-ASCII-characters]_0004.cs Surface_東北ずん子.cs
 REN G4NovelAdv\G4NovelAdv\Games\Surfaces\[Includes-Non-ASCII-characters]_0003.cs Surface_弦巻マキ.cs
 REN G4NovelAdv\G4NovelAdv\Games\Surfaces\[Includes-Non-ASCII-characters]_0002.cs Surface_結月ゆかり.cs
