@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using Charlotte.Tools;
 using Charlotte.Common;
-using DxLibDLL;
 using Charlotte.Games.Surfaces;
+using DxLibDLL;
 
 namespace Charlotte.Games
 {
@@ -64,7 +64,8 @@ namespace Charlotte.Games
 				if (
 					DDMouse.L.GetInput() == -1 ||
 					DDInput.A.GetInput() == 1 ||
-					DDKey.GetInput(DX.KEY_INPUT_Z) == 1
+					DDKey.GetInput(DX.KEY_INPUT_SPACE) == 1 ||
+					DDKey.GetInput(DX.KEY_INPUT_RETURN) == 1
 					)
 				{
 					if (dispPageEndedCount < NEXT_PAGE_KEY_INTERVAL) // ? ページ表示_未完了 -> ページ表示_高速化

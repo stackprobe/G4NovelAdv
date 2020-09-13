@@ -25,7 +25,7 @@ namespace Charlotte.Tests.Games
 			}
 		}
 
-		public void Test_Smpl0001()
+		public void Test02S01()
 		{
 			using (new Game())
 			{
@@ -34,11 +34,20 @@ namespace Charlotte.Tests.Games
 			}
 		}
 
-		public void Test_Test0001()
+		public void Test02T01()
 		{
 			using (new Game())
 			{
 				Game.I.Status.Scenario = new Scenario("Test0001");
+				Game.I.Perform();
+			}
+		}
+
+		public void Test02T02()
+		{
+			using (new Game())
+			{
+				Game.I.Status.Scenario = new Scenario("Test0002");
 				Game.I.Perform();
 			}
 		}

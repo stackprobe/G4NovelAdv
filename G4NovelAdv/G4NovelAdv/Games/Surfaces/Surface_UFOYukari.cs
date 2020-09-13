@@ -77,19 +77,27 @@ namespace Charlotte.Games.Surfaces
 
 		private IEnumerable<bool> 跳ねて登場()
 		{
-			foreach (DDScene scene in DDSceneUtils.Create(60))
+			foreach (var info in new[]
 			{
-				double x = this.X;
-				double y = this.Y;
+				new { f = 60, hi = 100.0 },
+				new { f = 40, hi = 50.0 },
+				new { f = 30, hi = 25.0 },
+			})
+			{
+				foreach (DDScene scene in DDSceneUtils.Create(info.f))
+				{
+					double x = this.X;
+					double y = this.Y;
 
-				y -= DDUtils.Parabola(scene.Rate) * 100.0;
+					y -= DDUtils.Parabola(scene.Rate) * info.hi;
 
-				this.Real_X = x;
-				this.Real_Y = y;
+					this.Real_X = x;
+					this.Real_Y = y;
 
-				this.DrawYukari();
+					this.DrawYukari();
 
-				yield return true;
+					yield return true;
+				}
 			}
 		}
 	}

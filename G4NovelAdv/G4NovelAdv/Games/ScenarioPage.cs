@@ -13,7 +13,7 @@ namespace Charlotte.Games
 
 		// <---- prm
 
-		public const int LINE_LEN_MAX = 44; // 要調整
+		public const int LINE_LEN_MAX = 59; // 要調整
 
 		public string Text
 		{
