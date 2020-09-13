@@ -20,6 +20,9 @@ namespace Charlotte.Games
 
 		// -- 個別
 
+		public const string COMMAND_Chara = "Chara";
+		public const string COMMAND_Mode = "Mode";
+
 		public const string COMMAND_フェードイン = "フェードイン";
 		public const string COMMAND_フェードアウト = "フェードアウト";
 

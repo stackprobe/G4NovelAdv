@@ -3,38 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Common;
+using Charlotte.Tools;
 
 namespace Charlotte.Games.Surfaces
 {
 	/// <summary>
 	/// からい氏
-	/// 結月ゆかり
-	/// やや右向き
+	/// 東北ずん子
+	/// 正対
 	/// </summary>
-	public class Surface_結月ゆかり : Surface
+	public class Surface_東北ずん子 : Surface
 	{
 		private DDPicture[] Images = new DDPicture[]
 		{
-			Ground.I.Picture.結月ゆかり01, // 0 - コーヒー
-			Ground.I.Picture.結月ゆかり02, // 1 - 汗マキ
-			Ground.I.Picture.結月ゆかり03, // 2 - 笑マキ
-			Ground.I.Picture.結月ゆかり04, // 3 - 魔術
-			Ground.I.Picture.結月ゆかり05, // 4 - マキ肉
-			Ground.I.Picture.結月ゆかり11, // 5 - 殺
-			Ground.I.Picture.結月ゆかり12, // 6 - 寝
-			Ground.I.Picture.結月ゆかり13, // 7 - リボン
-			Ground.I.Picture.結月ゆかり14, // 8 - 刀
-			Ground.I.Picture.結月ゆかり15, // 9 - 塗
-			Ground.I.Picture.結月ゆかり16, // 10 - 普通
+			Ground.I.Picture.東北ずん子01, // 0 - 制服_普(喜)
+			Ground.I.Picture.東北ずん子02, // 1 - 制服_怒
+			Ground.I.Picture.東北ずん子03, // 2 - 制服_泣
+			Ground.I.Picture.東北ずん子04, // 3 - 制服_食
+			Ground.I.Picture.東北ずん子05, // 4 - 普
+			Ground.I.Picture.東北ずん子06, // 5 - 赤面？
+			Ground.I.Picture.東北ずん子07, // 6 - なまはげ
+			Ground.I.Picture.東北ずん子08, // 7 - 思考
+			Ground.I.Picture.東北ずん子09, // 8 - はてな
+			Ground.I.Picture.東北ずん子10, // 9 - 刃
+			Ground.I.Picture.東北ずん子11, // 10 - メイド_驚
 		};
 
 		private int Mode = MODE_DEFAULT; // 0 - (Images.Length - 1)
 
-		public const int MODE_DEFAULT = 10;
+		public const int MODE_DEFAULT = 4;
 
 		public override void Draw()
 		{
-			const double R = 0.0;
+			const double R = 2.0;
 
 			DDDraw.DrawBegin(this.Images[this.Mode], this.X, this.Y + Math.Sin(DDEngine.ProcFrame / 67.0 + R) * 2.0);
 			DDDraw.DrawZoom(0.5);

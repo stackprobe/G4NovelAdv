@@ -108,8 +108,6 @@ namespace Charlotte.Games
 				// 描画ここから
 				// ====
 
-				DDCurtain.DrawCurtain(); // 画面クリア
-
 				this.DrawSurfaces();
 
 				// メッセージ枠
@@ -159,6 +157,8 @@ namespace Charlotte.Games
 
 		private void DrawSurfaces()
 		{
+			DDCurtain.DrawCurtain(); // 画面クリア
+
 			Game.I.Status.Surfaces.Sort((a, b) => a.Z - b.Z); // Z-オーダー順
 
 			foreach (Surface surface in Game.I.Status.Surfaces) // キャラクタ・オブジェクト・壁紙

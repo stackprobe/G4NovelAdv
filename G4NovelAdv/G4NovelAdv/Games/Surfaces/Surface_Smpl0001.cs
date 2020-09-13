@@ -30,6 +30,11 @@ namespace Charlotte.Games.Surfaces
 			{
 				this.Act.Add(EnumerableTools.Supplier(this.フェードアウト())); // 削除前にアクションを追加する。
 				this.RemoveMe(); // 自分自身を削除する。
+
+				// memo:
+				// this.Act 内で this.RemoveMe() するやり方は NG !
+				// プレイヤの読み進める速度によって、どのページで this.RemoveMe() されるか分からない。
+				// this.RemoveMe() する前にセーブした場合 this.RemoveMe() は実行されず this はそのまま残る。
 			}
 			else
 			{
@@ -44,6 +49,8 @@ namespace Charlotte.Games.Surfaces
 				this.A = scene.Rate;
 				this.Draw();
 
+				ProcMain.WriteLog("Smpl0001_フェードイン_A: " + this.A); // test
+
 				yield return true;
 			}
 		}
@@ -54,6 +61,8 @@ namespace Charlotte.Games.Surfaces
 			{
 				this.A = 1.0 - scene.Rate;
 				this.Draw();
+
+				ProcMain.WriteLog("Smpl0001_フェードアウト_A: " + this.A); // test
 
 				yield return true;
 			}

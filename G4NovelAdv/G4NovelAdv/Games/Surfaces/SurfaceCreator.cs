@@ -19,6 +19,10 @@ namespace Charlotte.Games.Surfaces
 				case "Dark": surface = new Surface_Dark(); break;
 				case "Smpl0001": surface = new Surface_Smpl0001(); break;
 				case "UFOYukari": surface = new Surface_UFOYukari(); break;
+				case "からい": surface = new Surface_からい(); break;
+				case "結月ゆかり": surface = new Surface_結月ゆかり(); break;
+				case "弦巻マキ": surface = new Surface_弦巻マキ(); break;
+				case "東北ずん子": surface = new Surface_東北ずん子(); break;
 
 				// 新しいキャラクタをここへ追加..
 

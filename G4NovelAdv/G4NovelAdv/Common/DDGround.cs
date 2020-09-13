@@ -147,7 +147,7 @@ namespace Charlotte.Common
 
 			// app > @ INIT
 
-			//GameGround.RO_MouseDispMode = true;
+			RO_MouseDispMode = true;
 
 			// キー設定を全て無効にする。-- キー入力は DX.KEY_* から直接取得する。
 			{
