@@ -88,5 +88,9 @@ namespace Charlotte
 		public DDPicture 未確認飛行ゆかりん_もみあげ_まえ = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\もみあげ_まえ.png");
 		public DDPicture 未確認飛行ゆかりん_キャッチャー = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\キャッチャー.png");
 		public DDPicture 未確認飛行ゆかりん_髪飾り = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\立ち絵\未確認飛行ゆかりん\UFyukari\髪飾り.png");
+
+		public DDPicture 背景_森の中 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\背景\6602480.jpg"); // 800 x 450
+		public DDPicture 背景_屋上 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\背景\6602504.jpg"); // 776 x 900
+		public DDPicture 背景_夜 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\背景\6602530.jpg"); // 800 x 1028 // 余白除く_LTRB == 0, 60, 800, 976
 	}
 }

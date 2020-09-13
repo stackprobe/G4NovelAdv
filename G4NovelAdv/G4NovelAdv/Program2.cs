@@ -49,8 +49,8 @@ namespace Charlotte
 			//new GameTest().Test01();
 			//new GameTest().Test02();
 			//new GameTest().Test02S01();
-			new GameTest().Test02T01();
-			//new GameTest().Test02T02();
+			//new GameTest().Test02T01();
+			new GameTest().Test02T02();
 			//new LogoTest().Test01();
 		}
 

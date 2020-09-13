@@ -60,6 +60,8 @@ namespace Charlotte.Games
 			{
 				DDMouse.UpdatePos();
 
+				// キー押下は 1 マウス押下は -1 で判定する。
+
 				// 入力：シナリオを進める。
 				if (
 					DDMouse.L.GetInput() == -1 ||

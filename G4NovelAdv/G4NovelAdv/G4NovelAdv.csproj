@@ -144,6 +144,7 @@
     <Compile Include="Games\Surfaces\Surface_弦巻マキ.cs" />
     <Compile Include="Games\Surfaces\Surface_東北ずん子.cs" />
     <Compile Include="Games\Surfaces\Surface_結月ゆかり.cs" />
+    <Compile Include="Games\Surfaces\Surface_背景.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="Games\Logo.cs" />
     <Compile Include="MainWin.cs">

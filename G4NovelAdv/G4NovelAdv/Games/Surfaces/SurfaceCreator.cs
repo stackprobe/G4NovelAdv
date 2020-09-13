@@ -16,13 +16,14 @@ namespace Charlotte.Games.Surfaces
 
 			switch (typeName)
 			{
-				case "Dark": surface = new Surface_Dark(); break;
-				case "Smpl0001": surface = new Surface_Smpl0001(); break;
-				case "UFOYukari": surface = new Surface_UFOYukari(); break;
-				case "からい": surface = new Surface_からい(); break;
-				case "結月ゆかり": surface = new Surface_結月ゆかり(); break;
-				case "弦巻マキ": surface = new Surface_弦巻マキ(); break;
-				case "東北ずん子": surface = new Surface_東北ずん子(); break;
+				case "Dark": surface = new Surface_Dark(); break; // 背景
+				case "Smpl0001": surface = new Surface_Smpl0001(); break; // サンプル
+				case "UFOYukari": surface = new Surface_UFOYukari(); break; // キャラクタ
+				case "からい": surface = new Surface_からい(); break; // キャラクタ・セット
+				case "結月ゆかり": surface = new Surface_結月ゆかり(); break; // キャラクタ
+				case "弦巻マキ": surface = new Surface_弦巻マキ(); break; // キャラクタ
+				case "東北ずん子": surface = new Surface_東北ずん子(); break; // キャラクタ
+				case "背景": surface = new Surface_背景(); break; // 背景・セット
 
 				// 新しいキャラクタをここへ追加..
 

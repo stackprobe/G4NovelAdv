@@ -10,7 +10,7 @@ namespace Charlotte.Games
 	/// </summary>
 	public static class ScenarioWords
 	{
-		// -- 共通
+		// -- 共通 - Surface.Invoke 内で処理
 
 		public const string COMMAND_移動 = "移動";
 		public const string COMMAND_X = "X";
@@ -18,7 +18,7 @@ namespace Charlotte.Games
 		public const string COMMAND_Z = "Z";
 		public const string COMMAND_End = "End";
 
-		// -- 個別
+		// -- 個別 - Surface_*.Invoke_02 内で処理
 
 		public const string COMMAND_Chara = "Chara";
 		public const string COMMAND_Mode = "Mode";
@@ -27,5 +27,7 @@ namespace Charlotte.Games
 		public const string COMMAND_フェードアウト = "フェードアウト";
 
 		public const string COMMAND_跳ねて登場 = "跳ねて登場";
+
+		public const string COMMAND_画像 = "画像";
 	}
 }
