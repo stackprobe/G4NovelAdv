@@ -104,9 +104,9 @@ namespace Charlotte.Games.Surfaces
 			});
 		}
 
-		protected override void Deserialize_02(string value)
+		protected override void Deserialize_02(string src)
 		{
-			string[] lines = new AttachString().Tokenize(value);
+			string[] lines = new AttachString().Tokenize(src);
 			int c = 0;
 
 			this.Chara = (Chara_t)int.Parse(lines[c++]);

@@ -60,9 +60,9 @@ namespace Charlotte.Games.Surfaces
 			return this.Mode.ToString();
 		}
 
-		protected override void Deserialize_02(string value)
+		protected override void Deserialize_02(string src)
 		{
-			this.Mode = int.Parse(value);
+			this.Mode = int.Parse(src);
 		}
 	}
 }

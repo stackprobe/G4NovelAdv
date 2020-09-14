@@ -154,10 +154,10 @@ namespace Charlotte.Games.Surfaces
 		/// <summary>
 		/// シリアライザ実行時の「固有の状態」を再現する。
 		/// </summary>
-		/// <param name="value">シリアライザから取得した状態文字列</param>
-		protected virtual void Deserialize_02(string value)
+		/// <param name="src">シリアライザから取得した状態文字列</param>
+		protected virtual void Deserialize_02(string src)
 		{
-			if (value != SERIALIZED_DUMMY)
+			if (src != SERIALIZED_DUMMY)
 				throw new DDError();
 		}
 	}

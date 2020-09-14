@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Common;
+using Charlotte.Tools;
 
 namespace Charlotte.Games.Surfaces
 {
@@ -16,13 +17,15 @@ namespace Charlotte.Games.Surfaces
 		};
 
 		private int ImageIndex = 0; // 0 ～ (Images.Length - 1)
-		private double Zoom;
+		private double Zoom = 1.0;
 
 		public override void Draw()
 		{
 			DDPicture image = this.Images[this.ImageIndex];
 
 			DDDraw.DrawBegin(image, DDConsts.Screen_W / 2, DDConsts.Screen_H / 2);
+			DDDraw.DrawZoom(this.Zoom);
+			DDDraw.DrawEnd();
 		}
 
 		protected override void Invoke_02(string command, params string[] arguments)
@@ -46,12 +49,20 @@ namespace Charlotte.Games.Surfaces
 
 		protected override string Serialize_02()
 		{
-			return this.ImageIndex.ToString();
+			return new AttachString().Untokenize(new string[]
+			{
+				this.ImageIndex.ToString(),
+				this.Zoom.ToString("F9"),
+			});
 		}
 
-		protected override void Deserialize_02(string value)
+		protected override void Deserialize_02(string src)
 		{
-			this.ImageIndex = int.Parse(value);
+			string[] lines = new AttachString().Tokenize(src);
+			int c = 0;
+
+			this.ImageIndex = int.Parse(lines[c++]);
+			this.Zoom = double.Parse(lines[c++]);
 		}
 	}
 }
