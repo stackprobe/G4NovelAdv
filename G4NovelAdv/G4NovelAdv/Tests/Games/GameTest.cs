@@ -25,7 +25,7 @@ namespace Charlotte.Tests.Games
 			}
 		}
 
-		public void Test02S01()
+		public void Test02_S01()
 		{
 			using (new Game())
 			{
@@ -34,7 +34,7 @@ namespace Charlotte.Tests.Games
 			}
 		}
 
-		public void Test02T01()
+		public void Test02_T01()
 		{
 			using (new Game())
 			{
@@ -43,7 +43,7 @@ namespace Charlotte.Tests.Games
 			}
 		}
 
-		public void Test02T02()
+		public void Test02_T02()
 		{
 			using (new Game())
 			{
