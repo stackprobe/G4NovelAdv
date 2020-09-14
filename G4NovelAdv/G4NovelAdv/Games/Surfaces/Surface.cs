@@ -100,15 +100,19 @@ namespace Charlotte.Games.Surfaces
 		/// <returns></returns>
 		public string Serialize()
 		{
-			return new AttachString().Untokenize(new string[]
+			return new AttachString().Untokenize(EnumerableTools.Linearize(new string[][]
 			{
-				this.TypeName,
-				this.InstanceName,
-				this.X.ToString(),
-				this.Y.ToString(),
-				this.Z.ToString(),
+				new string[]
+				{
+					this.TypeName,
+					this.InstanceName,
+					this.X.ToString(),
+					this.Y.ToString(),
+					this.Z.ToString(),
+				},
 				this.Serialize_02(),
-			});
+			}
+			));
 		}
 
 		public void Deserialize(string value)
@@ -121,7 +125,7 @@ namespace Charlotte.Games.Surfaces
 			this.X = int.Parse(lines[c++]);
 			this.Y = int.Parse(lines[c++]);
 			this.Z = int.Parse(lines[c++]);
-			this.Deserialize_02(lines[c++]);
+			this.Deserialize_02(lines.Skip(c).ToArray());
 		}
 
 		/// <summary>
@@ -139,14 +143,14 @@ namespace Charlotte.Games.Surfaces
 			throw new DDError();
 		}
 
-		private const string SERIALIZED_DUMMY = "SERIALIZED_DUMMY";
+		private static readonly string[] SERIALIZED_DUMMY = new string[] { "SERIALIZED_DUMMY" };
 
 		/// <summary>
 		/// シリアライザ
-		/// 現在の「固有の状態」を再現可能な文字列を返す。
+		/// 現在の「固有の状態」を再現可能な文字列の配列を返す。
 		/// </summary>
-		/// <returns>状態文字列</returns>
-		protected virtual string Serialize_02()
+		/// <returns>状態データ</returns>
+		protected virtual string[] Serialize_02()
 		{
 			return SERIALIZED_DUMMY;
 		}
@@ -154,10 +158,10 @@ namespace Charlotte.Games.Surfaces
 		/// <summary>
 		/// シリアライザ実行時の「固有の状態」を再現する。
 		/// </summary>
-		/// <param name="src">シリアライザから取得した状態文字列</param>
-		protected virtual void Deserialize_02(string src)
+		/// <param name="lines">シリアライザから取得した状態データ</param>
+		protected virtual void Deserialize_02(string[] lines)
 		{
-			if (src != SERIALIZED_DUMMY)
+			if (ArrayTools.Comp(lines, SERIALIZED_DUMMY, StringTools.Comp) != 0)
 				throw new DDError();
 		}
 	}

@@ -61,14 +61,19 @@ namespace Charlotte.Games.Surfaces
 			}
 		}
 
-		protected override string Serialize_02()
+		protected override string[] Serialize_02()
 		{
-			return this.Mode.ToString();
+			return new string[]
+			{
+				this.Mode.ToString(),
+			};
 		}
 
-		protected override void Deserialize_02(string src)
+		protected override void Deserialize_02(string[] lines)
 		{
-			this.Mode = int.Parse(src);
+			int c = 0;
+
+			this.Mode = int.Parse(lines[c++]);
 		}
 	}
 }
