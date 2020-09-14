@@ -17,8 +17,8 @@ namespace Charlotte.Games.Surfaces
 		/// <para>アクションのリスト</para>
 		/// <para>Act.Draw が false を返したとき this.Draw を実行しなければならない。</para>
 		/// <para>セーブするとき、このフィールドは保存しない。</para>
-		/// <para>・アクションは途中で破棄されても良いように実装すること。</para>
-		/// <para>スキップモード等で Act.Clear が実行されるかもしれない。</para>
+		/// <para>アクションは途中で破棄されても良いように実装すること。</para>
+		/// <para>- スキップモード等で Act.Clear が実行されるかもしれない。</para>
 		/// </summary>
 		public Act Act = new Act();
 

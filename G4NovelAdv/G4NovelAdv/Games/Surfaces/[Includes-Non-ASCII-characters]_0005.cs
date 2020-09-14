@@ -16,15 +16,32 @@ namespace Charlotte.Games.Surfaces
 		};
 
 		private int ImageIndex = 0; // 0 ～ (Images.Length - 1)
+		private double Zoom;
 
 		public override void Draw()
 		{
-			DDDraw.DrawRect(this.Images[0], 0, 0, DDConsts.Screen_W, DDConsts.Screen_H);
+			DDPicture image = this.Images[this.ImageIndex];
+
+			DDDraw.DrawBegin(image, DDConsts.Screen_W / 2, DDConsts.Screen_H / 2);
 		}
 
 		protected override void Invoke_02(string command, params string[] arguments)
 		{
-			// TODO
+			int c = 0;
+
+			if (command == ScenarioWords.COMMAND_画像)
+			{
+				int index = int.Parse(arguments[c++]);
+
+				if (index < 0 || this.Images.Length <= index)
+					throw new DDError("Bad index: " + index);
+
+				this.ImageIndex = index;
+			}
+			else
+			{
+				throw new DDError();
+			}
 		}
 
 		protected override string Serialize_02()
