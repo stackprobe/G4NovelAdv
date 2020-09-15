@@ -16,16 +16,27 @@ namespace Charlotte.Games.Surfaces
 			Ground.I.Picture.背景_夜, // 800 x 1028 // 余白除く_LTRB == 0, 60, 800, 976
 		};
 
-		private int ImageIndex = 0; // 0 ～ (Images.Length - 1)
-		private double Zoom = 1.0;
+		private int ImageIndex = -1; // -1 == 無効, 0 ～ (Images.Length - 1)
+		private D2Size ImageDrawSize;
+		private D2Point ImageLTStart;
+		private D2Point ImageLTEnd = new D2Point(0, 0); // 固定値
+		private double CurrDrawPosRate = 0.0;
+		private double DestDrawPosRate = 0.0;
 
 		public override void Draw()
 		{
-			DDPicture image = this.Images[this.ImageIndex];
+			if (this.ImageIndex == -1)
+				throw new DDError("画像を指定して下さい。");
 
-			DDDraw.DrawBegin(image, DDConsts.Screen_W / 2, DDConsts.Screen_H / 2);
-			DDDraw.DrawZoom(this.Zoom);
-			DDDraw.DrawEnd();
+			DDUtils.Approach(ref this.CurrDrawPosRate, this.DestDrawPosRate, 0.99995);
+
+			DDDraw.DrawRect(
+				this.Images[this.ImageIndex],
+				this.ImageLTStart.X + (this.ImageLTEnd.X - this.ImageLTStart.X) * this.CurrDrawPosRate,
+				this.ImageLTStart.Y + (this.ImageLTEnd.Y - this.ImageLTStart.Y) * this.CurrDrawPosRate,
+				this.ImageDrawSize.W,
+				this.ImageDrawSize.H
+				);
 		}
 
 		protected override void Invoke_02(string command, params string[] arguments)
@@ -40,6 +51,20 @@ namespace Charlotte.Games.Surfaces
 					throw new DDError("Bad index: " + index);
 
 				this.ImageIndex = index;
+				this.ImageDrawSize = DDUtils.AdjustRectExterior(this.Images[index].GetSize().ToD2Size(), new D4Rect(0, 0, DDConsts.Screen_W, DDConsts.Screen_H)).Size;
+				this.ImageLTStart = new D2Point(DDConsts.Screen_W - this.ImageDrawSize.W, DDConsts.Screen_H - this.ImageDrawSize.H);
+				//this.ImageLTEnd = new D2Point(0, 0); // 固定値なので更新しない。
+			}
+			else if (command == ScenarioWords.COMMAND_Slide)
+			{
+				double rate1 = double.Parse(arguments[c++]);
+				double rate2 = double.Parse(arguments[c++]);
+
+				rate1 = DoubleTools.ToRange(rate1, 0.0, 1.0);
+				rate2 = DoubleTools.ToRange(rate2, 0.0, 1.0);
+
+				this.CurrDrawPosRate = rate1;
+				this.DestDrawPosRate = rate2;
 			}
 			else
 			{
@@ -52,7 +77,12 @@ namespace Charlotte.Games.Surfaces
 			return new string[]
 			{
 				this.ImageIndex.ToString(),
-				this.Zoom.ToString("F9"),
+				this.ImageDrawSize.W.ToString("F9"),
+				this.ImageDrawSize.H.ToString("F9"),
+				this.ImageLTStart.X.ToString("F9"),
+				this.ImageLTStart.Y.ToString("F9"),
+				this.CurrDrawPosRate.ToString("F9"),
+				this.DestDrawPosRate.ToString("F9"),
 			};
 		}
 
@@ -61,7 +91,12 @@ namespace Charlotte.Games.Surfaces
 			int c = 0;
 
 			this.ImageIndex = int.Parse(lines[c++]);
-			this.Zoom = double.Parse(lines[c++]);
+			this.ImageDrawSize.W = double.Parse(lines[c++]);
+			this.ImageDrawSize.H = double.Parse(lines[c++]);
+			this.ImageLTStart.X = double.Parse(lines[c++]);
+			this.ImageLTStart.Y = double.Parse(lines[c++]);
+			this.CurrDrawPosRate = double.Parse(lines[c++]);
+			this.DestDrawPosRate = double.Parse(lines[c++]);
 		}
 	}
 }

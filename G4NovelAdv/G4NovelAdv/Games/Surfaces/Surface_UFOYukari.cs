@@ -100,5 +100,24 @@ namespace Charlotte.Games.Surfaces
 				}
 			}
 		}
+
+		protected override string[] Serialize_02()
+		{
+			return new string[]
+			{
+				this.Real_X.ToString("F9"),
+				this.Real_Y.ToString("F9"),
+				this.Real_Zoom.ToString("F9"),
+			};
+		}
+
+		protected override void Deserialize_02(string[] lines)
+		{
+			int c = 0;
+
+			this.Real_X = double.Parse(lines[c++]);
+			this.Real_Y = double.Parse(lines[c++]);
+			this.Real_Zoom = double.Parse(lines[c++]);
+		}
 	}
 }

@@ -29,5 +29,6 @@ namespace Charlotte.Games
 		public const string COMMAND_跳ねて登場 = "跳ねて登場";
 
 		public const string COMMAND_画像 = "画像";
+		public const string COMMAND_Slide = "Slide";
 	}
 }
