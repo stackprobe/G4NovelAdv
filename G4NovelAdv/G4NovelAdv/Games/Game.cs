@@ -117,7 +117,7 @@ namespace Charlotte.Games
 				{
 					const int h = 136;
 
-					DDDraw.SetAlpha(0.7);
+					DDDraw.SetAlpha(0.9);
 					DDDraw.DrawRect(Ground.I.Picture.MessageFrame_Message, 0, DDConsts.Screen_H - h, DDConsts.Screen_W, h);
 					DDDraw.Reset();
 				}
@@ -138,7 +138,7 @@ namespace Charlotte.Games
 
 					for (int index = 0; index < dispLines.Length; index++)
 					{
-						DDFontUtils.DrawString(10, 450 + index * 30, dispLines[index], DDFontUtils.GetFont("Kゴシック", 16));
+						DDFontUtils.DrawString(10, 450 + index * 30, dispLines[index], DDFontUtils.GetFont("Kゴシック", 16), false, new I3Color(110, 100, 90));
 					}
 				}
 

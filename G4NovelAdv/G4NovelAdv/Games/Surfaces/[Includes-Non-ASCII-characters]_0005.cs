@@ -30,10 +30,12 @@ namespace Charlotte.Games.Surfaces
 
 			DDUtils.Approach(ref this.CurrDrawPosRate, this.DestDrawPosRate, 0.99995);
 
+			D2Point lt = DDUtils.AToBRate(this.ImageLTStart, this.ImageLTEnd, this.CurrDrawPosRate);
+
 			DDDraw.DrawRect(
 				this.Images[this.ImageIndex],
-				this.ImageLTStart.X + (this.ImageLTEnd.X - this.ImageLTStart.X) * this.CurrDrawPosRate,
-				this.ImageLTStart.Y + (this.ImageLTEnd.Y - this.ImageLTStart.Y) * this.CurrDrawPosRate,
+				lt.X,
+				lt.Y,
 				this.ImageDrawSize.W,
 				this.ImageDrawSize.H
 				);
