@@ -34,7 +34,7 @@ namespace Charlotte.Games.Surfaces
 				// memo:
 				// this.Act 内で this.RemoveMe() するやり方は NG !
 				// プレイヤの読み進める速度によって、どのページで this.RemoveMe() されるか分からない。
-				// this.RemoveMe() する前にセーブした場合 this.RemoveMe() は実行されず this はそのまま残る。
+				// this.RemoveMe() する前にセーブ・ロードしてしまった場合 this.RemoveMe() は実行されず this はそのまま残る。
 			}
 			else
 			{

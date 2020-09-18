@@ -27,12 +27,11 @@ namespace Charlotte.Games
 		}
 
 		/// <summary>
-		/// このアクションを描画する。
+		/// <para>このアクションを描画する。</para>
+		/// <para>真を返したとき == アクションを描画し、継続する可能性がある。</para>
+		/// <para>偽を返したとき == 全てのアクションは終了しているため描画しなかった。本来の描画を実行する必要がある。</para>
 		/// </summary>
-		/// <returns>
-		/// <para>true == アクションを描画し、継続する可能性がある。</para>
-		/// <para>false == 全てのアクションは終了しているため描画しなかった。本来の描画を実行する必要がある。</para>
-		/// </returns>
+		/// <returns>アクション継続か</returns>
 		public bool Draw()
 		{
 			while (1 <= this.InnerActs.Count && this.InnerActs[0]() == false)
