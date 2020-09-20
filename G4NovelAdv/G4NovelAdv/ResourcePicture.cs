@@ -28,10 +28,10 @@ namespace Charlotte
 		public DDPicture MessageFrame_Log2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\log2.png");
 		public DDPicture MessageFrame_Menu = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\menu.png");
 		public DDPicture MessageFrame_Menu2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\menu2.png");
-		public DDPicture MessageFrame_Qload = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qload.png");
-		public DDPicture MessageFrame_Qload2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qload2.png");
-		public DDPicture MessageFrame_Qsave = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qsave.png");
-		public DDPicture MessageFrame_Qsave2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qsave2.png");
+		public DDPicture MessageFrame_QLoad = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qload.png");
+		public DDPicture MessageFrame_QLoad2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qload2.png");
+		public DDPicture MessageFrame_QSave = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qsave.png");
+		public DDPicture MessageFrame_QSave2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\qsave2.png");
 		public DDPicture MessageFrame_Save = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\save.png");
 		public DDPicture MessageFrame_Save2 = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\save2.png");
 		public DDPicture MessageFrame_Screen = DDPictureLoaders.Standard(@"Etoile\G4NovelAdv\メッセージ枠\空想曲線\Messageframe_29\material\03 system_button\screen.png");

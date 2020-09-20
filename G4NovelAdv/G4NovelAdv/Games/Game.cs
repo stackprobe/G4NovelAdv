@@ -122,6 +122,34 @@ namespace Charlotte.Games
 					DDDraw.Reset();
 				}
 
+				// システムボタン
+				{
+					const double BUTTON_L = 530.5; // 素材の幅が奇数なので n + 0.5
+					const double BUTTON_T = 412.5; // 素材の高さも奇数なので n + 0.5
+					const double BUTTON_X_STEP = 78.0;
+
+					DDPicture[] buttons = new DDPicture[]
+					{
+						Ground.I.Picture.MessageFrame_Save,
+						Ground.I.Picture.MessageFrame_Load,
+						Ground.I.Picture.MessageFrame_Skip,
+						Ground.I.Picture.MessageFrame_Auto,
+						Ground.I.Picture.MessageFrame_Log,
+						Ground.I.Picture.MessageFrame_Menu,
+						//Ground.I.Picture.MessageFrame_Close,
+						//Ground.I.Picture.MessageFrame_Config,
+						//Ground.I.Picture.MessageFrame_QLoad,
+						//Ground.I.Picture.MessageFrame_QSave,
+						//Ground.I.Picture.MessageFrame_Screen,
+						//Ground.I.Picture.MessageFrame_Title,
+					};
+
+					for (int index = 0; index < buttons.Length; index++)
+					{
+						DDDraw.DrawCenter(buttons[index], BUTTON_L + index * BUTTON_X_STEP, BUTTON_T);
+					}
+				}
+
 				// サブタイトル文字列
 				{
 					int dispSubtitleLength = Math.Min(dispCharCount, this.CurrPage.Subtitle.Length);
