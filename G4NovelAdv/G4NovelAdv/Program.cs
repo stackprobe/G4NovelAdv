@@ -17,7 +17,7 @@ namespace Charlotte
 			ProcMain.GUIMain(() => new MainWin(), APP_IDENT, APP_TITLE);
 		}
 
-		public const string APP_IDENT = "{50cc987d-6493-4b15-b39e-57814f7c667e}";
+		public const string APP_IDENT = "{81481a7e-daa2-4460-a994-bc03ee595f5c}";
 		public const string APP_TITLE = "G4NovelAdv";
 	}
 }
