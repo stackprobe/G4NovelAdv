@@ -1,3 +1,4 @@
+REN res\Etoile\G4NovelAdv\Scenario\[Includes-Non-ASCII-characters]_0003.txt 101_スタートシナリオ_20200924.txt
 REN res\Etoile\G4NovelAdv\Scenario\[Includes-Non-ASCII-characters]_0002.txt 101_スタートシナリオ.txt
 REN res\Etoile\G4NovelAdv\Scenario\[Includes-Non-ASCII-characters]_0001.txt 001_ダミーシナリオ.txt
 REN G4NovelAdv\G4NovelAdv\Games\Surfaces\[Includes-Non-ASCII-characters]_0005.cs Surface_背景.cs
