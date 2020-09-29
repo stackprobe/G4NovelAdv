@@ -100,7 +100,7 @@ namespace Charlotte.Games.Surfaces
 		/// <returns></returns>
 		public string Serialize()
 		{
-			return new AttachString().Untokenize(EnumerableTools.Linearize(new string[][]
+			return new AttachString().Untokenize(EnumerableTools.Join(new string[][]
 			{
 				new string[]
 				{
